@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es" data-theme="light" data-surface="marketing">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlaps · Socios y colaboradores · v0.1</title>
+<meta name="description" content="Documento confidencial v0.1 · landing privada para socios, advisors, partners y evaluadores institucionales." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+<!-- Fonts: Configuración A (marketing) -->
+<link rel="stylesheet" href="/fonts/fonts.css" />
+
+<!-- Tokens del design system -->
+<link rel="stylesheet" href="styles/colors_and_type.css" />
+<link rel="stylesheet" href="styles/socios.css" />
+
+<style>
+  /* override imports we don't have */
+  @import url("data:text/css;base64,Lw==");
+</style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<!-- Fallback noscript -->
+<noscript>
+  <div style="padding:32px;font-family:Inter,system-ui,sans-serif;color:#0F2A4A;background:#F5F1E8">
+    <h1 style="font-family:Fraunces,Georgia,serif">Atlaps · Documento confidencial v0.1</h1>
+    <p>Esta página requiere JavaScript activado para mostrar el contenido interactivo. Si quieres recibir el dossier PDF equivalente, escribe a socios@atlaps.com</p>
+  </div>
+</noscript>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="src/socios-a.jsx"></script>
+<script type="text/babel" src="src/socios-b.jsx"></script>
+<script type="text/babel" src="src/socios-c.jsx"></script>
+<script type="text/babel" src="src/app.jsx"></script>
+
+</body>
+</html>

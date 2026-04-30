@@ -1,0 +1,91 @@
+/* ============================================================
+   Atlaps · Colors & Type — base + semantic CSS vars
+   Decisión F0-F2: dual surface (marketing/app), no Söhne.
+   ============================================================ */
+
+/* Fonts cargadas vía Google Fonts en el HTML head (Configuración A) */
+
+:root {
+  /* — Brand palette (USAR EXACTOS) ————————————————————————— */
+  --blueprint-deep: #0F2A4A;
+  --blueprint-mid:  #1E4D7A;
+  --blueprint-soft: #3A7BB8;
+  --paper-bone:     #F5F1E8;
+  --paper-grid:     #E8E0CC;
+  --amber-signal:   #C77D2C;
+  --amber-glow:     #E89642;
+  --ink-graphite:   #1A1F2E;
+  --ink-pencil:     #5C6B7F;
+
+  /* — Semantic state ——————————————————————————————————————— */
+  --success: #2F8F5C;
+  --warning: #C77D2C;
+  --danger:  #B23A48;
+  --info:    #3A7BB8;
+
+  /* — Theme tokens (light · paper-bone background) ————————— */
+  --bg:        var(--paper-bone);
+  --bg-elev:   #FAF6EE;
+  --grid:      var(--paper-grid);
+  --fg:        var(--blueprint-deep);
+  --fg-soft:   var(--ink-pencil);
+  --line:      var(--blueprint-mid);
+  --line-soft: #C9BFAA;
+  --accent:    var(--amber-signal);
+
+  /* — Amber on-surface · Decisión 2 ————————————————————————
+     Texto/badge/CTA ámbar usan SIEMPRE este token, nunca el hex directo.
+     En claro = amber-signal (4.7:1 sobre paper-bone, AA texto normal).
+     En oscuro = amber-glow (~5.5:1 sobre blueprint-deep, AA texto).
+     amber-signal en oscuro queda reservado a no-textuales (≥3:1). */
+  --amber-on-surface: var(--amber-signal);
+
+  /* — Type · Configuración A clásica · default marketing ——— */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  /* — Motion ———————————————————————————————————————————————— */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-micro: 240ms;
+  --duration-macro: 480ms;
+}
+
+/* ===== Surface switch · decisión 1 =======================
+   data-surface="marketing" (default) → Configuración A
+   data-surface="app"                  → Configuración B
+   La app autenticada monta <html data-surface="app">.
+   ========================================================= */
+[data-surface="app"] {
+  --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
+  --font-body:    "Geist", system-ui, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
+}
+
+[data-theme="dark"] {
+  --bg:        var(--blueprint-deep);
+  --bg-elev:   #143257;
+  --grid:      rgba(232, 224, 204, 0.08);
+  --fg:        var(--paper-bone);
+  --fg-soft:   #A6B5C9;
+  --line:      var(--blueprint-soft);
+  --line-soft: rgba(58, 123, 184, 0.35);
+  --accent:    var(--amber-glow);
+  --amber-on-surface: var(--amber-glow);
+}
+
+/* — Semantic type roles · escala Major Third 1.25 ————————— */
+.t-display-1 { font-family: var(--font-display); font-size: 61px; line-height: 1.05; letter-spacing: -0.02em; font-weight: 500; }
+.t-display-2 { font-family: var(--font-display); font-size: 49px; line-height: 1.08; letter-spacing: -0.02em; font-weight: 500; }
+.t-h1 { font-family: var(--font-display); font-size: 39px; line-height: 1.10; letter-spacing: -0.01em; font-weight: 500; }
+.t-h2 { font-family: var(--font-display); font-size: 31px; line-height: 1.20; font-weight: 500; }
+.t-h3 { font-family: var(--font-body);    font-size: 25px; line-height: 1.20; font-weight: 600; }
+.t-h4 { font-family: var(--font-body);    font-size: 20px; line-height: 1.30; font-weight: 600; }
+.t-body  { font-family: var(--font-body); font-size: 16px; line-height: 1.55; }
+.t-small { font-family: var(--font-body); font-size: 14px; line-height: 1.50; }
+.t-caption,
+.kicker,
+.mono { font-family: var(--font-mono); font-size: 12px; line-height: 1.40; letter-spacing: 0.04em; }
+.kicker { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--fg-soft); }
+
+*:focus-visible { outline: 2px solid var(--amber-on-surface); outline-offset: 2px; }
