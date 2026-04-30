@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlaps · Spacing & elevation</title>
+<link rel="stylesheet" href="../public/fonts/fonts.css" />
+<style>
+  :root {
+    --blueprint-deep: #0F2A4A; --blueprint-mid: #1E4D7A;
+    --paper-bone: #F5F1E8; --paper-grid: #E8E0CC;
+    --line-soft: #C9BFAA; --ink-pencil: #5C6B7F;
+    --amber-signal: #C77D2C;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--paper-bone); color: var(--blueprint-deep);
+    background-image:
+      linear-gradient(to right, var(--paper-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--paper-grid) 1px, transparent 1px);
+    background-size: 24px 24px; padding: 32px;
+  }
+  .kicker {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); display: flex; align-items: center; gap: 12px;
+    margin-bottom: 8px;
+  }
+  .kicker::before { content: ""; width: 24px; height: 1px; background: var(--blueprint-mid); }
+  h1 {
+    font-family: "Fraunces", serif; font-size: 39px; line-height: 1.1;
+    letter-spacing: -0.01em; font-weight: 500; margin: 0 0 32px;
+  }
+  h2 {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); font-weight: 500;
+    margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line-soft);
+  }
+
+  /* Spacing scale */
+  .scale {
+    display: grid; grid-template-columns: 100px 1fr 80px;
+    gap: 16px; align-items: center; padding: 6px 0;
+  }
+  .scale .name { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--ink-pencil); }
+  .scale .bar { height: 8px; background: var(--blueprint-mid); border-radius: 1px; }
+  .scale .px  { font-family: "JetBrains Mono", monospace; font-size: 11px; text-align: right; color: var(--ink-pencil); }
+
+  /* Radii */
+  .radii { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
+  .radii .r {
+    aspect-ratio: 1; background: #FAF6EE; border: 1px solid var(--line-soft);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 4px;
+  }
+  .radii .label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--blueprint-deep); }
+  .radii .px { font-family: "JetBrains Mono", monospace; font-size: 10px; color: var(--ink-pencil); }
+  .default-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 2px 8px; background: var(--amber-signal); color: var(--paper-bone);
+    border-radius: 9999px; font-family: "JetBrains Mono", monospace;
+    font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+    margin-left: 8px; vertical-align: 2px;
+  }
+
+  /* Shadows */
+  .shadows { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .shadow {
+    background: #FAF6EE; padding: 24px;
+    border: 1px solid var(--line-soft); border-radius: 4px;
+  }
+  .shadow.sm { box-shadow: 0 0 0 1px var(--paper-grid), 0 1px 0 0 rgba(30,77,122,.08); }
+  .shadow.md { box-shadow: 0 0 0 1px var(--paper-grid), 0 2px 0 0 rgba(30,77,122,.12), 0 4px 0 0 rgba(30,77,122,.04); }
+  .shadow .ttl {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-pencil); margin-bottom: 8px;
+  }
+  .shadow .desc { font-size: 13px; color: var(--ink-pencil); }
+  .shadow code { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--blueprint-deep); }
+</style>
+</head>
+<body>
+  <div class="kicker">03 · Spacing & elevation</div>
+  <h1>Escala 4-base · papel</h1>
+
+  <h2>Espaciado</h2>
+  <div class="scale"><span class="name">space-1</span><div class="bar" style="width: 4px"></div><span class="px">4 px</span></div>
+  <div class="scale"><span class="name">space-2</span><div class="bar" style="width: 8px"></div><span class="px">8 px</span></div>
+  <div class="scale"><span class="name">space-3</span><div class="bar" style="width: 12px"></div><span class="px">12 px</span></div>
+  <div class="scale"><span class="name">space-4</span><div class="bar" style="width: 16px"></div><span class="px">16 px</span></div>
+  <div class="scale"><span class="name">space-5</span><div class="bar" style="width: 20px"></div><span class="px">20 px</span></div>
+  <div class="scale"><span class="name">space-6</span><div class="bar" style="width: 24px"></div><span class="px">24 px</span></div>
+  <div class="scale"><span class="name">space-8</span><div class="bar" style="width: 32px"></div><span class="px">32 px</span></div>
+  <div class="scale"><span class="name">space-10</span><div class="bar" style="width: 40px"></div><span class="px">40 px</span></div>
+  <div class="scale"><span class="name">space-12</span><div class="bar" style="width: 48px"></div><span class="px">48 px</span></div>
+  <div class="scale"><span class="name">space-16</span><div class="bar" style="width: 64px"></div><span class="px">64 px</span></div>
+  <div class="scale"><span class="name">space-20</span><div class="bar" style="width: 80px"></div><span class="px">80 px</span></div>
+  <div class="scale"><span class="name">space-24</span><div class="bar" style="width: 96px"></div><span class="px">96 px</span></div>
+
+  <h2>Radii<span class="default-pill">default = 4 px</span></h2>
+  <div class="radii">
+    <div class="r" style="border-radius: 0px"><span class="label">none</span><span class="px">0</span></div>
+    <div class="r" style="border-radius: 2px"><span class="label">xs</span><span class="px">2</span></div>
+    <div class="r" style="border-radius: 4px; border-width: 1.5px; border-color: var(--blueprint-mid)"><span class="label">sm</span><span class="px">4</span></div>
+    <div class="r" style="border-radius: 8px"><span class="label">md</span><span class="px">8</span></div>
+    <div class="r" style="border-radius: 12px"><span class="label">lg</span><span class="px">12</span></div>
+    <div class="r" style="border-radius: 16px"><span class="label">xl</span><span class="px">16</span></div>
+    <div class="r" style="border-radius: 9999px"><span class="label">full</span><span class="px">∞</span></div>
+  </div>
+
+  <h2>Sombras "papel" — gridline + trazo escalonado</h2>
+  <div class="shadows">
+    <div class="shadow sm">
+      <div class="ttl">shadow-paper-sm</div>
+      <div class="desc"><code>0 0 0 1px paper-grid, 0 1px 0 0 rgba(30,77,122,.08)</code><br>Cards en reposo, inputs, badges.</div>
+    </div>
+    <div class="shadow md">
+      <div class="ttl">shadow-paper-md</div>
+      <div class="desc"><code>… 0 2px 0 12%, 0 4px 0 4%</code><br>Modales, popovers, dropdowns activos.</div>
+    </div>
+  </div>
+</body>
+</html>

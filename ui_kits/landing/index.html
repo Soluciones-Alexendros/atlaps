@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlaps · Landing kit</title>
+<link rel="stylesheet" href="../../public/fonts/fonts.css" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../public/fonts/inter-variable.woff2" />
+<style>
+  :root {
+    --blueprint-deep: #0F2A4A; --blueprint-mid: #1E4D7A; --blueprint-soft: #3A7BB8;
+    --paper-bone: #F5F1E8; --paper-elev: #FAF6EE; --paper-grid: #E8E0CC;
+    --line-soft: #C9BFAA; --ink-pencil: #5C6B7F;
+    --amber-signal: #C77D2C; --amber-glow: #E89642;
+    --success: #2F8F5C;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --font-display: "Fraunces", Georgia, serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-body); background: var(--paper-bone);
+    color: var(--blueprint-deep); font-size: 16px; line-height: 1.55;
+    background-image:
+      linear-gradient(to right, var(--paper-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--paper-grid) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  ::selection { background: var(--amber-signal); color: var(--paper-bone); }
+
+  /* Header */
+  .hdr {
+    position: sticky; top: 0; z-index: 100;
+    background: color-mix(in oklab, var(--paper-bone) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .hdr-inner {
+    max-width: 1280px; margin: 0 auto;
+    padding: 16px 32px; display: flex; align-items: center; gap: 32px;
+  }
+  .hdr nav { flex: 1; display: flex; gap: 4px; }
+  .hdr nav a {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-pencil); text-decoration: none;
+    padding: 8px 10px; border-radius: 4px;
+    transition: all 120ms var(--ease);
+  }
+  .hdr nav a:hover { color: var(--blueprint-deep); background: var(--paper-grid); }
+  .wordmark { font-family: var(--font-display); font-size: 24px; letter-spacing: 0.04em; font-weight: 500; }
+  .wordmark::before {
+    content: ""; display: inline-block; width: 18px; height: 18px;
+    margin-right: 8px; vertical-align: -3px;
+    background-image: url("../../assets/logo-icon.svg");
+    background-size: contain; background-repeat: no-repeat;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 40px; padding: 0 16px; border-radius: 4px;
+    font-family: var(--font-body); font-size: 14px; font-weight: 500;
+    cursor: pointer; transition: all 120ms var(--ease); text-decoration: none;
+    border: 1px solid transparent;
+  }
+  .btn:focus-visible { outline: 2px solid var(--amber-signal); outline-offset: 2px; }
+  .btn-primary { background: var(--blueprint-deep); color: var(--paper-bone); border-color: var(--blueprint-deep); }
+  .btn-primary:hover { background: var(--blueprint-mid); border-color: var(--blueprint-mid); }
+  .btn-secondary { background: transparent; color: var(--blueprint-deep); border-color: var(--blueprint-mid); }
+  .btn-secondary:hover { background: var(--paper-grid); }
+
+  /* Layout */
+  main { max-width: 1280px; margin: 0 auto; padding: 0 32px 96px; }
+  section { padding: 96px 0; border-top: 1px solid var(--line-soft); }
+  section:first-child { border-top: none; }
+
+  .kicker {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); display: inline-flex; align-items: center; gap: 12px;
+  }
+  .kicker::before { content: ""; width: 24px; height: 1px; background: var(--blueprint-mid); }
+
+  /* Hero */
+  .hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: center; }
+  .hero h1 {
+    font-family: var(--font-display); font-size: 61px; line-height: 1.05;
+    letter-spacing: -0.02em; font-weight: 500;
+    margin: 16px 0 24px;
+    text-wrap: pretty;
+  }
+  .hero h1 em { color: var(--amber-signal); font-style: normal; }
+  .hero p {
+    font-size: 18px; color: var(--ink-pencil);
+    max-width: 520px; line-height: 1.55; margin: 0 0 32px;
+  }
+  .hero-cta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .hero-meta {
+    margin-top: 32px; padding-top: 24px;
+    border-top: 1px solid var(--line-soft);
+    font-family: var(--font-mono); font-size: 12px; color: var(--ink-pencil);
+    display: flex; gap: 24px; flex-wrap: wrap;
+  }
+  .hero-meta strong { color: var(--blueprint-deep); font-weight: 500; }
+
+  /* Atlas mock — el "héroe visual" es el atlas mismo */
+  .atlas {
+    background: var(--paper-elev); border: 1px solid var(--line-soft);
+    border-radius: 4px; aspect-ratio: 4 / 3; position: relative;
+    box-shadow: 0 0 0 1px var(--paper-grid), 0 2px 0 0 rgba(30,77,122,.12), 0 4px 0 0 rgba(30,77,122,.04);
+    background-image:
+      linear-gradient(to right, var(--paper-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--paper-grid) 1px, transparent 1px);
+    background-size: 16px 16px;
+    overflow: hidden;
+  }
+  .atlas svg { display: block; width: 100%; height: 100%; }
+  .atlas .corner {
+    position: absolute; top: 12px; left: 16px;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil);
+  }
+  .atlas .corner.r { left: auto; right: 16px; }
+  .pin {
+    fill: var(--amber-signal); stroke: var(--paper-bone); stroke-width: 2;
+  }
+  .pin-ring {
+    fill: none; stroke: var(--amber-signal); stroke-width: 1.5; opacity: 0.4;
+  }
+
+  /* Pillars */
+  .pillars { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 48px; }
+  .pillar {
+    background: var(--paper-elev); border: 1px solid var(--line-soft);
+    border-radius: 4px; padding: 24px; min-height: 200px;
+    display: flex; flex-direction: column; gap: 8px;
+    transition: border-color 120ms var(--ease);
+  }
+  .pillar:hover { border-color: var(--blueprint-mid); }
+  .pillar .num {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.12em; color: var(--ink-pencil);
+  }
+  .pillar h3 {
+    font-family: var(--font-display); font-size: 20px; line-height: 1.2;
+    font-weight: 500; margin: 0 0 4px;
+  }
+  .pillar p { font-size: 13px; color: var(--ink-pencil); margin: 0; line-height: 1.5; }
+  .pillar .iso { margin-top: auto; opacity: 0.4; }
+
+  /* Pricing */
+  .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 48px; }
+  .plan {
+    background: var(--paper-elev); border: 1px solid var(--line-soft);
+    border-radius: 4px; padding: 32px;
+    box-shadow: 0 0 0 1px var(--paper-grid), 0 1px 0 0 rgba(30,77,122,.08);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .plan.featured {
+    background: var(--blueprint-deep); color: var(--paper-bone);
+    border-color: var(--blueprint-deep);
+  }
+  .plan .label {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil);
+  }
+  .plan.featured .label { color: var(--amber-glow); }
+  .plan .price {
+    font-family: var(--font-display); font-size: 49px; line-height: 1;
+    font-weight: 500; letter-spacing: -0.02em;
+  }
+  .plan .price small { font-size: 14px; font-family: var(--font-body); color: var(--ink-pencil); font-weight: 400; }
+  .plan.featured .price small { color: rgba(245,241,232,0.6); }
+  .plan ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+  .plan li::before { content: "·"; color: var(--amber-signal); margin-right: 8px; font-weight: 700; }
+  .plan.featured li::before { color: var(--amber-glow); }
+  .plan .btn-primary { justify-content: center; }
+  .plan.featured .btn-primary { background: var(--amber-signal); border-color: var(--amber-signal); color: var(--paper-bone); }
+  .plan.featured .btn-primary:hover { background: var(--amber-glow); border-color: var(--amber-glow); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--line-soft); margin-top: 64px;
+    padding: 48px 32px; max-width: 1280px; margin-left: auto; margin-right: auto;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.04em; color: var(--ink-pencil);
+  }
+
+  /* Section heads */
+  .sect-head {
+    display: grid; grid-template-columns: 200px 1fr; gap: 48px;
+    align-items: baseline;
+  }
+  .sect-head h2 {
+    font-family: var(--font-display); font-size: 49px; line-height: 1.05;
+    letter-spacing: -0.02em; font-weight: 500;
+    margin: 8px 0 16px;
+  }
+  .sect-head p { color: var(--ink-pencil); margin: 0; max-width: 560px; font-size: 16px; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 32px; }
+    .hero h1 { font-size: 39px; }
+    .pillars { grid-template-columns: 1fr 1fr; }
+    .pricing { grid-template-columns: 1fr; }
+    .sect-head { grid-template-columns: 1fr; gap: 16px; }
+    .sect-head h2 { font-size: 31px; }
+    main { padding: 0 16px 64px; }
+    section { padding: 48px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="hdr-inner">
+    <a class="wordmark" href="#" style="text-decoration: none; color: inherit;">atlaps</a>
+    <nav>
+      <a href="#producto">Producto</a>
+      <a href="#protocolos">Protocolos</a>
+      <a href="#precios">Precios</a>
+      <a href="#docs">Documentación</a>
+      <a href="#blog">Blog</a>
+    </nav>
+    <a class="btn btn-secondary" href="#login">Entrar</a>
+    <a class="btn btn-primary" href="#empezar">Empezar gratis</a>
+  </div>
+</header>
+
+<main>
+
+<section id="hero">
+  <div class="hero">
+    <div>
+      <span class="kicker">atlaps · v1.0 · castellano peninsular</span>
+      <h1>Tu casa inteligente, dibujada como un <em>atlas</em>.</h1>
+      <p>Diseña la topología, calcula el material y opera la instalación. Multi-protocolo (KNX, Matter, Zigbee y cinco más), voz local UE y un atlas vivo en castellano.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#empezar">Empezar gratis</a>
+        <a class="btn btn-secondary" href="#demo">Ver el atlas en acción</a>
+      </div>
+      <div class="hero-meta">
+        <span><strong>0 €</strong> · plan Free</span>
+        <span><strong>Self-host UE</strong> disponible</span>
+        <span><strong>Apache 2.0</strong> · Atlaps Bridge Protocol</span>
+      </div>
+    </div>
+
+    <div class="atlas" aria-hidden="true">
+      <span class="corner">PLANTA · 01</span>
+      <span class="corner r">48 dispositivos · 240 ms P95</span>
+      <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- topographic isolines -->
+        <g fill="none" stroke="#3A7BB8" stroke-width="1.25" opacity="0.55">
+          <path d="M 20 240 C 80 220, 140 250, 200 230 S 320 200, 380 220" />
+          <path d="M 20 220 C 80 200, 140 230, 200 210 S 320 180, 380 200" />
+          <path d="M 20 200 C 80 180, 140 210, 200 190 S 320 160, 380 180" />
+        </g>
+        <!-- room walls -->
+        <g fill="none" stroke="#1E4D7A" stroke-width="1.5">
+          <rect x="40" y="40" width="320" height="220" />
+          <line x1="40" y1="140" x2="220" y2="140" />
+          <line x1="220" y1="40" x2="220" y2="260" />
+          <line x1="220" y1="180" x2="360" y2="180" />
+        </g>
+        <!-- room labels -->
+        <g font-family="JetBrains Mono, monospace" font-size="9" fill="#5C6B7F" letter-spacing="1">
+          <text x="50" y="60">SALÓN</text>
+          <text x="50" y="160">COCINA</text>
+          <text x="232" y="60">DORMITORIO</text>
+          <text x="232" y="200">BAÑO</text>
+        </g>
+        <!-- pins -->
+        <g>
+          <circle class="pin-ring" cx="100" cy="90" r="14" />
+          <circle class="pin" cx="100" cy="90" r="4" />
+          <circle class="pin-ring" cx="160" cy="120" r="14" />
+          <circle class="pin" cx="160" cy="120" r="4" />
+          <circle class="pin-ring" cx="120" cy="200" r="14" />
+          <circle class="pin" cx="120" cy="200" r="4" />
+          <circle class="pin-ring" cx="290" cy="100" r="14" />
+          <circle class="pin" cx="290" cy="100" r="4" />
+          <circle class="pin-ring" cx="320" cy="220" r="14" />
+          <circle class="pin" cx="320" cy="220" r="4" />
+        </g>
+        <!-- KNX address -->
+        <g font-family="JetBrains Mono, monospace" font-size="8" fill="#C77D2C">
+          <text x="110" y="92">1.1.42</text>
+          <text x="170" y="122">1.1.43</text>
+          <text x="130" y="202">1.2.10</text>
+          <text x="300" y="102">1.3.05</text>
+          <text x="330" y="222">1.4.02</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="producto">
+  <div class="sect-head">
+    <span class="kicker">Producto · cinco aplicaciones</span>
+    <div>
+      <h2>Cinco aplicaciones, un solo atlas.</h2>
+      <p>Cada una opera independientemente. Juntas, se potencian: el plano alimenta al monitor, el monitor sugiere optimizaciones, las sugerencias modifican el plano.</p>
+    </div>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar">
+      <span class="num">01</span>
+      <h3>Planificador</h3>
+      <p>Diseño de topología sobre canvas blueprint. Grid 8 px, dispositivos como pins ámbar.</p>
+      <svg class="iso" viewBox="0 0 80 24" width="80" height="24"><path d="M0 18 Q20 8 40 14 T80 12" fill="none" stroke="#3A7BB8" stroke-width="1"/><path d="M0 22 Q20 12 40 18 T80 16" fill="none" stroke="#3A7BB8" stroke-width="1"/></svg>
+    </div>
+    <div class="pillar">
+      <span class="num">02</span>
+      <h3>Mercado</h3>
+      <p>Catálogo multi-proveedor. Comisión declarada visible siempre, en cada producto.</p>
+      <svg class="iso" viewBox="0 0 80 24" width="80" height="24"><path d="M0 18 Q20 8 40 14 T80 12" fill="none" stroke="#3A7BB8" stroke-width="1"/><path d="M0 22 Q20 12 40 18 T80 16" fill="none" stroke="#3A7BB8" stroke-width="1"/></svg>
+    </div>
+    <div class="pillar">
+      <span class="num">03</span>
+      <h3>Monitor</h3>
+      <p>Telemetría en vivo, latencia P95, eventos por estancia. Dashboards técnicos.</p>
+      <svg class="iso" viewBox="0 0 80 24" width="80" height="24"><path d="M0 18 Q20 8 40 14 T80 12" fill="none" stroke="#3A7BB8" stroke-width="1"/><path d="M0 22 Q20 12 40 18 T80 16" fill="none" stroke="#3A7BB8" stroke-width="1"/></svg>
+    </div>
+    <div class="pillar">
+      <span class="num">04</span>
+      <h3>Sugerencias</h3>
+      <p>Recomendaciones de optimización basadas en uso real de la instalación.</p>
+      <svg class="iso" viewBox="0 0 80 24" width="80" height="24"><path d="M0 18 Q20 8 40 14 T80 12" fill="none" stroke="#3A7BB8" stroke-width="1"/><path d="M0 22 Q20 12 40 18 T80 16" fill="none" stroke="#3A7BB8" stroke-width="1"/></svg>
+    </div>
+    <div class="pillar">
+      <span class="num">05</span>
+      <h3>ComtubernIA</h3>
+      <p>Voz 100 % local UE. Sin nube, sin envío de audio fuera del hogar.</p>
+      <svg class="iso" viewBox="0 0 80 24" width="80" height="24"><path d="M0 18 Q20 8 40 14 T80 12" fill="none" stroke="#3A7BB8" stroke-width="1"/><path d="M0 22 Q20 12 40 18 T80 16" fill="none" stroke="#3A7BB8" stroke-width="1"/></svg>
+    </div>
+  </div>
+</section>
+
+<section id="precios">
+  <div class="sect-head">
+    <span class="kicker">Precios · IVA inc.</span>
+    <div>
+      <h2>Tres planes, sin sorpresas.</h2>
+      <p>Comisiones del Mercado siempre declaradas. Self-host UE disponible en Studio.</p>
+    </div>
+  </div>
+
+  <div class="pricing">
+    <div class="plan">
+      <span class="label">Free</span>
+      <div class="price">0 €<small> / siempre</small></div>
+      <ul>
+        <li>Hasta 10 dispositivos</li>
+        <li>Un atlas, una vivienda</li>
+        <li>Voz local básica</li>
+      </ul>
+      <a class="btn btn-primary" href="#">Empezar gratis</a>
+    </div>
+    <div class="plan featured">
+      <span class="label">Solo · más popular</span>
+      <div class="price">24,90 €<small> / mes</small></div>
+      <ul>
+        <li>Hasta 50 dispositivos</li>
+        <li>Voz local completa UE</li>
+        <li>Self-host opcional</li>
+        <li>Mercado con comisiones declaradas</li>
+      </ul>
+      <a class="btn btn-primary" href="#">Empezar prueba</a>
+    </div>
+    <div class="plan">
+      <span class="label">Studio</span>
+      <div class="price">59 €<small> / mes</small></div>
+      <ul>
+        <li>Dispositivos ilimitados</li>
+        <li>Multi-vivienda · multi-cliente</li>
+        <li>Self-host UE incluido</li>
+        <li>Soporte técnico prioritario</li>
+      </ul>
+      <a class="btn btn-primary" href="#">Hablar con ventas</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>© 2025 Iniciativa Alexendros, S.L. · CIF B12345678</span>
+  <span>Atlaps Bridge Protocol · Apache 2.0</span>
+  <span>Hecho en la UE · Datos en la UE</span>
+</footer>
+
+</body>
+</html>

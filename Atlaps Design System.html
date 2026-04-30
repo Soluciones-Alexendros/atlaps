@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Atlaps · Design System</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Geist:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="public/fonts/fonts.css" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="public/fonts/inter-variable.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="public/fonts/fraunces-variable.woff2" />
 
 <style>
 /* ============================================================
@@ -43,6 +43,7 @@
   --line-soft:   #C9BFAA;
   --accent:      var(--amber-signal);
   --accent-glow: var(--amber-glow);
+  --amber-on-surface: var(--amber-signal); /* Decisión 2 · token canónico texto/badge/CTA */
 
   /* Type */
   --font-display: "Fraunces", Georgia, serif;
@@ -62,10 +63,12 @@
   --line-soft:   rgba(58, 123, 184, 0.35);
   --accent:      var(--amber-glow);
   --accent-glow: var(--amber-signal);
+  --amber-on-surface: var(--amber-glow); /* Decisión 2 · oscuro promueve a glow ~5.5:1 AA */
 }
 
-[data-typeset="b"] {
-  --font-display: "Geist", "Inter", system-ui, sans-serif;
+/* Decisión 1 · surface switch · marketing (default) | app */
+[data-surface="app"], [data-typeset="b"] {
+  --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
   --font-body:    "Geist", system-ui, sans-serif;
   --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
 }

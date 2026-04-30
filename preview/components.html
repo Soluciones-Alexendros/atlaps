@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlaps · Components</title>
+<link rel="stylesheet" href="../public/fonts/fonts.css" />
+<style>
+  :root {
+    --blueprint-deep: #0F2A4A; --blueprint-mid: #1E4D7A; --blueprint-soft: #3A7BB8;
+    --paper-bone: #F5F1E8; --paper-elev: #FAF6EE; --paper-grid: #E8E0CC;
+    --line-soft: #C9BFAA; --ink-pencil: #5C6B7F;
+    --amber-signal: #C77D2C; --amber-glow: #E89642;
+    --success: #2F8F5C; --danger: #B23A48;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--paper-bone); color: var(--blueprint-deep);
+    background-image:
+      linear-gradient(to right, var(--paper-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--paper-grid) 1px, transparent 1px);
+    background-size: 24px 24px; padding: 32px;
+  }
+  .kicker {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); display: flex; align-items: center; gap: 12px;
+    margin-bottom: 8px;
+  }
+  .kicker::before { content: ""; width: 24px; height: 1px; background: var(--blueprint-mid); }
+  h1 {
+    font-family: "Fraunces", serif; font-size: 39px; line-height: 1.1;
+    letter-spacing: -0.01em; font-weight: 500; margin: 0 0 32px;
+  }
+  h2 {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); font-weight: 500;
+    margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line-soft);
+  }
+  .grp { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 40px; padding: 8px 16px; border-radius: 4px;
+    font-family: "Inter", sans-serif; font-size: 14px; font-weight: 500;
+    cursor: pointer; transition: all 120ms var(--ease);
+  }
+  .btn:focus-visible { outline: 2px solid var(--amber-signal); outline-offset: 2px; }
+  .btn.primary { background: var(--blueprint-deep); color: var(--paper-bone); border: 1px solid var(--blueprint-deep); }
+  .btn.primary:hover { background: var(--blueprint-mid); border-color: var(--blueprint-mid); }
+  .btn.secondary { background: transparent; color: var(--blueprint-deep); border: 1px solid var(--blueprint-mid); }
+  .btn.secondary:hover { background: var(--paper-grid); }
+  .btn.ghost { background: transparent; color: var(--blueprint-deep); border: 1px solid transparent; }
+  .btn.ghost:hover { background: var(--paper-grid); }
+  .btn.accent { background: var(--amber-signal); color: var(--paper-bone); border: 1px solid var(--amber-signal); }
+  .btn.destructive { background: var(--danger); color: var(--paper-bone); border: 1px solid var(--danger); }
+
+  /* Input */
+  .field { display: flex; flex-direction: column; gap: 4px; max-width: 320px; }
+  .field label { font-size: 13px; color: var(--ink-pencil); }
+  .input {
+    height: 40px; padding: 8px 12px; border-radius: 4px;
+    border: 1px solid var(--line-soft); background: var(--paper-elev);
+    font-family: "Inter", sans-serif; font-size: 14px; color: var(--blueprint-deep);
+    transition: border-color 120ms var(--ease);
+  }
+  .input:focus { outline: 2px solid var(--amber-signal); outline-offset: 2px; border-color: var(--blueprint-mid); }
+
+  /* Badges */
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 10px; border-radius: 9999px;
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.04em;
+  }
+  .badge.neutral { background: var(--paper-grid); color: var(--blueprint-deep); }
+  .badge.info { background: rgba(58,123,184,.16); color: var(--blueprint-mid); }
+  .badge.success { background: rgba(47,143,92,.16); color: var(--success); }
+  .badge.warning { background: rgba(199,125,44,.18); color: var(--amber-signal); }
+  .badge.danger { background: rgba(178,58,72,.14); color: var(--danger); }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+  /* Card */
+  .card {
+    background: var(--paper-elev); border: 1px solid var(--line-soft);
+    border-radius: 4px; padding: 24px; max-width: 360px;
+    box-shadow: 0 0 0 1px var(--paper-grid), 0 1px 0 0 rgba(30,77,122,.08);
+  }
+  .card .label {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); margin-bottom: 8px;
+  }
+  .card h3 { font-family: "Fraunces", serif; font-size: 25px; line-height: 1.2; font-weight: 500; margin: 0 0 8px; }
+  .card p { font-size: 14px; color: var(--ink-pencil); margin: 0 0 16px; line-height: 1.5; }
+
+  /* Toggle */
+  .toggle { display: inline-flex; align-items: center; gap: 8px; }
+  .switch {
+    width: 36px; height: 20px; border-radius: 9999px; background: var(--paper-grid);
+    border: 1px solid var(--line-soft); position: relative; cursor: pointer;
+    transition: background 120ms var(--ease);
+  }
+  .switch::after {
+    content: ""; position: absolute; top: 2px; left: 2px;
+    width: 14px; height: 14px; border-radius: 50%; background: var(--blueprint-deep);
+    transition: transform 120ms var(--ease);
+  }
+  .switch.on { background: var(--amber-signal); border-color: var(--amber-signal); }
+  .switch.on::after { transform: translateX(16px); background: var(--paper-bone); }
+
+  /* Tabs */
+  .tabs { display: inline-flex; gap: 0; border-bottom: 1px solid var(--line-soft); }
+  .tab {
+    padding: 10px 16px; font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-pencil); cursor: pointer; border-bottom: 2px solid transparent;
+    margin-bottom: -1px; transition: color 120ms var(--ease);
+  }
+  .tab:hover { color: var(--blueprint-deep); }
+  .tab.active { color: var(--blueprint-deep); border-bottom-color: var(--amber-signal); }
+
+  /* Toast */
+  .toast {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 16px; max-width: 480px;
+    background: var(--paper-elev); border: 1px solid var(--line-soft);
+    border-left: 2px solid var(--success); border-radius: 4px;
+    box-shadow: 0 0 0 1px var(--paper-grid), 0 2px 0 0 rgba(30,77,122,.12);
+  }
+  .toast.error { border-left-color: var(--danger); }
+  .toast .ttl { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .toast .body { font-size: 13px; color: var(--ink-pencil); font-family: "JetBrains Mono", monospace; }
+</style>
+</head>
+<body>
+  <div class="kicker">04 · Components</div>
+  <h1>Primitivos</h1>
+
+  <h2>Buttons · 4px radius, hover blueprint-mid, focus ámbar</h2>
+  <div class="grp">
+    <button class="btn primary">Empezar gratis</button>
+    <button class="btn secondary">Ver demo</button>
+    <button class="btn ghost">Cancelar</button>
+    <button class="btn accent">Contratar Studio</button>
+    <button class="btn destructive">Eliminar dispositivo</button>
+  </div>
+
+  <h2>Form fields · focus ring ámbar 2 px</h2>
+  <div class="grp" style="align-items: flex-end">
+    <div class="field">
+      <label for="i1">Dirección KNX</label>
+      <input class="input" id="i1" value="1.1.42" style="font-family: 'JetBrains Mono', monospace;" />
+    </div>
+    <div class="field">
+      <label for="i2">Estancia</label>
+      <input class="input" id="i2" value="Cocina" placeholder="Cocina" />
+    </div>
+  </div>
+
+  <h2>Badges</h2>
+  <div class="grp">
+    <span class="badge neutral"><span class="dot"></span>KNX</span>
+    <span class="badge info"><span class="dot"></span>Matter</span>
+    <span class="badge success"><span class="dot"></span>Online · 240 ms</span>
+    <span class="badge warning"><span class="dot"></span>Conflicto</span>
+    <span class="badge danger"><span class="dot"></span>Offline</span>
+  </div>
+
+  <h2>Card</h2>
+  <div class="grp">
+    <div class="card">
+      <div class="label">Plan · Solo</div>
+      <h3>24,90 €/mes</h3>
+      <p>Hasta 50 dispositivos, voz local, self-host UE opcional. IVA inc.</p>
+      <button class="btn primary">Empezar prueba</button>
+    </div>
+    <div class="card">
+      <div class="label">Atlas · Cocina</div>
+      <h3>12 dispositivos</h3>
+      <p>3 luminarias DALI, 4 enchufes Matter, 1 sensor de presencia, 4 botones KNX.</p>
+      <div class="grp" style="gap: 8px">
+        <span class="badge success"><span class="dot"></span>Sincronizado</span>
+        <span class="badge neutral">·  240 ms P95</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Toggle · Tabs · Toast</h2>
+  <div class="grp" style="gap: 32px; align-items: flex-start">
+    <div class="toggle">
+      <div class="switch on"></div>
+      <span style="font-size: 14px;">Voz local activa</span>
+    </div>
+    <div class="tabs">
+      <div class="tab active">Plano</div>
+      <div class="tab">Lista</div>
+      <div class="tab">Telemetría</div>
+    </div>
+  </div>
+  <div class="grp" style="margin-top: 24px">
+    <div class="toast">
+      <div>
+        <div class="ttl">Atlas sincronizado</div>
+        <div class="body">48 dispositivos · 1,2 s</div>
+      </div>
+    </div>
+    <div class="toast error">
+      <div>
+        <div class="ttl">Conflicto de direcciones</div>
+        <div class="body">Dos dispositivos en 1.1.42</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

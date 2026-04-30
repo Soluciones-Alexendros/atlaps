@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlaps · App kit · Planificador</title>
+<link rel="stylesheet" href="../../public/fonts/fonts.css" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../public/fonts/geist-variable.woff2" />
+<style>
+  :root {
+    --blueprint-deep: #0F2A4A; --blueprint-mid: #1E4D7A; --blueprint-soft: #3A7BB8;
+    --paper-bone: #F5F1E8; --paper-elev: #FAF6EE; --paper-grid: #E8E0CC;
+    --line-soft: #C9BFAA; --ink-pencil: #5C6B7F;
+    --amber-signal: #C77D2C; --amber-glow: #E89642;
+    --success: #2F8F5C; --danger: #B23A48; --info: #3A7BB8;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --font-display: "Geist", "Inter", system-ui, sans-serif;
+    --font-body: "Geist", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; }
+  body {
+    font-family: var(--font-body); background: var(--paper-bone);
+    color: var(--blueprint-deep); font-size: 14px; line-height: 1.5;
+    overflow: hidden;
+  }
+  ::selection { background: var(--amber-signal); color: var(--paper-bone); }
+
+  .app { display: grid; grid-template-columns: 240px 1fr 320px; height: 100vh; }
+
+  /* Sidebar */
+  aside.nav {
+    background: var(--paper-elev); border-right: 1px solid var(--line-soft);
+    padding: 16px 12px; display: flex; flex-direction: column; gap: 4px;
+    overflow-y: auto;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 8px 16px;
+    border-bottom: 1px solid var(--line-soft); margin-bottom: 12px;
+  }
+  .brand img { width: 22px; height: 22px; }
+  .brand strong { font-family: var(--font-body); font-size: 16px; font-weight: 600; letter-spacing: 0.04em; }
+  .nav-section {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); padding: 12px 8px 4px;
+  }
+  .nav a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border-radius: 4px;
+    font-size: 13px; color: var(--blueprint-deep);
+    text-decoration: none; transition: background 120ms var(--ease);
+  }
+  .nav a:hover { background: var(--paper-grid); }
+  .nav a.active {
+    background: var(--blueprint-deep); color: var(--paper-bone);
+  }
+  .nav a .ic { width: 14px; height: 14px; flex-shrink: 0; opacity: 0.7; }
+  .nav a.active .ic { opacity: 1; }
+  .ws {
+    margin-top: auto; padding: 12px 8px;
+    border-top: 1px solid var(--line-soft);
+    font-family: var(--font-mono); font-size: 11px; color: var(--ink-pencil);
+  }
+  .ws strong { display: block; color: var(--blueprint-deep); font-weight: 500; margin-bottom: 2px; }
+
+  /* Canvas (center) */
+  main.canvas {
+    background: var(--paper-bone); display: flex; flex-direction: column;
+    overflow: hidden; position: relative;
+  }
+  .toolbar {
+    height: 56px; padding: 0 24px;
+    display: flex; align-items: center; gap: 16px;
+    border-bottom: 1px solid var(--line-soft);
+    background: color-mix(in oklab, var(--paper-bone) 92%, transparent);
+    backdrop-filter: blur(8px);
+  }
+  .breadcrumbs {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.04em; color: var(--ink-pencil);
+  }
+  .breadcrumbs strong { color: var(--blueprint-deep); font-weight: 500; }
+  .breadcrumbs .sep { opacity: 0.4; }
+  .toolbar-spacer { flex: 1; }
+  .tool-btn {
+    height: 32px; padding: 0 10px; border-radius: 4px;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.04em; color: var(--blueprint-deep);
+    background: transparent; border: 1px solid transparent;
+    display: inline-flex; align-items: center; gap: 6px;
+    cursor: pointer; transition: all 120ms var(--ease);
+  }
+  .tool-btn:hover { background: var(--paper-grid); }
+  .tool-btn.primary {
+    background: var(--blueprint-deep); color: var(--paper-bone);
+    border-color: var(--blueprint-deep); padding: 0 14px;
+  }
+  .tool-btn.primary:hover { background: var(--blueprint-mid); }
+  .tool-btn:focus-visible { outline: 2px solid var(--amber-signal); outline-offset: 2px; }
+
+  /* Canvas viewport */
+  .viewport {
+    flex: 1; position: relative; overflow: auto;
+    background-color: var(--paper-elev);
+    background-image:
+      linear-gradient(to right, var(--paper-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--paper-grid) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .floorplan {
+    width: 800px; height: 560px; margin: 48px auto;
+    background: var(--paper-bone); border: 1px solid var(--line-soft);
+    border-radius: 4px; position: relative;
+    box-shadow: 0 0 0 1px var(--paper-grid), 0 2px 0 0 rgba(30,77,122,.12), 0 4px 0 0 rgba(30,77,122,.04);
+  }
+  .floorplan svg { display: block; width: 100%; height: 100%; }
+
+  .device-pin { cursor: pointer; }
+  .device-pin circle.ring { fill: rgba(199,125,44,.15); stroke: var(--amber-signal); stroke-width: 1.25; }
+  .device-pin circle.dot { fill: var(--amber-signal); stroke: var(--paper-bone); stroke-width: 2; }
+  .device-pin.selected circle.ring { fill: rgba(199,125,44,.3); stroke-width: 2; }
+  .device-pin text { font-family: "IBM Plex Mono", monospace; font-size: 9px; fill: var(--blueprint-deep); }
+
+  /* Inspector (right) */
+  aside.inspector {
+    background: var(--paper-elev); border-left: 1px solid var(--line-soft);
+    padding: 24px; overflow-y: auto;
+  }
+  .insp-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 16px; border-bottom: 1px solid var(--line-soft); margin-bottom: 20px;
+  }
+  .insp-head h2 {
+    font-family: var(--font-display); font-size: 18px;
+    font-weight: 600; margin: 0;
+  }
+  .insp-head .addr {
+    font-family: var(--font-mono); font-size: 11px;
+    color: var(--ink-pencil); letter-spacing: 0.04em;
+  }
+  .field { margin-bottom: 16px; }
+  .field label {
+    display: block;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); margin-bottom: 4px;
+  }
+  .field input, .field select {
+    width: 100%; height: 36px; padding: 6px 10px;
+    border: 1px solid var(--line-soft); border-radius: 4px;
+    background: var(--paper-bone); color: var(--blueprint-deep);
+    font-family: var(--font-body); font-size: 13px;
+  }
+  .field input:focus, .field select:focus { outline: 2px solid var(--amber-signal); outline-offset: 2px; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  .stat-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 8px 0; border-bottom: 1px solid var(--line-soft);
+    font-size: 13px;
+  }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-row .k { color: var(--ink-pencil); font-family: var(--font-mono); font-size: 11px; }
+  .stat-row .v { font-family: var(--font-mono); font-weight: 500; }
+  .stat-row .v.ok { color: var(--success); }
+  .stat-row .v.warn { color: var(--amber-signal); }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 2px 8px; border-radius: 9999px;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+  .badge.knx { background: rgba(58,123,184,.16); color: var(--blueprint-mid); }
+  .badge.ok  { background: rgba(47,143,92,.16); color: var(--success); }
+  .badge .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+  /* Toast */
+  .toast {
+    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 16px;
+    background: var(--paper-elev); border: 1px solid var(--line-soft);
+    border-left: 2px solid var(--success); border-radius: 4px;
+    box-shadow: 0 0 0 1px var(--paper-grid), 0 2px 0 0 rgba(30,77,122,.12);
+    font-size: 13px;
+  }
+  .toast .meta { font-family: var(--font-mono); font-size: 11px; color: var(--ink-pencil); }
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="nav">
+    <div class="brand">
+      <img src="../../assets/logo-icon.svg" alt="" />
+      <strong>atlaps</strong>
+    </div>
+
+    <div class="nav-section">Atlas</div>
+    <a class="active" href="#"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18"/><path d="M3 9h18M9 3v18"/></svg>Planificador</a>
+    <a href="#"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="3"/></svg>Monitor</a>
+    <a href="#"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>Sugerencias</a>
+
+    <div class="nav-section">Comercio</div>
+    <a href="#"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18l-2 12H5L3 6zM8 6V4a4 4 0 018 0v2"/></svg>Mercado</a>
+    <a href="#"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>BOM</a>
+
+    <div class="nav-section">Sistema</div>
+    <a href="#"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM12 6v6l4 2"/></svg>ComtubernIA</a>
+    <a href="#"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82L4.21 4.2a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V0a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Ajustes</a>
+
+    <div class="ws">
+      <strong>Vivienda · Madrid</strong>
+      48 dispositivos · 9 estancias
+    </div>
+  </aside>
+
+  <!-- ===== CANVAS ===== -->
+  <main class="canvas">
+    <div class="toolbar">
+      <div class="breadcrumbs">
+        <strong>Vivienda Madrid</strong>
+        <span class="sep">·</span>
+        <span>Planta 01</span>
+        <span class="sep">·</span>
+        <span>Edición</span>
+      </div>
+      <div class="toolbar-spacer"></div>
+      <button class="tool-btn">Importar BOM</button>
+      <button class="tool-btn">Exportar PDF</button>
+      <button class="tool-btn primary">+ Añadir dispositivo</button>
+    </div>
+
+    <div class="viewport">
+      <div class="floorplan" aria-label="Planta 01">
+        <svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg">
+          <!-- topographic decoration -->
+          <g fill="none" stroke="#3A7BB8" stroke-width="1.25" opacity="0.35">
+            <path d="M 40 480 C 200 460, 360 500, 520 470 S 760 430, 800 460" />
+            <path d="M 40 460 C 200 440, 360 480, 520 450 S 760 410, 800 440" />
+          </g>
+
+          <!-- exterior wall -->
+          <rect x="60" y="60" width="680" height="440" fill="none" stroke="#1E4D7A" stroke-width="2" />
+          <!-- interior walls -->
+          <g fill="none" stroke="#1E4D7A" stroke-width="1.5">
+            <line x1="60" y1="260" x2="420" y2="260" />
+            <line x1="420" y1="60" x2="420" y2="500" />
+            <line x1="420" y1="340" x2="740" y2="340" />
+            <line x1="600" y1="60" x2="600" y2="340" />
+          </g>
+
+          <!-- room labels -->
+          <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#5C6B7F" letter-spacing="1.2">
+            <text x="80" y="90">SALÓN · 24,3 m²</text>
+            <text x="80" y="290">COCINA · 12,1 m²</text>
+            <text x="440" y="90">DORMITORIO · 14,8 m²</text>
+            <text x="620" y="90">VESTIDOR · 6,2 m²</text>
+            <text x="440" y="370">BAÑO · 5,4 m²</text>
+            <text x="620" y="370">PASILLO</text>
+          </g>
+
+          <!-- pins -->
+          <g class="device-pin selected">
+            <circle class="ring" cx="180" cy="160" r="14" />
+            <circle class="dot" cx="180" cy="160" r="4" />
+            <text x="200" y="164">1.1.42 · DALI</text>
+          </g>
+          <g class="device-pin">
+            <circle class="ring" cx="280" cy="200" r="12" />
+            <circle class="dot" cx="280" cy="200" r="4" />
+            <text x="296" y="204">1.1.43</text>
+          </g>
+          <g class="device-pin">
+            <circle class="ring" cx="160" cy="380" r="12" />
+            <circle class="dot" cx="160" cy="380" r="4" />
+            <text x="176" y="384">1.2.10 · Matter</text>
+          </g>
+          <g class="device-pin">
+            <circle class="ring" cx="280" cy="420" r="12" />
+            <circle class="dot" cx="280" cy="420" r="4" />
+            <text x="296" y="424">1.2.11</text>
+          </g>
+          <g class="device-pin">
+            <circle class="ring" cx="500" cy="180" r="12" />
+            <circle class="dot" cx="500" cy="180" r="4" />
+            <text x="516" y="184">1.3.05 · Zigbee</text>
+          </g>
+          <g class="device-pin">
+            <circle class="ring" cx="660" cy="200" r="12" />
+            <circle class="dot" cx="660" cy="200" r="4" />
+            <text x="676" y="204">1.3.20</text>
+          </g>
+          <g class="device-pin">
+            <circle class="ring" cx="500" cy="420" r="12" />
+            <circle class="dot" cx="500" cy="420" r="4" />
+            <text x="516" y="424">1.4.02</text>
+          </g>
+          <g class="device-pin">
+            <circle class="ring" cx="640" cy="430" r="12" />
+            <circle class="dot" cx="640" cy="430" r="4" />
+            <text x="656" y="434">1.4.10</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="toast">
+        <span><strong>Atlas sincronizado</strong></span>
+        <span class="meta">48 dispositivos · 1,2 s</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== INSPECTOR ===== -->
+  <aside class="inspector">
+    <div class="insp-head">
+      <h2>Luminaria DALI</h2>
+      <span class="addr">1.1.42</span>
+    </div>
+
+    <div class="field">
+      <label>Estancia</label>
+      <select>
+        <option>Salón</option>
+        <option>Cocina</option>
+        <option>Dormitorio</option>
+      </select>
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Protocolo</label>
+        <input value="DALI" readonly style="font-family: var(--font-mono);" />
+      </div>
+      <div class="field">
+        <label>Dirección</label>
+        <input value="1.1.42" style="font-family: var(--font-mono);" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Etiqueta</label>
+      <input value="Plafón principal" />
+    </div>
+
+    <div style="margin: 24px 0; padding: 16px; background: var(--paper-bone); border: 1px solid var(--line-soft); border-radius: 4px;">
+      <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+        <span class="badge knx"><span class="dot"></span>DALI</span>
+        <span class="badge ok"><span class="dot"></span>Online</span>
+      </div>
+      <div class="stat-row"><span class="k">Latencia P95</span><span class="v ok">240 ms</span></div>
+      <div class="stat-row"><span class="k">Consumo</span><span class="v">12,4 W</span></div>
+      <div class="stat-row"><span class="k">Última actividad</span><span class="v">hace 3 min</span></div>
+      <div class="stat-row"><span class="k">Eventos · 24h</span><span class="v">142</span></div>
+      <div class="stat-row"><span class="k">Firmware</span><span class="v warn">v2.3.1 · actualizar</span></div>
+    </div>
+
+    <button class="tool-btn primary" style="width: 100%; justify-content: center; height: 40px;">Guardar cambios</button>
+    <button class="tool-btn" style="width: 100%; justify-content: center; height: 40px; margin-top: 8px;">Eliminar dispositivo</button>
+  </aside>
+
+</div>
+
+</body>
+</html>

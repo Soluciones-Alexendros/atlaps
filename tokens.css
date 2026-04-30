@@ -16,8 +16,13 @@
   --color-paper-grid: #E8E0CC;
 
   /* — Amber (acento, <10% superficie) ——————————————————————— */
-  --color-amber-signal: #C77D2C;
-  --color-amber-glow:   #E89642;
+  --color-amber-signal: #C77D2C;  /* primario en claro · reservado a no-textuales en oscuro */
+  --color-amber-glow:   #E89642;  /* primario en oscuro · ratio ~5.5:1 sobre blueprint-deep */
+
+  /* — Amber on-surface (Decisión 2) ————————————————————————
+     Texto/badges/CTAs ámbar usan SIEMPRE este token, nunca el hex directo.
+     Sustitución automática por modo (light/dark) más abajo. */
+  --color-amber-on-surface: var(--color-amber-signal);
 
   /* — Tinta —————————————————————————————————————————————————— */
   --color-ink-graphite: #1A1F2E;
@@ -82,11 +87,26 @@
   --duration-slow:    480ms;
   --duration-slower:  720ms;
 
-  /* — Type families ————————————————————————————————————————— */
+  /* — Type families · Configuración A (default · marketing) —— */
   --font-display: "Fraunces", Georgia, serif;
   --font-body:    "Inter", system-ui, sans-serif;
   --font-mono:    "JetBrains Mono", ui-monospace, monospace;
 }
+
+/* ===== Surface switch (Decisión 1) ============================
+   data-surface="marketing" (default) → Configuración A
+   data-surface="app"                  → Configuración B
+   La app autenticada monta <html data-surface="app">.
+   Söhne descartado en F0-F2 (Decisión 4); display de B = Inter Tight.
+   ============================================================== */
+[data-surface="app"] {
+  --font-display: "Inter Tight", "Inter", system-ui, sans-serif;
+  --font-body:    "Geist", system-ui, sans-serif;
+  --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
+}
+
+[data-theme="light"] { --color-amber-on-surface: var(--color-amber-signal); }
+[data-theme="dark"]  { --color-amber-on-surface: var(--color-amber-glow); }
 
 /* ===== Utilidades propias expuestas ==========================
    .bg-grid          — fondo papel cuadrícula (paper-grid 24px)

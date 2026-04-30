@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlaps · Color tokens</title>
+<style>
+  :root {
+    --blueprint-deep: #0F2A4A;
+    --blueprint-mid:  #1E4D7A;
+    --blueprint-soft: #3A7BB8;
+    --paper-bone:     #F5F1E8;
+    --paper-grid:     #E8E0CC;
+    --amber-signal:   #C77D2C;
+    --amber-glow:     #E89642;
+    --ink-graphite:   #1A1F2E;
+    --ink-pencil:     #5C6B7F;
+    --success: #2F8F5C; --warning: #C77D2C; --danger: #B23A48; --info: #3A7BB8;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--paper-bone);
+    color: var(--blueprint-deep);
+    background-image:
+      linear-gradient(to right, var(--paper-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--paper-grid) 1px, transparent 1px);
+    background-size: 24px 24px;
+    padding: 32px;
+  }
+  .kicker {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); display: flex; align-items: center; gap: 12px;
+    margin-bottom: 8px;
+  }
+  .kicker::before { content: ""; width: 24px; height: 1px; background: var(--blueprint-mid); }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 39px; line-height: 1.1; letter-spacing: -0.01em;
+    font-weight: 500; margin: 0 0 32px;
+  }
+  .group { margin-bottom: 32px; }
+  .group h2 {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); font-weight: 500;
+    margin: 0 0 12px; padding-bottom: 8px; border-bottom: 1px solid #C9BFAA;
+  }
+  .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .swatch {
+    aspect-ratio: 1.4; border-radius: 4px; padding: 12px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    border: 1px solid #C9BFAA;
+    box-shadow: 0 0 0 1px var(--paper-grid), 0 1px 0 0 rgba(30,77,122,.08);
+    transition: transform 120ms cubic-bezier(0.4,0,0.2,1);
+  }
+  .swatch:active { transform: scale(0.98); }
+  .swatch .name {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.04em; font-weight: 500;
+  }
+  .swatch .hex {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px; opacity: 0.85;
+  }
+  .light-text { color: var(--paper-bone); }
+  .dark-text  { color: var(--blueprint-deep); }
+</style>
+</head>
+<body>
+  <div class="kicker">01 · Color</div>
+  <h1>Paleta blueprint</h1>
+
+  <div class="group">
+    <h2>Blueprint · tinta arquitectónica</h2>
+    <div class="row">
+      <div class="swatch light-text" style="background: #0F2A4A"><span class="name">blueprint-deep</span><span class="hex">#0F2A4A</span></div>
+      <div class="swatch light-text" style="background: #1E4D7A"><span class="name">blueprint-mid</span><span class="hex">#1E4D7A</span></div>
+      <div class="swatch light-text" style="background: #3A7BB8"><span class="name">blueprint-soft</span><span class="hex">#3A7BB8</span></div>
+      <div class="swatch dark-text"  style="background: #1A1F2E; color: #F5F1E8"><span class="name">ink-graphite</span><span class="hex">#1A1F2E</span></div>
+      <div class="swatch light-text" style="background: #5C6B7F"><span class="name">ink-pencil</span><span class="hex">#5C6B7F</span></div>
+    </div>
+  </div>
+
+  <div class="group">
+    <h2>Paper · soporte</h2>
+    <div class="row">
+      <div class="swatch dark-text" style="background: #F5F1E8"><span class="name">paper-bone</span><span class="hex">#F5F1E8</span></div>
+      <div class="swatch dark-text" style="background: #FAF6EE"><span class="name">paper-elev</span><span class="hex">#FAF6EE</span></div>
+      <div class="swatch dark-text" style="background: #E8E0CC"><span class="name">paper-grid</span><span class="hex">#E8E0CC</span></div>
+      <div class="swatch dark-text" style="background: #C9BFAA"><span class="name">line-soft</span><span class="hex">#C9BFAA</span></div>
+      <div class="swatch dark-text" style="background: transparent; border: 1px dashed #1E4D7A"><span class="name">transparent</span><span class="hex">—</span></div>
+    </div>
+  </div>
+
+  <div class="group">
+    <h2>Amber · señalética técnica · acento &lt;10%</h2>
+    <div class="row">
+      <div class="swatch light-text" style="background: #C77D2C"><span class="name">amber-signal</span><span class="hex">#C77D2C</span></div>
+      <div class="swatch dark-text" style="background: #E89642"><span class="name">amber-glow</span><span class="hex">#E89642</span></div>
+      <div style="grid-column: span 3; align-self: center; padding: 0 16px; font-size: 13px; color: var(--ink-pencil); line-height: 1.5;">
+        Ámbar es <strong>acento</strong>: estados activos, hover, focus, badges "nuevo".
+        <strong>Nunca</strong> fondo dominante. Cobertura objetivo &lt; 10 % de superficie.
+      </div>
+    </div>
+  </div>
+
+  <div class="group">
+    <h2>Semánticos</h2>
+    <div class="row">
+      <div class="swatch light-text" style="background: #2F8F5C"><span class="name">success</span><span class="hex">#2F8F5C</span></div>
+      <div class="swatch light-text" style="background: #C77D2C"><span class="name">warning</span><span class="hex">#C77D2C</span></div>
+      <div class="swatch light-text" style="background: #B23A48"><span class="name">danger</span><span class="hex">#B23A48</span></div>
+      <div class="swatch light-text" style="background: #3A7BB8"><span class="name">info</span><span class="hex">#3A7BB8</span></div>
+      <div class="swatch dark-text"  style="background: #F5F1E8; border: 1px solid #C9BFAA"><span class="name">neutral</span><span class="hex">#F5F1E8</span></div>
+    </div>
+  </div>
+</body>
+</html>

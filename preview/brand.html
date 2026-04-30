@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlaps · Logo & brand</title>
+<link rel="stylesheet" href="../public/fonts/fonts.css" />
+<style>
+  :root {
+    --blueprint-deep: #0F2A4A; --blueprint-mid: #1E4D7A;
+    --paper-bone: #F5F1E8; --paper-grid: #E8E0CC;
+    --line-soft: #C9BFAA; --ink-pencil: #5C6B7F;
+    --amber-signal: #C77D2C;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--paper-bone); color: var(--blueprint-deep);
+    background-image:
+      linear-gradient(to right, var(--paper-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--paper-grid) 1px, transparent 1px);
+    background-size: 24px 24px; padding: 32px;
+  }
+  .kicker {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); display: flex; align-items: center; gap: 12px;
+    margin-bottom: 8px;
+  }
+  .kicker::before { content: ""; width: 24px; height: 1px; background: var(--blueprint-mid); }
+  h1 {
+    font-family: "Fraunces", serif; font-size: 39px; line-height: 1.1;
+    letter-spacing: -0.01em; font-weight: 500; margin: 0 0 32px;
+  }
+  h2 {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); font-weight: 500;
+    margin: 32px 0 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line-soft);
+  }
+
+  .lockups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .frame {
+    background: #FAF6EE; border: 1px solid var(--line-soft); border-radius: 4px;
+    padding: 32px; min-height: 200px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 16px; position: relative;
+    box-shadow: 0 0 0 1px var(--paper-grid), 0 1px 0 0 rgba(30,77,122,.08);
+  }
+  .frame.dark { background: var(--blueprint-deep); color: var(--paper-bone); }
+  .frame .lbl {
+    position: absolute; top: 8px; left: 12px;
+    font-family: "JetBrains Mono", monospace; font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); opacity: 0.8;
+  }
+  .frame.dark .lbl { color: var(--paper-bone); opacity: 0.55; }
+  .frame img { display: block; }
+
+  .clearspace {
+    background: #FAF6EE; border: 1px solid var(--line-soft); border-radius: 4px;
+    padding: 32px; position: relative;
+  }
+  .cs-inner {
+    display: inline-block; padding: 48px;
+    background-image:
+      linear-gradient(to right, rgba(199,125,44,.4) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(199,125,44,.4) 1px, transparent 1px);
+    background-size: 24px 24px;
+    border: 1px dashed var(--amber-signal);
+  }
+  .cs-note { font-size: 13px; color: var(--ink-pencil); margin-top: 16px; }
+
+  .vibe {
+    margin-top: 16px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .vibe-card {
+    background: #FAF6EE; border: 1px solid var(--line-soft);
+    border-left: 2px solid var(--amber-signal);
+    border-radius: 4px; padding: 24px;
+  }
+  .vibe-card.no { border-left-color: var(--amber-signal); }
+  .vibe-card.no { border-left-color: #B23A48; }
+  .vibe-card.yes { border-left-color: #2F8F5C; }
+  .vibe-card .ttl {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); margin-bottom: 12px;
+  }
+  .vibe-card ul { margin: 0; padding-left: 20px; line-height: 1.8; font-size: 14px; }
+  .vibe-card li { color: var(--blueprint-deep); }
+
+  .pull-quote {
+    margin-top: 16px;
+    font-family: "Fraunces", serif; font-size: 31px; line-height: 1.2;
+    font-weight: 500; max-width: 720px;
+    color: var(--blueprint-deep);
+  }
+  .pull-quote em { font-style: italic; color: var(--amber-signal); }
+</style>
+</head>
+<body>
+  <div class="kicker">05 · Brand</div>
+  <h1>Logo y voz</h1>
+
+  <h2>Lockups oficiales</h2>
+  <div class="lockups">
+    <div class="frame"><span class="lbl">Horizontal · light</span><img src="../assets/logo-horizontal.svg" alt="atlaps" height="56" /></div>
+    <div class="frame dark"><span class="lbl">Horizontal · dark</span><img src="../assets/logo-horizontal.svg" alt="atlaps" height="56" style="filter: invert(1) hue-rotate(180deg) saturate(1.05);" /></div>
+    <div class="frame"><span class="lbl">Vertical · light</span><img src="../assets/logo-vertical.svg" alt="atlaps" height="120" /></div>
+    <div class="frame"><span class="lbl">Icon</span><img src="../assets/logo-icon.svg" alt="atlaps icon" height="80" /></div>
+  </div>
+
+  <h2>Clearspace · 1× altura del monograma</h2>
+  <div class="clearspace">
+    <div class="cs-inner">
+      <img src="../assets/logo-horizontal.svg" alt="atlaps" height="48" />
+    </div>
+    <div class="cs-note">Espacio mínimo libre alrededor del logo equivale a la altura completa de la "A" del monograma. Tamaño mínimo del wordmark: <strong>96 px</strong> de ancho · favicon: <strong>32 px</strong>.</div>
+  </div>
+
+  <h2>Voz · qué decir y qué no</h2>
+  <div class="vibe">
+    <div class="vibe-card yes">
+      <div class="ttl">Sí · Atlaps habla así</div>
+      <ul>
+        <li>Tu casa inteligente, dibujada como un atlas.</li>
+        <li>Atlas sincronizado · 48 dispositivos en 1,2 s.</li>
+        <li>Voz local UE, sin nube.</li>
+        <li>Empezar gratis</li>
+        <li>Conflicto de direcciones · Dos dispositivos en 1.1.42.</li>
+      </ul>
+    </div>
+    <div class="vibe-card no">
+      <div class="ttl">No · Atlaps nunca diría</div>
+      <ul>
+        <li>Revolutionary smart home platform</li>
+        <li>AI-powered next-gen automation</li>
+        <li>¡EMPIEZA AHORA!</li>
+        <li>Setup tu dashboard en segundos</li>
+        <li>Activá tu casa (voseo)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pull-quote">Plano arquitectónico, no panel de control. Atlaps habla en castellano peninsular, declara cifras y <em>jamás</em> usa hype.</div>
+</body>
+</html>

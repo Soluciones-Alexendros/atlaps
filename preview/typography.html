@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atlaps · Type</title>
+<link rel="stylesheet" href="../public/fonts/fonts.css" />
+<style>
+  :root {
+    --blueprint-deep: #0F2A4A; --blueprint-mid: #1E4D7A;
+    --paper-bone: #F5F1E8; --paper-grid: #E8E0CC;
+    --amber-signal: #C77D2C; --ink-pencil: #5C6B7F;
+    --line-soft: #C9BFAA;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", system-ui, sans-serif;
+    background: var(--paper-bone); color: var(--blueprint-deep);
+    background-image:
+      linear-gradient(to right, var(--paper-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--paper-grid) 1px, transparent 1px);
+    background-size: 24px 24px; padding: 32px;
+  }
+  .kicker {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); display: flex; align-items: center; gap: 12px;
+    margin-bottom: 8px;
+  }
+  .kicker::before { content: ""; width: 24px; height: 1px; background: var(--blueprint-mid); }
+  .h1-page {
+    font-family: "Fraunces", Georgia, serif; font-size: 39px;
+    line-height: 1.1; letter-spacing: -0.01em; font-weight: 500;
+    margin: 0 0 32px;
+  }
+
+  .row {
+    display: grid; grid-template-columns: 110px 80px 1fr;
+    gap: 24px; align-items: baseline;
+    padding: 20px 0; border-bottom: 1px solid var(--line-soft);
+  }
+  .row:last-child { border-bottom: none; }
+  .label {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-pencil);
+  }
+  .meta {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    color: var(--ink-pencil); white-space: nowrap;
+  }
+  .display-1 { font-family: "Fraunces", serif; font-size: 61px; line-height: 1.05; letter-spacing: -0.02em; font-weight: 500; }
+  .display-2 { font-family: "Fraunces", serif; font-size: 49px; line-height: 1.08; letter-spacing: -0.02em; font-weight: 500; }
+  .h1        { font-family: "Fraunces", serif; font-size: 39px; line-height: 1.10; letter-spacing: -0.01em; font-weight: 500; }
+  .h2        { font-family: "Fraunces", serif; font-size: 31px; line-height: 1.20; font-weight: 500; }
+  .h3        { font-family: "Inter",   sans-serif; font-size: 25px; line-height: 1.20; font-weight: 600; }
+  .h4        { font-family: "Inter",   sans-serif; font-size: 20px; line-height: 1.30; font-weight: 600; }
+  .body      { font-family: "Inter",   sans-serif; font-size: 16px; line-height: 1.55; }
+  .small     { font-family: "Inter",   sans-serif; font-size: 14px; line-height: 1.50; }
+  .caption   { font-family: "JetBrains Mono", monospace; font-size: 12px; line-height: 1.40; letter-spacing: 0.04em; }
+
+  .families {
+    margin-top: 48px; padding-top: 32px;
+    border-top: 1px solid var(--line-soft);
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .fam {
+    background: #FAF6EE; border: 1px solid var(--line-soft);
+    border-radius: 4px; padding: 20px;
+    box-shadow: 0 0 0 1px var(--paper-grid), 0 1px 0 0 rgba(30,77,122,.08);
+  }
+  .fam-name {
+    font-family: "JetBrains Mono", monospace; font-size: 11px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink-pencil); margin-bottom: 12px;
+  }
+  .fam .glyph { font-size: 64px; line-height: 1; margin-bottom: 12px; }
+  .fam .ttl { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .fam .role { font-size: 13px; color: var(--ink-pencil); }
+</style>
+</head>
+<body>
+  <div class="kicker">02 · Tipografía</div>
+  <h1 class="h1-page">Escala Major Third 1.25</h1>
+
+  <div class="row"><span class="label">Display 1</span><span class="meta">61 / 1.05</span><span class="display-1">Tu casa, dibujada.</span></div>
+  <div class="row"><span class="label">Display 2</span><span class="meta">49 / 1.08</span><span class="display-2">Atlas vivo en castellano</span></div>
+  <div class="row"><span class="label">H1</span><span class="meta">39 / 1.10</span><span class="h1">Multi-protocolo nativo</span></div>
+  <div class="row"><span class="label">H2</span><span class="meta">31 / 1.20</span><span class="h2">Voz local UE, sin nube</span></div>
+  <div class="row"><span class="label">H3</span><span class="meta">25 / 1.20</span><span class="h3">Comisiones declaradas siempre visibles</span></div>
+  <div class="row"><span class="label">H4</span><span class="meta">20 / 1.30</span><span class="h4">Atlaps Bridge Protocol — Apache 2.0</span></div>
+  <div class="row"><span class="label">Body</span><span class="meta">16 / 1.55</span><span class="body">Diseña la topología, calcula el material y opera la instalación con un atlas vivo. KNX, Matter, Zigbee, Z-Wave y cinco protocolos más, en una sola interfaz.</span></div>
+  <div class="row"><span class="label">Small</span><span class="meta">14 / 1.50</span><span class="small">IVA inc. · Self-host UE disponible · Migración asistida desde KNX/ETS y Home Assistant.</span></div>
+  <div class="row"><span class="label">Caption</span><span class="meta">12 / 1.40</span><span class="caption">DIRECCIÓN KNX · 1.1.42 · COCINA · 240 MS</span></div>
+
+  <div class="families">
+    <div class="fam">
+      <div class="fam-name">Display</div>
+      <div class="glyph" style="font-family: 'Fraunces', serif;">Aa</div>
+      <div class="ttl" style="font-family: 'Fraunces', serif;">Fraunces</div>
+      <div class="role">Titulares, números clave, hero.</div>
+    </div>
+    <div class="fam">
+      <div class="fam-name">Body</div>
+      <div class="glyph" style="font-family: 'Inter', sans-serif;">Aa</div>
+      <div class="ttl" style="font-family: 'Inter', sans-serif;">Inter</div>
+      <div class="role">UI, párrafos, navegación, formularios.</div>
+    </div>
+    <div class="fam">
+      <div class="fam-name">Mono</div>
+      <div class="glyph" style="font-family: 'JetBrains Mono', monospace;">Aa</div>
+      <div class="ttl" style="font-family: 'JetBrains Mono', monospace;">JetBrains Mono</div>
+      <div class="role">Direcciones KNX, código, kickers, métricas.</div>
+    </div>
+  </div>
+</body>
+</html>

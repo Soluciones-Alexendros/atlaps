@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#0F2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Atlaps">
+  <title>Atlaps · monograma</title>
+  
+  <path d="M10 54 L32 10 L54 54"></path>
+  <path d="M14 54 L32 18 L50 54" opacity="0.65"></path>
+  <path d="M18 54 L32 26 L46 54" opacity="0.4"></path>
+  <path d="M22 54 L32 34 L42 54" opacity="0.25"></path>
+  
+  <path d="M22 44 L42 44"></path>
+  
+  <path d="M8 58 L56 58" stroke="#C77D2C" stroke-width="1" opacity="0.5"></path>
+</svg>
