@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" fill="none" role="img" aria-label="Atlaps">
+  <title>Atlaps · logo horizontal</title>
+  <!-- Monograma cartográfico -->
+  <g stroke="#0F2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 54 L32 10 L54 54" />
+    <path d="M14 54 L32 18 L50 54" opacity="0.65" />
+    <path d="M18 54 L32 26 L46 54" opacity="0.4" />
+    <path d="M22 54 L32 34 L42 54" opacity="0.25" />
+    <path d="M22 44 L42 44" />
+  </g>
+  <path d="M8 58 L56 58" stroke="#C77D2C" stroke-width="1" opacity="0.5" stroke-linecap="round" />
+  <!-- Wordmark -->
+  <text x="76" y="42" font-family="Fraunces, Georgia, serif" font-size="32" font-weight="500" fill="#0F2A4A" letter-spacing="2">atlaps</text>
+</svg>

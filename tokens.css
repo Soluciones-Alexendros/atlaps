@@ -1,0 +1,99 @@
+/* ============================================================
+   Atlaps · Design System Tokens
+   globals.css · Tailwind v4 @theme directive ready
+   ============================================================ */
+
+@import "tailwindcss";
+
+@theme {
+  /* — Blueprint (azul plano arquitectónico) ——————————————————— */
+  --color-blueprint-deep: #0F2A4A;
+  --color-blueprint-mid:  #1E4D7A;
+  --color-blueprint-soft: #3A7BB8;
+
+  /* — Paper (pergamino) ————————————————————————————————————— */
+  --color-paper-bone: #F5F1E8;
+  --color-paper-grid: #E8E0CC;
+
+  /* — Amber (acento, <10% superficie) ——————————————————————— */
+  --color-amber-signal: #C77D2C;
+  --color-amber-glow:   #E89642;
+
+  /* — Tinta —————————————————————————————————————————————————— */
+  --color-ink-graphite: #1A1F2E;
+  --color-ink-pencil:   #5C6B7F;
+
+  /* — Estados semánticos ———————————————————————————————————— */
+  --color-success: #2F8F5C;
+  --color-warning: #C77D2C;
+  --color-danger:  #B23A48;
+  --color-info:    #3A7BB8;
+
+  /* — Spacing ——————————————————————————————————————————————— */
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-20: 80px;
+  --spacing-24: 96px;
+
+  /* — Radii ————————————————————————————————————————————————— */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* — Border widths ———————————————————————————————————————— */
+  --border-thin: 1px;
+  --border-mid:  1.5px;
+  --border-bold: 2px;
+
+  /* — Paper shadows (no blur — gridline + ink stroke) ————————— */
+  --shadow-paper-sm:
+    0 0 0 1px var(--color-paper-grid),
+    0 1px 0 0 rgba(30, 77, 122, 0.08);
+  --shadow-paper-md:
+    0 0 0 1px var(--color-paper-grid),
+    0 2px 0 0 rgba(30, 77, 122, 0.12),
+    0 4px 0 0 rgba(30, 77, 122, 0.04);
+
+  /* — Z-index ——————————————————————————————————————————————— */
+  --z-dropdown: 1000;
+  --z-sticky:   1100;
+  --z-modal:    1200;
+  --z-popover:  1300;
+  --z-tooltip:  1400;
+  --z-toast:    1500;
+
+  /* — Motion ———————————————————————————————————————————————— */
+  --ease-blueprint: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --duration-fast:    120ms;
+  --duration-normal:  240ms;
+  --duration-slow:    480ms;
+  --duration-slower:  720ms;
+
+  /* — Type families ————————————————————————————————————————— */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ===== Utilidades propias expuestas ==========================
+   .bg-grid          — fondo papel cuadrícula (paper-grid 24px)
+   .bg-grid-dense    — fondo papel cuadrícula 8px
+   .ink-stroke       — borde 1px tinta blueprint-mid
+   .paper-shadow-sm  — shadow plano técnico ligera
+   .paper-shadow-md  — shadow plano técnico media
+   .iso-line         — pseudo-elemento isolínea topográfica
+   .focus-ring       — focus visible ámbar 2px offset 2px
+   ============================================================ */
