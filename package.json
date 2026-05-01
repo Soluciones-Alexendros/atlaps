@@ -18,7 +18,7 @@
     "showcase:html": "echo 'Open Atlaps Design System.html in browser' && xdg-open 'Atlaps Design System.html' 2>/dev/null || open 'Atlaps Design System.html'"
   },
   "dependencies": {
-    "next": "15.5.15",
+    "next": "16.2.4",
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "clsx": "2.1.1",
