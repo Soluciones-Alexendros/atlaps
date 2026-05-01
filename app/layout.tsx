@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? "https://atlaps.local";
@@ -49,29 +50,19 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-const themeScript = `
-(function () {
-  try {
-    var stored = localStorage.getItem("atlaps-theme");
-    var prefers = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var theme = stored === "light" || stored === "dark" ? stored : (prefers ? "dark" : "light");
-    document.documentElement.setAttribute("data-theme", theme);
-  } catch (e) {}
-})();
-`;
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" data-surface="marketing" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* CSP-safe theme init: archivo estático same-origin sin 'unsafe-inline'. */}
+        <Script src="/theme-init.js" strategy="beforeInteractive" />
       </head>
       <body className="bg-paper-bone text-ink-graphite antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:border focus:border-blueprint-soft focus:bg-paper-bone focus:px-4 focus:py-2 focus:text-blueprint-deep focus:outline-none focus:ring-2 focus:ring-blueprint-soft"
+          className="focus:border-blueprint-soft focus:bg-paper-bone focus:text-blueprint-deep focus:ring-blueprint-soft sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:border focus:px-4 focus:py-2 focus:ring-2 focus:outline-none"
         >
           Saltar al contenido
         </a>
