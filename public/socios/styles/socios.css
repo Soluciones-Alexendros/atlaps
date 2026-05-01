@@ -94,6 +94,8 @@ a { color: inherit; }
 .btn-secondary:hover { background: var(--grid); }
 .btn-accent { background: var(--amber-signal); color: var(--paper-bone); border-color: var(--amber-signal); }
 .btn-accent:hover { background: var(--amber-glow); border-color: var(--amber-glow); }
+[data-theme="dark"] .btn-accent { background: var(--amber-glow); color: var(--blueprint-deep); border-color: var(--amber-glow); }
+[data-theme="dark"] .btn-accent:hover { background: var(--amber-signal-bright); border-color: var(--amber-signal-bright); }
 .btn-ghost { background: transparent; color: var(--fg); border-color: transparent; }
 .btn-ghost:hover { background: var(--grid); }
 .btn-sm { height: 32px; padding: 0 12px; font-size: 13px; }

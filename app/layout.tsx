@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import Script from "next/script";
 import "./globals.css";
 
@@ -50,14 +51,22 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // CSP nonce-based con 'strict-dynamic': el `<Script>` debe llevar el mismo
+  // nonce emitido por middleware.ts (header x-nonce). Sin esto, en producción
+  // `theme-init.js` y otros scripts user-defined son bloqueados por la CSP.
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
   return (
     <html lang="es" data-surface="marketing" suppressHydrationWarning>
       <head>
-        {/* CSP-safe theme init: archivo estático same-origin sin 'unsafe-inline'. */}
-        <Script src="/theme-init.js" strategy="beforeInteractive" />
+        {/* CSP-safe theme init: archivo estático same-origin con nonce. */}
+        <Script
+          src="/theme-init.js"
+          strategy="beforeInteractive"
+          nonce={nonce}
+        />
       </head>
       <body className="bg-paper-bone text-ink-graphite antialiased">
         <a
