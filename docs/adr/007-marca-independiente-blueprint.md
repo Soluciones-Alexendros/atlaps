@@ -27,17 +27,17 @@ La audiencia técnica de domótica (DIYer, instalador, integrador, arquitecto) n
 
 ## Sistema cromático adoptado
 
-| Token | Hex | Uso |
-| --- | --- | --- |
+| Token              | Hex       | Uso                                                 |
+| ------------------ | --------- | --------------------------------------------------- |
 | `--blueprint-deep` | `#0F2A4A` | superficie primaria oscura · tinta papel cuadrícula |
-| `--blueprint-mid` | `#1E4D7A` | acciones primarias · headers |
-| `--blueprint-soft` | `#3A7BB8` | hover · interactividad |
-| `--paper-bone` | `#F5F1E8` | superficie clara · pergamino |
-| `--paper-grid` | `#E8E0CC` | gridlines · sombras suaves · bordes |
-| `--amber-signal` | `#C77D2C` | acento · dispositivos activos · CTA secundario |
-| `--amber-glow` | `#E89642` | hover ámbar · estados de éxito energético |
-| `--ink-graphite` | `#1A1F2E` | texto base modo claro |
-| `--ink-pencil` | `#5C6B7F` | texto secundario · anotaciones |
+| `--blueprint-mid`  | `#1E4D7A` | acciones primarias · headers                        |
+| `--blueprint-soft` | `#3A7BB8` | hover · interactividad                              |
+| `--paper-bone`     | `#F5F1E8` | superficie clara · pergamino                        |
+| `--paper-grid`     | `#E8E0CC` | gridlines · sombras suaves · bordes                 |
+| `--amber-signal`   | `#C77D2C` | acento · dispositivos activos · CTA secundario      |
+| `--amber-glow`     | `#E89642` | hover ámbar · estados de éxito energético           |
+| `--ink-graphite`   | `#1A1F2E` | texto base modo claro                               |
+| `--ink-pencil`     | `#5C6B7F` | texto secundario · anotaciones                      |
 
 Reglas: ámbar por debajo del 10% de superficie. Modo oscuro = `blueprint-deep`. Modo claro = `paper-bone`.
 
@@ -73,11 +73,11 @@ Producir 2 propuestas para comparar D1:
 
 ## Posicionamiento (statement)
 
-> *Para el entusiasta y el profesional de la domótica que orquesta más de un protocolo, Atlaps es el atlas SaaS español que diseña, compra y opera tu instalación bajo soberanía europea — porque tu casa inteligente merece un mapa propio, no un dashboard ajeno.*
+> _Para el entusiasta y el profesional de la domótica que orquesta más de un protocolo, Atlaps es el atlas SaaS español que diseña, compra y opera tu instalación bajo soberanía europea — porque tu casa inteligente merece un mapa propio, no un dashboard ajeno._
 
 ## Consecuencias
 
-- ✅ Máximo *fit* con audiencia DIY/instalador/integrador/arquitecto
+- ✅ Máximo _fit_ con audiencia DIY/instalador/integrador/arquitecto
 - ✅ Diferenciación clara frente a competencia (estética cartográfica única)
 - ✅ Compatible con tldraw canvas (lienzo "azul-blanco/papel cuadrícula")
 - ⚠ Pérdida de coherencia visual corporativa Alexendros (mitigado: footer + about page enlazan a Alexendros)

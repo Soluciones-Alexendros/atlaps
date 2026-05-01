@@ -4,21 +4,21 @@ Referencia compacta. Fuente de verdad: `tokens.css` (raíz) y `app/globals.css`.
 
 ## Color
 
-| Token | Hex | Uso primario |
-| --- | --- | --- |
+| Token                    | Hex       | Uso primario                                        |
+| ------------------------ | --------- | --------------------------------------------------- |
 | `--color-blueprint-deep` | `#0F2A4A` | superficie primaria oscura · tinta papel cuadrícula |
-| `--color-blueprint-mid` | `#1E4D7A` | acciones primarias · headers |
-| `--color-blueprint-soft` | `#3A7BB8` | hover · interactividad · enlaces |
-| `--color-paper-bone` | `#F5F1E8` | superficie clara · pergamino |
-| `--color-paper-grid` | `#E8E0CC` | gridlines · sombras suaves · bordes |
-| `--color-amber-signal` | `#C77D2C` | acento · dispositivos activos · CTA secundario |
-| `--color-amber-glow` | `#E89642` | hover ámbar · estados de éxito energético |
-| `--color-ink-graphite` | `#1A1F2E` | texto base modo claro |
-| `--color-ink-pencil` | `#5C6B7F` | texto secundario · anotaciones |
-| `--color-success` | `#2F8F5C` | estado positivo |
-| `--color-warning` | `#C77D2C` | estado de aviso (alias amber-signal) |
-| `--color-danger` | `#B23A48` | estado de error |
-| `--color-info` | `#3A7BB8` | estado informativo (alias blueprint-soft) |
+| `--color-blueprint-mid`  | `#1E4D7A` | acciones primarias · headers                        |
+| `--color-blueprint-soft` | `#3A7BB8` | hover · interactividad · enlaces                    |
+| `--color-paper-bone`     | `#F5F1E8` | superficie clara · pergamino                        |
+| `--color-paper-grid`     | `#E8E0CC` | gridlines · sombras suaves · bordes                 |
+| `--color-amber-signal`   | `#C77D2C` | acento · dispositivos activos · CTA secundario      |
+| `--color-amber-glow`     | `#E89642` | hover ámbar · estados de éxito energético           |
+| `--color-ink-graphite`   | `#1A1F2E` | texto base modo claro                               |
+| `--color-ink-pencil`     | `#5C6B7F` | texto secundario · anotaciones                      |
+| `--color-success`        | `#2F8F5C` | estado positivo                                     |
+| `--color-warning`        | `#C77D2C` | estado de aviso (alias amber-signal)                |
+| `--color-danger`         | `#B23A48` | estado de error                                     |
+| `--color-info`           | `#3A7BB8` | estado informativo (alias blueprint-soft)           |
 
 Reglas:
 
