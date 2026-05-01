@@ -12,12 +12,17 @@ test("/socios/ landing serves 200 with bundle wired", async ({ page }) => {
   expect(html).not.toMatch(/unpkg\.com|cdn\.jsdelivr/);
 });
 
-// TODO: re-enable hydration assertion once we can capture browser console
-// errors from the bundle in CI. Local manual check on /socios/ in a real
-// browser is the current verification path. See PR #20 thread.
-test.skip("/socios/ Hero h1 hydrates with React 18 UMD globals", async ({ page }) => {
+test("/socios/ Hero h1 hydrates without bundle errors", async ({ page }) => {
   await page.goto("/socios/");
+  // Espera a que el bundle haya tenido oportunidad de ejecutarse.
+  await page.waitForLoadState("networkidle");
+  // Si el bundle lanzó un error JS, captura el detalle para depuración.
+  const bundleErrors = await page.evaluate(
+    () => (window as unknown as { __atlapsErrors?: unknown[] }).__atlapsErrors ?? [],
+  );
+  expect(bundleErrors, JSON.stringify(bundleErrors)).toEqual([]);
+  // Si no hubo errores, el Hero debería estar montado.
   await expect(page.getByRole("heading", { level: 1, name: /atlas de domótica/i })).toBeVisible({
-    timeout: 15_000,
+    timeout: 5_000,
   });
 });
