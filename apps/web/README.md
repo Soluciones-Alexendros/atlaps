@@ -1,58 +1,60 @@
 # `apps/web` · Landing pública atlaps.com
 
-> Estado: **placeholder** · pendiente de construir en F1.
+> Estado: **scaffold W1 Día L** (1-may-2026 · pre-arranque F1)
+> Plan rector: `~/.claude/plans/planificar-w1-apps-web-landing-twinkling-sketch.md`
 
-## Qué será
+## Stack
 
-Sitio público de marketing en `atlaps.com`. Hereda el design system de `packages/design-system/`.
+- Next.js 15.5.15 App Router · React 19.2.5 · TypeScript 5.9.3
+- Tailwind v4 (`@theme`) + tokens compartidos desde `packages/design-system/tokens.css`
+- Workspace pnpm (`@atlaps/web`)
 
-## Brief
+## Comandos
 
-Ejecutar con Design de Claude: `docs/briefs/prototype-landing-app.md` (sección A · Landing pública).
+```bash
+# desde la raíz del monorepo
+pnpm install                              # primera vez tras añadir el workspace
+pnpm --filter @atlaps/web dev             # http://localhost:3100
+pnpm --filter @atlaps/web build
+pnpm --filter @atlaps/web typecheck
+pnpm --filter @atlaps/web lint
+```
 
-## Stack previsto
-
-- Next.js 15 App Router + TypeScript + Tailwind v4 (`@theme`)
-- shadcn/ui + Radix UI primitives
-- Configuración tipográfica A (Fraunces + Inter + JetBrains Mono)
-- next-intl (es default, en como segunda)
-- Vercel deploy con dominio `atlaps.com`
-
-## Estructura prevista cuando se cree
+## Estructura W1
 
 ```
 apps/web/
-├── package.json (Next.js 15 propio)
+├── package.json                    # @atlaps/web private
 ├── next.config.ts
 ├── tsconfig.json
 ├── postcss.config.mjs
-├── app/
-│   ├── (marketing)/
-│   │   ├── page.tsx                    # /
-│   │   ├── precios/page.tsx            # /precios
-│   │   ├── docs/[...slug]/page.tsx     # /docs/...
-│   │   ├── comunidad/page.tsx          # /comunidad
-│   │   └── layout.tsx
-│   ├── api/
-│   │   └── waitlist/route.ts           # POST waitlist
-│   └── globals.css                     # importa tokens del design system
-├── content/                            # MDX cornerstone
-├── components/                          # locales a esta app
-├── lib/
-└── public/                              # assets propios + logos compartidos
+├── .env.example
+├── .gitignore
+└── app/
+    ├── layout.tsx                  # metadata SEO + skip-link a11y
+    ├── globals.css                 # tailwind + tokens design-system
+    ├── page.tsx                    # landing (scaffold Día L · 12 secciones Día X)
+    ├── robots.ts
+    └── sitemap.ts
 ```
 
-## Hitos roadmap
+## Roadmap W1 (8-14 may)
 
-- F1 (8-may → 29-may): scaffold + landing v0 + waitlist Supabase + Resend + 3 MDX cornerstone.
-- F2: completar 12 MDX cornerstone, integración Stripe checkout para Solo, page de pricing definitiva.
-- F3: blog, comunidad, docs API ABP.
+- **L 8-may** ✅ Scaffold workspace + boot mínimo
+- **M 9-may** Header + Hero + Pilares + Protocolos belt + Footer
+- **X 10-may** Cómo funciona + Pricing + ABP + Transparencia + Testimonios + FAQ
+- **J 11-may** /api/waitlist + Supabase + Resend transactional
+- **V 12-may** i18n es/en + 3 MDX cornerstone + JSON-LD
+- **S 13-may** Tests vitest + Playwright + axe + Vercel project + DNS
+- **D 14-may** Hardening + GlitchTip + go-live atlaps.com
 
 ## Sección /socios
 
-La presentación privada para socios vive en `apps/socios/` (servida en F0 desde `public/socios/`). Cuando se construya `apps/web/`, decidir si:
+La presentación privada para socios vive hoy en `public/socios/` (servida por el portal root). Decisión migración pendiente para F2-F3:
 
-- (a) Migrar `/socios` como ruta protegida dentro de la app web pública.
-- (b) Mantener `/socios` como deploy separado en subdominio (`socios.atlaps.com`).
+- (a) ruta protegida dentro de `apps/web` con auth real
+- (b) deploy separado en `socios.atlaps.com`
 
-Default propuesto: (b) durante F1-F3, (a) cuando se introduzca auth real.
+Default: (b) durante F1-F3, (a) cuando se introduzca auth.
+
+Brief operativo: `docs/briefs/prototype-landing-app.md` §A.
