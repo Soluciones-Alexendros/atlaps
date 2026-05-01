@@ -4,7 +4,7 @@ Sistema de diseño completo del producto Atlaps, generado con Design de Claude e
 
 ## Contenido
 
-- `showcase.html` — página única navegable con las 10 secciones del system (brand, colors, typography, spacing, motion, iconography, components, patterns, tokens CSS, notes). Single-page autocontenida.
+- `showcase.html` — página única navegable con las 10 secciones del system (brand, colors, typography, spacing, motion, iconography, components, patterns, tokens CSS, notes). Single-page autocontenida. Para abrirla localmente, primero ejecuta `pnpm build:showcase` (descarga React UMD a `vendor/` y compila los JSX a `showcase-bundle.js`); ambos artefactos están en `.gitignore`.
 - `tokens.css` — tokens Tailwind v4 con `@theme` directive. Fuente única de verdad.
 - `colors_and_type.css` — espejo dirigido a páginas standalone que no tienen pipeline Tailwind.
 - `tweaks-panel.jsx` — infraestructura "Make tweakable" reusable (sliders, radios, etc.) para iterar tokens en vivo.

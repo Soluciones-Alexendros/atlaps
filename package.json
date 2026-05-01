@@ -9,6 +9,7 @@
     "dev": "next dev --turbopack",
     "build": "bash scripts/build-socios.sh && next build",
     "build:socios": "bash scripts/build-socios.sh",
+    "build:showcase": "bash scripts/build-showcase.sh",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",

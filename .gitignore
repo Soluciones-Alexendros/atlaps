@@ -60,6 +60,10 @@ public/socios/vendor/*.js
 public/socios/bundle.js
 public/socios/styles/colors_and_type.css
 
+# Showcase design-system build artefactos · regenerados por scripts/build-showcase.sh
+packages/design-system/vendor/*.js
+packages/design-system/showcase-bundle.js
+
 # Tests
 playwright-report/
 test-results/
