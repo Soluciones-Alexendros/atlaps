@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "../../../packages/design-system/tokens.css";
+
+*:focus-visible {
+  outline: 2px solid var(--color-amber-on-surface);
+  outline-offset: 2px;
+}
+
+html[data-theme="light"] {
+  background-color: var(--color-paper-bone);
+  color: var(--color-ink-graphite);
+}
+html[data-theme="dark"] {
+  background-color: var(--color-blueprint-deep);
+  color: var(--color-paper-bone);
+}

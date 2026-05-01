@@ -1,0 +1,14 @@
+# next.js
+.next/
+out/
+next-env.d.ts
+
+# environment
+.env.local
+.env*.local
+
+# build artifacts
+*.tsbuildinfo
+
+# logs
+*.log
