@@ -51,7 +51,14 @@ done
 
 {
   printf '/* Atlaps socios bundle · generado por scripts/build-socios.sh — NO editar */\n'
-  cat "$BUILD_TMP/socios-a.js" "$BUILD_TMP/socios-b.js" "$BUILD_TMP/socios-c.js" "$BUILD_TMP/app.js"
+  # Cada chunk va en su propio bloque {} para aislar declaraciones top-level
+  # (e.g. `const Header = ...` en socios-a.jsx vs `const { Header } = SociosBlocksA;`
+  # en app.jsx, que de otro modo colisionarían como "Identifier already declared").
+  for chunk in socios-a socios-b socios-c app; do
+    printf '{\n'
+    cat "$BUILD_TMP/$chunk.js"
+    printf '\n}\n'
+  done
 } > "$OUT_BUNDLE"
 rm -rf "$BUILD_TMP"
 
@@ -71,6 +78,7 @@ cat > "$HTML_OUT" <<HTML
 <title>Atlaps · Socios y colaboradores · v0.1</title>
 <meta name="description" content="Documento confidencial v0.1 · landing privada para socios, advisors, partners y evaluadores institucionales." />
 <meta name="robots" content="noindex, nofollow" />
+<base href="/socios/" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
 <!-- Fonts: Configuración A (marketing) -->
@@ -93,6 +101,7 @@ cat > "$HTML_OUT" <<HTML
 
 <script src="vendor/react.production.min.js" integrity="sha384-${REACT_SRI}" crossorigin="anonymous"></script>
 <script src="vendor/react-dom.production.min.js" integrity="sha384-${REACT_DOM_SRI}" crossorigin="anonymous"></script>
+<script src="error-handler.js"></script>
 <script src="bundle.js"></script>
 
 </body>
