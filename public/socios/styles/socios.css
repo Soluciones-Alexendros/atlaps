@@ -319,11 +319,13 @@ section.block:first-of-type { border-top: none; padding-top: 64px; }
 .cmp tr:hover td.us { background: rgba(199,125,44,0.12); }
 
 /* — Privacy 3 cols —————————————————————————————————————————— */
-.priv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.priv { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .priv-card {
   background: var(--bg-elev); border: 1px solid var(--line-soft);
   border-radius: 4px; padding: 28px;
   display: flex; flex-direction: column; gap: 16px;
+  min-width: 0; /* permite que <pre> con overflow-x: auto haga scroll interno
+                   en vez de empujar la card más allá de 1fr y desbordar la página */
 }
 .priv-card h3 {
   font-family: var(--font-display); font-size: 22px; line-height: 1.2;
@@ -404,7 +406,21 @@ section.block:first-of-type { border-top: none; padding-top: 64px; }
 .okr-tbl tr:last-child td { border-bottom: none; }
 
 /* — Roadmap timeline ———————————————————————————————————————— */
-.roadmap-wrap { overflow-x: auto; padding-bottom: 24px; }
+.roadmap-wrap {
+  overflow-x: auto;
+  overflow-y: hidden; /* las labels absolutas y los tips no deben activar scroll vertical */
+  padding-top: 8px;
+  padding-bottom: 24px;
+  /* scrollbar fina y discreta en lugar del control nativo grande */
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+.roadmap-wrap::-webkit-scrollbar { height: 6px; }
+.roadmap-wrap::-webkit-scrollbar-track { background: transparent; }
+.roadmap-wrap::-webkit-scrollbar-thumb {
+  background: var(--line); border-radius: 9999px;
+}
+.roadmap-wrap::-webkit-scrollbar-thumb:hover { background: var(--line-soft); }
 .roadmap {
   display: flex; align-items: stretch; gap: 0;
   min-width: 980px; position: relative;
