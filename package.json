@@ -15,6 +15,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
     "prepare": "husky",
     "showcase:html": "echo 'Open Atlaps Design System.html in browser' && xdg-open 'Atlaps Design System.html' 2>/dev/null || open 'Atlaps Design System.html'"
   },
@@ -34,15 +36,21 @@
     "tailwind-merge": "2.5.5"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.11.3",
     "@commitlint/cli": "20.5.3",
     "@commitlint/config-conventional": "20.5.3",
     "@eslint/eslintrc": "3.3.5",
+    "@playwright/test": "1.59.1",
     "@tailwindcss/postcss": "4.2.4",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
     "@types/node": "22.19.17",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@typescript-eslint/eslint-plugin": "8.59.1",
     "@typescript-eslint/parser": "8.59.1",
+    "@vitejs/plugin-react": "6.0.1",
+    "@vitest/coverage-v8": "4.1.5",
     "esbuild": "0.28.0",
     "eslint": "9.39.4",
     "eslint-config-next": "15.5.15",
@@ -50,11 +58,13 @@
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-tailwindcss": "3.18.3",
     "husky": "9.1.7",
+    "jsdom": "29.1.1",
     "lint-staged": "16.4.0",
     "postcss": "8.5.13",
     "prettier": "3.8.3",
     "tailwindcss": "4.2.4",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "4.1.5"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
