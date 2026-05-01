@@ -65,4 +65,4 @@ Ver `docs/briefs/`:
 ## ADRs relevantes
 
 - `docs/adr/007-marca-independiente-blueprint.md` — decisión cromática y tipográfica.
-- ADR pendiente · tipografía dual A marketing / B app + promoción amber-glow en oscuro.
+- `docs/adr/008-tipografia-dual-y-amber-glow.md` — tipografía dual A marketing / B app + promoción amber-signal → amber-glow en `data-theme="dark"`.

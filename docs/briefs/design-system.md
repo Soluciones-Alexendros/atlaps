@@ -111,6 +111,11 @@ No aceptable: SaaS genérico · mezcla púrpura/oro Vergina · iconografía con 
 
 Sugerir 3 mejoras concretas fuera de scope al final del entregable (micro-animación, ilustración custom, propuesta patrón decorativo isolíneas).
 
+## Referencias
+
+- ADR 007 · Marca independiente blueprint: `docs/adr/007-marca-independiente-blueprint.md`
+- ADR 008 · Tipografía dual A/B + promoción amber-signal → amber-glow en oscuro: `docs/adr/008-tipografia-dual-y-amber-glow.md`
+
 ---
 
 Versión: design-system v0 · 2026-04-30.
