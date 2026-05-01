@@ -3,8 +3,9 @@
    Decisión F0-F2: dual surface (marketing/app), no Söhne.
    ============================================================ */
 
-/* Self-hosted fonts · servir desde mismo dominio · SIL OFL 1.1 */
-@import url("./public/fonts/fonts.css");
+/* Self-hosted fonts · servir desde mismo dominio · SIL OFL 1.1
+   Cada consumidor incluye su propio <link rel="stylesheet" href="/fonts/fonts.css" />
+   antes de este archivo. NO usar @import relativo aquí (rompe en preview/socios). */
 
 :root {
   /* — Brand palette (USAR EXACTOS) ————————————————————————— */
