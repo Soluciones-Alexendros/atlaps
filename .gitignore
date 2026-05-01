@@ -54,3 +54,12 @@ next-env.d.ts
 # Atlaps Design System.html
 # tokens.css
 # tweaks-panel.jsx
+
+# Socios build artefactos · regenerados por scripts/build-socios.sh
+public/socios/vendor/*.js
+public/socios/bundle.js
+public/socios/styles/colors_and_type.css
+
+# Tests
+playwright-report/
+test-results/

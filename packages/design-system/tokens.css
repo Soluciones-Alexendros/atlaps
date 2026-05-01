@@ -3,8 +3,6 @@
    globals.css · Tailwind v4 @theme directive ready
    ============================================================ */
 
-@import "tailwindcss";
-
 @theme {
   /* — Blueprint (azul plano arquitectónico) ——————————————————— */
   --color-blueprint-deep: #0F2A4A;
