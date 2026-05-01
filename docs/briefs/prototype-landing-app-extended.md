@@ -11,8 +11,8 @@ Diseña y prototipa la **landing pública de `atlaps.com`** y las **3 vistas de 
 ## Audiencia y posicionamiento
 
 - **Producto:** Atlaps — atlas SaaS de domótica multi-protocolo (KNX, Matter, Zigbee, Z-Wave, IP, Modbus, BACnet, DALI). 5 pilares: Planificador · Mercado · Monitor · Sugerencias · ComtubernIA voz local.
-- **Tagline:** *"Tu casa inteligente, dibujada como un atlas."*
-- **Posicionamiento:** *"Para el entusiasta y el profesional de la domótica que orquesta más de un protocolo, Atlaps es el atlas SaaS español que diseña, compra y opera tu instalación bajo soberanía europea — porque tu casa inteligente merece un mapa propio, no un dashboard ajeno."*
+- **Tagline:** _"Tu casa inteligente, dibujada como un atlas."_
+- **Posicionamiento:** _"Para el entusiasta y el profesional de la domótica que orquesta más de un protocolo, Atlaps es el atlas SaaS español que diseña, compra y opera tu instalación bajo soberanía europea — porque tu casa inteligente merece un mapa propio, no un dashboard ajeno."_
 - **4 audiencias:** DIYer avanzado · Instalador · Integrador (CEDIA) · Arquitecto.
 - **Idioma:** **castellano peninsular** (tú/vosotros, sin voseo, sin anglicismos gratuitos).
 
@@ -50,9 +50,9 @@ Ver `app/globals.css` y `design-system/TOKENS.md`. Resumen:
 2. Hero · titular + subtítulo + 2 CTAs (`Empezar gratis` primario · `Ver el atlas en acción` secundario) + visual blueprint del canvas tldraw mockup.
 3. Cinturón de logos protocolos · KNX · Matter · Zigbee · Z-Wave · Modbus · BACnet · Wi-Fi · DALI con tooltip de "compatible / experimental".
 4. 5 pilares en grid · cards con icono + título + descripción 2 frases + enlace `Saber más →` (Planificador · Mercado · Monitor · Sugerencias · ComtubernIA).
-5. Bloque "Cómo funciona" · 3 pasos: *Diseña tu instalación → Compra el material → Opera y monitoriza*.
+5. Bloque "Cómo funciona" · 3 pasos: _Diseña tu instalación → Compra el material → Opera y monitoriza_.
 6. Pricing · 3 tiers (Free 0 € · **Solo 24,90 €/mes** destacado · Studio 59 €/mes) con feature checklist.
-7. Bloque ABP open-source · *"Atlaps Bridge Protocol — un MCP para domótica"* + badge GitHub stars.
+7. Bloque ABP open-source · _"Atlaps Bridge Protocol — un MCP para domótica"_ + badge GitHub stars.
 8. Bloque transparencia radical · 3 promesas con icono: self-host UE · voz local · comisiones declaradas.
 9. Testimonios · 3 slots con `data-testimonial-slot` placeholder.
 10. FAQ · 8 preguntas.
@@ -61,8 +61,8 @@ Ver `app/globals.css` y `design-system/TOKENS.md`. Resumen:
 
 Copy del hero (literal):
 
-- **Titular:** *Tu casa inteligente, dibujada como un atlas.*
-- **Subtítulo:** *Diseña la topología, calcula el material y opera la instalación. Multi-protocolo (KNX, Matter, Zigbee y 5 más), voz local UE y un atlas vivo en castellano.*
+- **Titular:** _Tu casa inteligente, dibujada como un atlas._
+- **Subtítulo:** _Diseña la topología, calcula el material y opera la instalación. Multi-protocolo (KNX, Matter, Zigbee y 5 más), voz local UE y un atlas vivo en castellano._
 - **CTA primario:** Empezar gratis
 - **CTA secundario:** Ver el atlas en acción
 
