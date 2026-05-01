@@ -53,8 +53,8 @@ Configuración A (Fraunces+Inter+JetBrains Mono) y B (Söhne+Geist+IBM Plex Mono
 
 Copy del hero (literal):
 
-- Titular: *Tu casa inteligente, dibujada como un atlas.*
-- Subtítulo: *Diseña la topología, calcula el material y opera la instalación. Multi-protocolo (KNX, Matter, Zigbee y 5 más), voz local UE y un atlas vivo en castellano.*
+- Titular: _Tu casa inteligente, dibujada como un atlas._
+- Subtítulo: _Diseña la topología, calcula el material y opera la instalación. Multi-protocolo (KNX, Matter, Zigbee y 5 más), voz local UE y un atlas vivo en castellano._
 - CTA primario: Empezar gratis
 - CTA secundario: Ver el atlas en acción
 

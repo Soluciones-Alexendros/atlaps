@@ -22,7 +22,7 @@ Construye una **landing privada `/socios`** que explique a futuros socios y cola
 - **Honestidad operativa.** Decir lo que está hecho (F0), lo que está en marcha (F1-F4) y lo que está abierto (Bloque B y C, ADRs deferidos) con la misma claridad. Si una cifra es estimada o supuesta, marcarla con ⚠ explícito.
 - **Soberanía como hilo conductor.** Cada bloque conecta con la promesa de soberanía UE, no como slogan sino como decisión técnica concreta (self-host, voz local, ABP open-source, sin CDNs Google, etc.).
 - **Castellano peninsular.** Sin voseo, sin anglicismos gratuitos. Términos técnicos consagrados se mantienen (KNX, Matter, Zigbee, MRR, NPS, LTV/CAC).
-- **Confidencialidad explícita.** Watermark visible: *"Documento de trabajo · confidencial · v0.1 · 30-abr-2026"* en footer y en margen lateral.
+- **Confidencialidad explícita.** Watermark visible: _"Documento de trabajo · confidencial · v0.1 · 30-abr-2026"_ en footer y en margen lateral.
 
 ## Sistema visual
 
@@ -38,22 +38,22 @@ Una sola página, 14 bloques en orden:
 ### 1. Header sticky
 
 - Logo horizontal a la izquierda.
-- Nav minimal: *Producto* (anchor) · *Diferenciación* · *Privacidad* · *Negocio* · *Roadmap* · *Colaborar*.
+- Nav minimal: _Producto_ (anchor) · _Diferenciación_ · _Privacidad_ · _Negocio_ · _Roadmap_ · _Colaborar_.
 - Toggle dark/light.
 - CTA primario derecha: `Solicitar conversación` (abre el formulario del bloque 14).
 - Sub-bandera discreta: `Documento confidencial · v0.1` con tooltip de última actualización.
 
 ### 2. Hero
 
-- Título grande (Fraunces 49–61 px): *"Un atlas de domótica que se opera, no se gestiona."*
-- Subtítulo (Inter 20 px, ink-pencil): *"Atlaps construye desde Comunitat Valenciana el primer SaaS español multi-protocolo con voz local UE, self-host de stack completo y un protocolo abierto Apache-2.0 para operar instalaciones reales. Esta página explica por qué buscamos socios y qué hay debajo."*
+- Título grande (Fraunces 49–61 px): _"Un atlas de domótica que se opera, no se gestiona."_
+- Subtítulo (Inter 20 px, ink-pencil): _"Atlaps construye desde Comunitat Valenciana el primer SaaS español multi-protocolo con voz local UE, self-host de stack completo y un protocolo abierto Apache-2.0 para operar instalaciones reales. Esta página explica por qué buscamos socios y qué hay debajo."_
 - Dos CTAs: `Solicitar conversación` (primario amber-signal) · `Descargar dossier (PDF)` (secundario outline blueprint).
 - Visual a la derecha: composición SVG blueprint con 5 nodos etiquetados (Planificador, Mercado, Monitor, Sugerencias, ComtubernIA) conectados por líneas blueprint-soft.
-- Bandera inferior con 3 cifras clave: *Bootstrap 4-may-2026* · *v1.0 GA prevista 2-ago-2026* · *Cash-runway 12 meses · 1.080 €*.
+- Bandera inferior con 3 cifras clave: _Bootstrap 4-may-2026_ · _v1.0 GA prevista 2-ago-2026_ · _Cash-runway 12 meses · 1.080 €_.
 
 ### 3. El problema (gap del mercado)
 
-Título: *"El mercado europeo de la domótica está fragmentado en cuatro silos que nadie cose."*
+Título: _"El mercado europeo de la domótica está fragmentado en cuatro silos que nadie cose."_
 
 Cuatro tarjetas en grid 2×2:
 
@@ -62,7 +62,7 @@ Cuatro tarjetas en grid 2×2:
 3. **Operar instalaciones** — Home Assistant exige ops casero, plataformas comerciales (SmartThings, Apple Home) son cajas cerradas con dependencia US.
 4. **Voz e IA** — Alexa, Google y Siri ofrecen calidad pero leakean datos a US; las alternativas locales (HA Voice, Rhasspy) requieren instalación heroica.
 
-Cada tarjeta cierra con: *"Atlaps cubre las 4 capas en una sola plataforma operada desde UE."*
+Cada tarjeta cierra con: _"Atlaps cubre las 4 capas en una sola plataforma operada desde UE."_
 
 ### 4. Atlaps en una mirada (5 pilares + ABP + ComtubernIA)
 
@@ -70,13 +70,13 @@ Diagrama central (SVG): los 5 pilares como cinco "estancias" de un plano arquite
 
 Tarjetas debajo, una por pilar:
 
-| Pilar | Resumen 2 líneas | Estado |
-| --- | --- | --- |
-| **Planificador** | Canvas blueprint con BOM auto-calculado, plantillas de escena, import .knxproj, export HA YAML + PDF + DXF/IFC. | F1 (8-may → 29-may) |
-| **Mercado** | Catálogo SKU con ficha técnica + comparativa precio + 2.ª mano A/B/C verificada + comisiones declaradas. | mes 5–9 |
-| **Monitor + ABP** | Operación tiempo real vía Atlaps Bridge Protocol Apache-2.0 ("un MCP para domótica"), uptime ≥99%. | alpha F4, GA F6 |
-| **Sugerencias** | Daemon que muestra el revenue declarado de cada recomendación (transparencia radical). | mes 9–12 |
-| **ComtubernIA** | Voz 100% local UE: Whisper-large-v3 ES + Piper TTS + openWakeWord + LLM Mistral La Plateforme UE. | F4 thin → F6 LLM propio |
+| Pilar             | Resumen 2 líneas                                                                                                | Estado                  |
+| ----------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| **Planificador**  | Canvas blueprint con BOM auto-calculado, plantillas de escena, import .knxproj, export HA YAML + PDF + DXF/IFC. | F1 (8-may → 29-may)     |
+| **Mercado**       | Catálogo SKU con ficha técnica + comparativa precio + 2.ª mano A/B/C verificada + comisiones declaradas.        | mes 5–9                 |
+| **Monitor + ABP** | Operación tiempo real vía Atlaps Bridge Protocol Apache-2.0 ("un MCP para domótica"), uptime ≥99%.              | alpha F4, GA F6         |
+| **Sugerencias**   | Daemon que muestra el revenue declarado de cada recomendación (transparencia radical).                          | mes 9–12                |
+| **ComtubernIA**   | Voz 100% local UE: Whisper-large-v3 ES + Piper TTS + openWakeWord + LLM Mistral La Plateforme UE.               | F4 thin → F6 LLM propio |
 
 Bloque inferior con badge: `Atlaps Bridge Protocol — repo público atlaps/abp (Apache-2.0) · "un MCP para domótica"`.
 
@@ -91,38 +91,38 @@ Tabla comparativa de 8 columnas y ~10 filas. Marcar con tokens del sistema:
 
 Filas obligatorias:
 
-| Capacidad | Atlaps | Home Assistant | SmartThings | Hubitat | Loxone | Apple Home | Google Home | Homey | D-Tools |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Diseño + BOM + memoria PDF profesional | ✅ | ❌ | ❌ | ❌ | ⚠ | ❌ | ❌ | ❌ | ✅ |
-| Multi-protocolo nativo (KNX+Matter+Zigbee+...) | ✅ | ✅ | ⚠ | ⚠ | ⚠ | ❌ | ❌ | ⚠ | ✅ |
-| Castellano peninsular completo (UI + voz + docs) | ✅ | ⚠ | ⚠ | ❌ | ⚠ | ✅ | ✅ | ⚠ | ❌ |
-| Voz 100% local UE (sin cloud) | ✅ | ⚠ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Self-host UE de stack completo | ✅ | ✅ | ❌ | ⚠ | ⚠ | ❌ | ❌ | ❌ | ❌ |
-| Protocolo abierto operación (ABP) | ✅ | ⚠ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Pricing < 25 €/mes para profesional | ✅ | — | ⚠ | ✅ | ❌ | — | — | ⚠ | ❌ |
-| Marketplace 2.ª mano integrado | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Comisiones declaradas en sugerencias | ✅ | — | ❌ | ❌ | — | ❌ | ❌ | ❌ | — |
-| Cumplimiento RGPD verificable (sin CDN US) | ✅ | ⚠ | ❌ | ⚠ | ⚠ | ❌ | ❌ | ⚠ | ⚠ |
+| Capacidad                                        | Atlaps | Home Assistant | SmartThings | Hubitat | Loxone | Apple Home | Google Home | Homey | D-Tools |
+| ------------------------------------------------ | ------ | -------------- | ----------- | ------- | ------ | ---------- | ----------- | ----- | ------- |
+| Diseño + BOM + memoria PDF profesional           | ✅     | ❌             | ❌          | ❌      | ⚠      | ❌         | ❌          | ❌    | ✅      |
+| Multi-protocolo nativo (KNX+Matter+Zigbee+...)   | ✅     | ✅             | ⚠           | ⚠       | ⚠      | ❌         | ❌          | ⚠     | ✅      |
+| Castellano peninsular completo (UI + voz + docs) | ✅     | ⚠              | ⚠           | ❌      | ⚠      | ✅         | ✅          | ⚠     | ❌      |
+| Voz 100% local UE (sin cloud)                    | ✅     | ⚠              | ❌          | ❌      | ❌     | ❌         | ❌          | ❌    | ❌      |
+| Self-host UE de stack completo                   | ✅     | ✅             | ❌          | ⚠       | ⚠      | ❌         | ❌          | ❌    | ❌      |
+| Protocolo abierto operación (ABP)                | ✅     | ⚠              | ❌          | ❌      | ❌     | ❌         | ❌          | ❌    | ❌      |
+| Pricing < 25 €/mes para profesional              | ✅     | —              | ⚠           | ✅      | ❌     | —          | —           | ⚠     | ❌      |
+| Marketplace 2.ª mano integrado                   | ✅     | ❌             | ❌          | ❌      | ❌     | ❌         | ❌          | ❌    | ❌      |
+| Comisiones declaradas en sugerencias             | ✅     | —              | ❌          | ❌      | —      | ❌         | ❌          | ❌    | —       |
+| Cumplimiento RGPD verificable (sin CDN US)       | ✅     | ⚠              | ❌          | ⚠       | ⚠      | ❌         | ❌          | ⚠     | ⚠       |
 
-Pie de tabla: *"Comparativa basada en información pública de cada producto a 30-abr-2026. Marcado conservador en caso de duda."*
+Pie de tabla: _"Comparativa basada en información pública de cada producto a 30-abr-2026. Marcado conservador en caso de duda."_
 
 ### 6. Privacidad y soberanía como decisiones técnicas
 
 Tres columnas con título grande, snippet de código y un párrafo de contexto:
 
-#### Columna 1 — *"Self-host de stack completo"*
+#### Columna 1 — _"Self-host de stack completo"_
 
 ```yaml
 # /docker-compose.yml (Hetzner CX32 · UE)
 services:
-  - supabase     # postgres + auth + realtime + storage
-  - glitchtip    # observabilidad
-  - trigger.dev  # background jobs (Apache-2.0)
+  - supabase # postgres + auth + realtime + storage
+  - glitchtip # observabilidad
+  - trigger.dev # background jobs (Apache-2.0)
 ```
 
 Texto: Backend completo en VPS Hetzner Falkenstein FR/DE. Coste ~13 €/mes. Backups WAL-G a Cloudflare R2 UE. Cero dependencias managed US. (ADR 006).
 
-#### Columna 2 — *"Voz 100% local"*
+#### Columna 2 — _"Voz 100% local"_
 
 ```python
 # ComtubernIA pipeline
@@ -134,7 +134,7 @@ LLM = Mistral La Plateforme UE → Scaleway L40S Paris (F6+)
 
 Texto: Comandos no salen del hogar salvo que el usuario lo autorice explícitamente. (ADR 004 + 005).
 
-#### Columna 3 — *"Sin trackers ni CDNs externos"*
+#### Columna 3 — _"Sin trackers ni CDNs externos"_
 
 ```css
 /* public/fonts/fonts.css */
@@ -147,7 +147,7 @@ Texto: Comandos no salen del hogar salvo que el usuario lo autorice explícitame
 
 Texto: Self-host de fuentes (SIL OFL 1.1), sin Google Analytics (Plausible CE EU), sin Hotjar, sin Intercom. DPAs UE firmados con Stripe, Resend, Hetzner, Cloudflare. (ADR 001).
 
-Pie del bloque: *"Cada decisión está documentada en un ADR público de este repositorio."*
+Pie del bloque: _"Cada decisión está documentada en un ADR público de este repositorio."_
 
 ### 7. Funcionalidades complementarias (sinergia entre pilares)
 
@@ -155,25 +155,25 @@ Diagrama interactivo: 5 nodos pilares unidos con líneas blueprint-soft etiqueta
 
 Ejemplos de etiquetas:
 
-- Planificador → Mercado: *"BOM se completa con SKUs reales de proveedores; precios live"*
-- Mercado → Monitor: *"Compra hardware certificado ABP-compatible directamente desde el catálogo"*
-- Monitor → ComtubernIA: *"Eventos del bridge alimentan respuestas de voz contextual"*
-- Sugerencias → Mercado: *"Sugerencia detecta hueco en la instalación, propone SKU del catálogo"*
-- ComtubernIA → Planificador: *"Voz asistida para crear escenas y dispositivos sin tocar el canvas"*
+- Planificador → Mercado: _"BOM se completa con SKUs reales de proveedores; precios live"_
+- Mercado → Monitor: _"Compra hardware certificado ABP-compatible directamente desde el catálogo"_
+- Monitor → ComtubernIA: _"Eventos del bridge alimentan respuestas de voz contextual"_
+- Sugerencias → Mercado: _"Sugerencia detecta hueco en la instalación, propone SKU del catálogo"_
+- ComtubernIA → Planificador: _"Voz asistida para crear escenas y dispositivos sin tocar el canvas"_
 
 Bloque inferior con tres frases:
 
-1. *"Los pilares operan independientemente: el Planificador funciona sin Monitor, el Mercado sin Sugerencias, etc."*
-2. *"Pero juntos cierran el ciclo diseño → compra → operación → optimización."*
-3. *"El Atlaps Bridge Protocol asegura que cualquier integración futura siga el mismo modelo de datos."*
+1. _"Los pilares operan independientemente: el Planificador funciona sin Monitor, el Mercado sin Sugerencias, etc."_
+2. _"Pero juntos cierran el ciclo diseño → compra → operación → optimización."_
+3. _"El Atlaps Bridge Protocol asegura que cualquier integración futura siga el mismo modelo de datos."_
 
 ### 8. Modelo de negocio
 
 Tres columnas de pricing:
 
-- **Free** — 0 € — 3 proyectos, ≤25 dispositivos, PDF básico → *"Captura de comunidad y SEO orgánico"*.
-- **Solo** — 24,90 €/mes IVA inc. — proyectos ilimitados, KNX import, HA export, memoria PDF → *"DIYer avanzado e instalador autónomo"*.
-- **Studio** — 59 €/mes IVA inc. — colaboración tiempo real, cajetín arquitectónico, DXF, catálogo profesional → *"Integradores y arquitectos"*.
+- **Free** — 0 € — 3 proyectos, ≤25 dispositivos, PDF básico → _"Captura de comunidad y SEO orgánico"_.
+- **Solo** — 24,90 €/mes IVA inc. — proyectos ilimitados, KNX import, HA export, memoria PDF → _"DIYer avanzado e instalador autónomo"_.
+- **Studio** — 59 €/mes IVA inc. — colaboración tiempo real, cajetín arquitectónico, DXF, catálogo profesional → _"Integradores y arquitectos"_.
 
 Debajo, tres streams adicionales (futuro F2-F6):
 
@@ -183,13 +183,13 @@ Debajo, tres streams adicionales (futuro F2-F6):
 
 Debajo, tabla de **OKRs cuantitativos** (5 destacados):
 
-| OKR | Hito | Cuándo | Confianza |
-| --- | --- | --- | --- |
-| 100 cuentas Free + NPS ≥ 30 | tracción | mes 6 | media-alta |
-| 25 conversiones Solo | revenue | mes 4 | ⚠ supuesto sin tracción previa |
-| 5 cuentas Studio | revenue | mes 6 | media |
-| ≥100 ⭐ GitHub `atlaps/abp` | comunidad | mes 12 | media |
-| 25 instalaciones ABP en Monitor | red | mes 13 | abierto |
+| OKR                             | Hito      | Cuándo | Confianza                      |
+| ------------------------------- | --------- | ------ | ------------------------------ |
+| 100 cuentas Free + NPS ≥ 30     | tracción  | mes 6  | media-alta                     |
+| 25 conversiones Solo            | revenue   | mes 4  | ⚠ supuesto sin tracción previa |
+| 5 cuentas Studio                | revenue   | mes 6  | media                          |
+| ≥100 ⭐ GitHub `atlaps/abp`     | comunidad | mes 12 | media                          |
+| 25 instalaciones ABP en Monitor | red       | mes 13 | abierto                        |
 
 ### 9. Tracción y métricas tempranas (si las hay)
 
@@ -199,7 +199,7 @@ Si en el momento de mostrar la landing existen ya datos (waitlist, entrevistas, 
 - N entrevistas hechas + 2-3 quotes anonimizadas.
 - N estrellas en repo `atlaps/abp` si está publicado.
 
-Si todavía no hay datos: una sola frase honesta — *"Tracción en construcción. F0 arranca 4-may-2026."*
+Si todavía no hay datos: una sola frase honesta — _"Tracción en construcción. F0 arranca 4-may-2026."_
 
 ### 10. Roadmap 18 meses (timeline visual)
 
@@ -224,30 +224,30 @@ Cada nodo con tooltip de hitos cuantitativos.
 - Subcontrataciones previstas: laboratorio CE/RED, asesoría legal RGPD, traducciones LATAM.
 - Plan de incorporaciones 24 meses (con métricas de activación).
 
-Frase de cierre del bloque: *"Estructura ligera por elección; capacidad real con Claude Code factor ~3× equivalente."*
+Frase de cierre del bloque: _"Estructura ligera por elección; capacidad real con Claude Code factor ~3× equivalente."_
 
 ### 12. Financiación en marcha
 
 Estado de los 4 programas:
 
-| Programa | Importe | Plazo | Estado |
-| --- | --- | --- | --- |
-| IVACE INNOVA-CV TEIC | 50–70% del proyecto | 5-may-2026 23:59 | 🔴 redacción urgente |
-| ENISA Jóvenes Emprendedores | 25–75 k€ | abierto | 🟡 borrador desde D-1 |
-| CDTI Neotec | hasta 325 k€ | conv. anual jun-jul | 🟡 monitorizar |
-| AVI Agència Valenciana d'Innovació | variable | varias líneas anuales | 🟡 mapear compatibilidad |
+| Programa                           | Importe             | Plazo                 | Estado                   |
+| ---------------------------------- | ------------------- | --------------------- | ------------------------ |
+| IVACE INNOVA-CV TEIC               | 50–70% del proyecto | 5-may-2026 23:59      | 🔴 redacción urgente     |
+| ENISA Jóvenes Emprendedores        | 25–75 k€            | abierto               | 🟡 borrador desde D-1    |
+| CDTI Neotec                        | hasta 325 k€        | conv. anual jun-jul   | 🟡 monitorizar           |
+| AVI Agència Valenciana d'Innovació | variable            | varias líneas anuales | 🟡 mapear compatibilidad |
 
-Frase de cierre: *"Buscamos socios que complementen subvención y deuda blanda con conocimiento de mercado, red de contactos y validación operativa."*
+Frase de cierre: _"Buscamos socios que complementen subvención y deuda blanda con conocimiento de mercado, red de contactos y validación operativa."_
 
 ### 13. Cómo colaborar (5 vías concretas)
 
 Cinco tarjetas, cada una con título + descripción 2-3 líneas + CTA propio:
 
-1. **Inversión semilla / pre-seed** — ticket orientativo 15-50 k€ por socio, hasta ronda 200-300 k€. Pacto de socios estándar VC EU. CTA: *"Ver dossier financiero"*.
-2. **Advisor técnico** — equity ~0.25-1.0% por compromiso 6-12 meses, foco en ABP, Matter, voz local o canal integrador. CTA: *"Contactar como advisor"*.
-3. **Partner integrador** — early access Studio + comisión por cuentas referidas + voz en roadmap del módulo Profesional. CTA: *"Programa partners"*.
-4. **Distribución hardware** — incorporación al catálogo Mercado + integración API + comisión declarada. CTA: *"Acuerdo distribución"*.
-5. **Cliente piloto** — instalación real subvencionada por Atlaps a cambio de feedback estructurado y testimonio. CTA: *"Aplicar como piloto"*.
+1. **Inversión semilla / pre-seed** — ticket orientativo 15-50 k€ por socio, hasta ronda 200-300 k€. Pacto de socios estándar VC EU. CTA: _"Ver dossier financiero"_.
+2. **Advisor técnico** — equity ~0.25-1.0% por compromiso 6-12 meses, foco en ABP, Matter, voz local o canal integrador. CTA: _"Contactar como advisor"_.
+3. **Partner integrador** — early access Studio + comisión por cuentas referidas + voz en roadmap del módulo Profesional. CTA: _"Programa partners"_.
+4. **Distribución hardware** — incorporación al catálogo Mercado + integración API + comisión declarada. CTA: _"Acuerdo distribución"_.
+5. **Cliente piloto** — instalación real subvencionada por Atlaps a cambio de feedback estructurado y testimonio. CTA: _"Aplicar como piloto"_.
 
 ### 14. Formulario contacto + CTA
 
@@ -255,20 +255,20 @@ Form simple en card con grid 1-col:
 
 - Nombre · email · empresa (opcional) · vía de interés (select con las 5 opciones del bloque 13) · mensaje libre · checkbox RGPD obligatorio · botón `Solicitar conversación`.
 
-Submit: webhook a Resend que crea ticket interno + envía respuesta automática en castellano firmada por *"Iniciativa Alexendros, S.L. · contacto@alexendros.me"*.
+Submit: webhook a Resend que crea ticket interno + envía respuesta automática en castellano firmada por _"Iniciativa Alexendros, S.L. · contacto@alexendros.me"_.
 
-Sub-bandera con tres garantías: *"Respondemos en ≤72 h"* · *"NDA recíproco bajo petición"* · *"Tu correo nunca se cede a terceros"*.
+Sub-bandera con tres garantías: _"Respondemos en ≤72 h"_ · _"NDA recíproco bajo petición"_ · _"Tu correo nunca se cede a terceros"_.
 
 ### 15. Footer
 
 - Logo horizontal blanco sobre blueprint-deep (modo dark del footer aunque la página esté en claro).
-- 3 columnas: *Producto* (links a la landing pública atlaps.com) · *Compañía* (Iniciativa Alexendros, S.L. · NIF · sede CV) · *Legal* (privacy · terms · cookies · imprint).
-- Línea final con watermark: *"Documento confidencial · v0.1 · 30-abr-2026 · prohibida su reproducción sin autorización escrita de Iniciativa Alexendros, S.L."*
+- 3 columnas: _Producto_ (links a la landing pública atlaps.com) · _Compañía_ (Iniciativa Alexendros, S.L. · NIF · sede CV) · _Legal_ (privacy · terms · cookies · imprint).
+- Línea final con watermark: _"Documento confidencial · v0.1 · 30-abr-2026 · prohibida su reproducción sin autorización escrita de Iniciativa Alexendros, S.L."_
 - Selector de idioma (es default · en futuro).
 
 ## Restricciones absolutas
 
-- NO inventar testimonios. Si no hay quotes reales, dejar el bloque 9 con la frase honesta *"Tracción en construcción"*.
+- NO inventar testimonios. Si no hay quotes reales, dejar el bloque 9 con la frase honesta _"Tracción en construcción"_.
 - NO inflar cifras. Si una métrica es supuesto, marcarla con ⚠ en la propia tabla.
 - NO usar imágenes stock genéricas. Sólo SVG inline blueprint, fotografía real (operador), o ilustración custom cartográfica.
 - NO usar paletas púrpura ni mezcla con Vergina Imperial.

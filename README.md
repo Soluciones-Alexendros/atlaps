@@ -1,6 +1,6 @@
 # Atlaps
 
-> *Atlas de aplicaciones domóticas capaces de funcionar independientemente y de arrollar cooperativamente.*
+> _Atlas de aplicaciones domóticas capaces de funcionar independientemente y de arrollar cooperativamente._
 >
 > Iniciativa Alexendros, S.L. · Comunitat Valenciana · Bootstrap F0 4-may-2026.
 
@@ -49,15 +49,15 @@ Atlaps/
 
 ## Quién va dónde
 
-| Si quieres... | Mira... |
-| --- | --- |
-| Ver la presentación de socios (privada) | `apps/socios/README.md` → contenido en `public/socios/` |
-| Construir / iterar la landing pública atlaps.com | `apps/web/` (placeholder) + `docs/briefs/prototype-landing-app.md` |
-| Construir / iterar la app autenticada | `apps/platform/` (placeholder) + `docs/briefs/prototype-landing-app.md` (sección B) |
-| Iterar el design system con Design de Claude | `packages/design-system/` + `docs/briefs/design-system.md` |
-| Consultar tokens, paleta, tipografía | `docs/tokens.md` y `packages/design-system/tokens.css` |
-| Conocer las decisiones de marca | `docs/adr/` |
-| Descargar / regenerar las fuentes self-host | `bash scripts/fetch-fonts.sh` |
+| Si quieres...                                    | Mira...                                                                             |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| Ver la presentación de socios (privada)          | `apps/socios/README.md` → contenido en `public/socios/`                             |
+| Construir / iterar la landing pública atlaps.com | `apps/web/` (placeholder) + `docs/briefs/prototype-landing-app.md`                  |
+| Construir / iterar la app autenticada            | `apps/platform/` (placeholder) + `docs/briefs/prototype-landing-app.md` (sección B) |
+| Iterar el design system con Design de Claude     | `packages/design-system/` + `docs/briefs/design-system.md`                          |
+| Consultar tokens, paleta, tipografía             | `docs/tokens.md` y `packages/design-system/tokens.css`                              |
+| Conocer las decisiones de marca                  | `docs/adr/`                                                                         |
+| Descargar / regenerar las fuentes self-host      | `bash scripts/fetch-fonts.sh`                                                       |
 
 ## Stack
 
@@ -80,6 +80,7 @@ pnpm dev
 ```
 
 El portal Next.js sirve:
+
 - `/` → home con índice de recursos del monorepo.
 - `/socios/` → presentación privada para socios.
 - `/fonts/*` → fuentes self-host.

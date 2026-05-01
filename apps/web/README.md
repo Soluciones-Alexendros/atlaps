@@ -51,6 +51,7 @@ apps/web/
 ## Sección /socios
 
 La presentación privada para socios vive en `apps/socios/` (servida en F0 desde `public/socios/`). Cuando se construya `apps/web/`, decidir si:
+
 - (a) Migrar `/socios` como ruta protegida dentro de la app web pública.
 - (b) Mantener `/socios` como deploy separado en subdominio (`socios.atlaps.com`).
 

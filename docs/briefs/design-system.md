@@ -21,27 +21,27 @@ Genera el design system completo de Atlaps como una página única tipo "Storybo
 ```css
 :root {
   /* Blueprint — azul plano arquitectónico */
-  --blueprint-deep: #0F2A4A;
-  --blueprint-mid:  #1E4D7A;
-  --blueprint-soft: #3A7BB8;
+  --blueprint-deep: #0f2a4a;
+  --blueprint-mid: #1e4d7a;
+  --blueprint-soft: #3a7bb8;
 
   /* Paper — pergamino */
-  --paper-bone:  #F5F1E8;
-  --paper-grid:  #E8E0CC;
+  --paper-bone: #f5f1e8;
+  --paper-grid: #e8e0cc;
 
   /* Amber — acento (por debajo del 10% de la superficie) */
-  --amber-signal: #C77D2C;
-  --amber-glow:   #E89642;
+  --amber-signal: #c77d2c;
+  --amber-glow: #e89642;
 
   /* Tinta */
-  --ink-graphite: #1A1F2E;
-  --ink-pencil:   #5C6B7F;
+  --ink-graphite: #1a1f2e;
+  --ink-pencil: #5c6b7f;
 
   /* Estados semánticos derivados */
-  --success: #2F8F5C;
-  --warning: #C77D2C;
-  --danger:  #B23A48;
-  --info:    #3A7BB8;
+  --success: #2f8f5c;
+  --warning: #c77d2c;
+  --danger: #b23a48;
+  --info: #3a7bb8;
 }
 ```
 

@@ -1,0 +1,12 @@
+node_modules
+.next
+pnpm-lock.yaml
+public/socios
+public/fonts
+packages/design-system
+apps/socios
+app/page.tsx
+app/layout.tsx
+app/globals.css
+*.min.js
+*.min.css

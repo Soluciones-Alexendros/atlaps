@@ -73,11 +73,13 @@ apps/platform/
 ## Sinergia con `apps/web`
 
 Comparten:
+
 - `packages/design-system` (tokens, logo, motion).
 - `public/fonts/` (7 WOFF2 self-host).
 - DPA Stripe + Resend + Hetzner.
 
 NO comparten:
+
 - Layout (web es marketing, platform es app de uso intensivo).
 - Tipografía (web usa Configuración A, platform usa B — ADR pendiente formalizar).
 - Auth state (web es público; platform requiere sesión).
