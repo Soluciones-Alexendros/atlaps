@@ -13,10 +13,16 @@ test("/socios/ landing serves 200 with bundle wired", async ({ page }) => {
 });
 
 test("/socios/ Hero h1 hydrates without bundle errors", async ({ page }) => {
-  // Captura mensajes de consola y errores de pagina para diagnostico en CI.
+  // Captura mensajes de consola, errores de pagina, requests fallidos y respuestas !=200.
   const consoleMsgs: string[] = [];
   page.on("console", (m) => consoleMsgs.push(`[${m.type()}] ${m.text()}`));
   page.on("pageerror", (e) => consoleMsgs.push(`[pageerror] ${e.message}`));
+  page.on("response", (r) => {
+    if (r.status() >= 400) consoleMsgs.push(`[${r.status()}] ${r.url()}`);
+  });
+  page.on("requestfailed", (r) =>
+    consoleMsgs.push(`[requestfailed] ${r.url()} ${r.failure()?.errorText ?? ""}`),
+  );
 
   await page.goto("/socios/");
   // Espera a que el bundle haya tenido oportunidad de ejecutarse.
