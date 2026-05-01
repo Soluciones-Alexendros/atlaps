@@ -101,17 +101,7 @@ cat > "$HTML_OUT" <<HTML
 
 <script src="vendor/react.production.min.js" integrity="sha384-${REACT_SRI}" crossorigin="anonymous"></script>
 <script src="vendor/react-dom.production.min.js" integrity="sha384-${REACT_DOM_SRI}" crossorigin="anonymous"></script>
-<script>
-window.__atlapsErrors = [];
-window.addEventListener("error", function (e) {
-  window.__atlapsErrors.push({ msg: e.message, src: e.filename + ":" + e.lineno });
-  document.documentElement.setAttribute("data-bundle-error", "1");
-});
-window.addEventListener("unhandledrejection", function (e) {
-  window.__atlapsErrors.push({ msg: String(e.reason) });
-  document.documentElement.setAttribute("data-bundle-error", "1");
-});
-</script>
+<script src="error-handler.js"></script>
 <script src="bundle.js"></script>
 
 </body>
