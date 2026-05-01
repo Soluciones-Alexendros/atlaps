@@ -12,8 +12,8 @@ const MOON = (s=18) => (
 const Header = ({ theme, onToggleTheme }) => (
   <header className="hdr">
     <div className="hdr-inner">
-      <a href="#" style={{ display: "inline-flex", alignItems: "center", gap: 10, textDecoration: "none", color: "inherit" }}>
-        <img src="assets/logo-icon.svg" alt="" width="28" height="28" style={{ filter: theme === "dark" ? "invert(1) brightness(1.2)" : "none" }} />
+      <a href="#hero" aria-label="Atlaps — inicio" style={{ display: "inline-flex", alignItems: "center", gap: 10, textDecoration: "none", color: "inherit" }}>
+        <img src="assets/logo-icon.svg" alt="" aria-hidden="true" width="28" height="28" style={{ filter: theme === "dark" ? "invert(1) brightness(1.2)" : "none" }} />
         <span style={{ fontFamily: "var(--font-display)", fontSize: 22, letterSpacing: "0.06em", fontWeight: 500 }}>atlaps</span>
       </a>
       <nav>
@@ -28,8 +28,8 @@ const Header = ({ theme, onToggleTheme }) => (
         <span>Documento confidencial</span>
         <strong>v0.1 · 30-abr-2026</strong>
       </div>
-      <button className="btn-icon" onClick={onToggleTheme} aria-label={theme === "dark" ? "Activar modo claro" : "Activar modo oscuro"} title={theme === "dark" ? "Modo claro" : "Modo oscuro"}>
-        {theme === "dark" ? SUN(16) : MOON(16)}
+      <button type="button" className="btn-icon" onClick={onToggleTheme} aria-pressed={theme === "dark"} aria-label={theme === "dark" ? "Activar modo claro" : "Activar modo oscuro"} title={theme === "dark" ? "Modo claro" : "Modo oscuro"}>
+        <span aria-hidden="true">{theme === "dark" ? SUN(16) : MOON(16)}</span>
       </button>
       <a className="btn btn-primary" href="#contacto">Solicitar conversación</a>
     </div>
@@ -46,7 +46,7 @@ const Hero = () => (
         <p className="lead">Atlaps construye desde Comunitat Valenciana el primer SaaS español multi-protocolo con voz local UE, self-host de stack completo y un protocolo abierto Apache-2.0 para operar instalaciones reales. Esta página explica por qué buscamos socios y qué hay debajo.</p>
         <div className="hero-cta">
           <a className="btn btn-accent" href="#contacto">Solicitar conversación</a>
-          <a className="btn btn-secondary" href="#dossier" onClick={(e)=>{e.preventDefault(); alert("Dossier PDF · pendiente de empaquetado. En showcase, simulado.");}}>Descargar dossier PDF</a>
+          <a className="btn btn-secondary" href="#contacto?via=inversion">Solicitar dossier PDF</a>
         </div>
         <div className="hero-meta">
           <div><strong>Bootstrap</strong>4-may-2026</div>
@@ -195,12 +195,12 @@ const Glance = () => (
       ))}
     </div>
 
-    <a className="repo-badge" href="#" onClick={(e)=>e.preventDefault()}>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+    <span className="repo-badge" aria-label="Repo público atlaps/abp · Apache-2.0 · próximamente">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
       <span>Repo público <code>atlaps/abp</code></span>
       <span className="lic">Apache-2.0</span>
-      <span style={{color:"var(--fg-soft)"}}>· "un MCP para domótica"</span>
-    </a>
+      <span style={{color:"var(--fg-soft)"}}>· repo público en F1 (ago-2026) · "un MCP para domótica"</span>
+    </span>
   </section>
 );
 
@@ -234,17 +234,18 @@ const Diferenciacion = () => (
     </div>
 
     <div className="cmp-wrap">
-      <table className="cmp">
+      <table className="cmp" aria-label="Comparativa competitiva de capacidades">
+        <caption className="sr-only">Comparativa de capacidades entre Atlaps y nueve competidores</caption>
         <thead>
           <tr>
-            <th className="feat">Capacidad</th>
-            {COMPS.map((c,i) => <th key={c} className={i===0?"us":""}>{c}</th>)}
+            <th scope="col" className="feat">Capacidad</th>
+            {COMPS.map((c,i) => <th scope="col" key={c} className={i===0?"us":""}>{c}</th>)}
           </tr>
         </thead>
         <tbody>
           {CMP_ROWS.map((r, ri) => (
             <tr key={ri}>
-              <td className="feat">{r.f}</td>
+              <th scope="row" className="feat">{r.f}</th>
               {r.v.map((k,i)=> <td key={i} className={i===0?"us":""}>{mark(k)}</td>)}
             </tr>
           ))}

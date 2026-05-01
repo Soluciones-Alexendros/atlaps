@@ -14,19 +14,27 @@ const Equipo = () => (
 
     <div className="team">
       <div className="photo">
-        <svg viewBox="0 0 200 200" aria-hidden="true">
-          <rect width="200" height="200" fill="var(--bg)"/>
-          <g fill="none" stroke="var(--blueprint-soft)" strokeWidth="0.6" opacity="0.4">
-            <ellipse cx="100" cy="100" rx="80" ry="30"/>
-            <ellipse cx="100" cy="100" rx="60" ry="24"/>
-            <ellipse cx="100" cy="100" rx="40" ry="18"/>
-            <ellipse cx="100" cy="100" rx="20" ry="10"/>
+        <svg className="photo-topo" viewBox="0 0 200 200" aria-hidden="true">
+          <g fill="none" stroke="var(--blueprint-soft)" strokeWidth="0.6" opacity="0.45">
+            <ellipse cx="100" cy="100" rx="92" ry="36"/>
+            <ellipse cx="100" cy="100" rx="74" ry="30"/>
+            <ellipse cx="100" cy="100" rx="56" ry="24"/>
+            <ellipse cx="100" cy="100" rx="38" ry="18"/>
           </g>
-          <circle cx="100" cy="80" r="28" fill="var(--bg-elev)" stroke="var(--blueprint-mid)" strokeWidth="1.25"/>
-          <path d="M 50 200 C 50 140, 150 140, 150 200" fill="var(--bg-elev)" stroke="var(--blueprint-mid)" strokeWidth="1.25"/>
-          <text x="100" y="86" textAnchor="middle" fontFamily="var(--font-display)" fontSize="22" fontWeight="500" fill="var(--fg-soft)">ADA</text>
         </svg>
-        <span className="ph-tag">Foto pendiente · placeholder</span>
+        <picture>
+          <source srcSet="assets/founder-ada.webp" type="image/webp" />
+          <img
+            className="photo-img"
+            src="assets/founder-ada.jpg"
+            alt="Alejandro Domingo Agustí, fundador de Iniciativa Alexendros, S.L."
+            width="800"
+            height="800"
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
+        <span className="photo-caption" aria-hidden="true">ADA · València · 2026</span>
       </div>
       <div>
         <h3>Alejandro Domingo Agustí</h3>
@@ -64,7 +72,8 @@ const Financiacion = () => (
     </div>
 
     <table className="fund-tbl">
-      <thead><tr><th style={{width:200}}>Programa</th><th>Importe / cobertura</th><th style={{width:160}}>Plazo</th><th style={{width:140}}>Estado</th></tr></thead>
+      <caption className="sr-only">Programas de financiación pública</caption>
+      <thead><tr><th scope="col" style={{width:200}}>Programa</th><th scope="col">Importe / cobertura</th><th scope="col" style={{width:160}}>Plazo</th><th scope="col" style={{width:140}}>Estado</th></tr></thead>
       <tbody>
         <tr><td><strong>IVACE INNOVA-CV TEIC</strong><br/><span style={{fontFamily:"var(--font-mono)",fontSize:11,color:"var(--fg-soft)"}}>Subvención CV</span></td><td className="amt">50–70 % gastos elegibles</td><td>5-may-2026</td><td><span className="status-dot red">Riesgo activo</span></td></tr>
         <tr><td><strong>ENISA Jóvenes Emprendedores</strong><br/><span style={{fontFamily:"var(--font-mono)",fontSize:11,color:"var(--fg-soft)"}}>Préstamo participativo</span></td><td className="amt">25–75 k€</td><td>Convocatoria abierta</td><td><span className="status-dot amber">En preparación</span></td></tr>
@@ -78,11 +87,11 @@ const Financiacion = () => (
 
 // — 13. Cómo colaborar ————————————————————————————————————
 const COLLAB = [
-  { n:"01", t:"Inversión semilla",       p:"15–50 k€ por socio. Ronda objetivo 200–300 k€. Pacto VC EU estándar (BVCA / SeedSummit).", perks:["Equity 1–4 % por socio","Reporting trimestral","Información trimestral cuantitativa"], cta:"Solicitar pitch deck" },
-  { n:"02", t:"Advisor técnico",         p:"Equity 0,25–1,0 % × 6–12 meses. Áreas: ABP, Matter, voz local, canal integrador CEDIA.",  perks:["Vesting con cliff 3 meses","Compromiso 2 h/sem","Voz en roadmap"], cta:"Hablar de advisor" },
-  { n:"03", t:"Partner integrador",      p:"Early access Studio + comisión sobre proyectos cerrados + voz directa en roadmap.",       perks:["Studio · 0 € F4 → F6","Comisión declarada","Acceso a backlog"], cta:"Pedir acceso anticipado" },
-  { n:"04", t:"Distribución hardware",   p:"Catálogo Mercado integrado vía API + comisión declarada visible al usuario final.",       perks:["Integración SKU live","Comisión 5–12 %","Co-marketing CEDIA"], cta:"Convenio distribución" },
-  { n:"05", t:"Cliente piloto",          p:"Instalación subvencionada por Atlaps a cambio de feedback estructurado y testimonio.",     perks:["Hardware al coste","Setup gratuito","Testimonio firmado"], cta:"Postularme piloto" },
+  { n:"01", t:"Inversión semilla",       p:"15–50 k€ por socio. Ronda objetivo 200–300 k€. Pacto VC EU estándar (BVCA / SeedSummit).", perks:["Equity 1–4 % por socio","Reporting trimestral","Información trimestral cuantitativa"], cta:"Solicitar pitch deck", via:"inversion" },
+  { n:"02", t:"Advisor técnico",         p:"Equity 0,25–1,0 % × 6–12 meses. Áreas: ABP, Matter, voz local, canal integrador CEDIA.",  perks:["Vesting con cliff 3 meses","Compromiso 2 h/sem","Voz en roadmap"], cta:"Hablar de advisor", via:"advisor" },
+  { n:"03", t:"Partner integrador",      p:"Early access Studio + comisión sobre proyectos cerrados + voz directa en roadmap.",       perks:["Studio · 0 € F4 → F6","Comisión declarada","Acceso a backlog"], cta:"Pedir acceso anticipado", via:"integrador" },
+  { n:"04", t:"Distribución hardware",   p:"Catálogo Mercado integrado vía API + comisión declarada visible al usuario final.",       perks:["Integración SKU live","Comisión 5–12 %","Co-marketing CEDIA"], cta:"Convenio distribución", via:"distribucion" },
+  { n:"05", t:"Cliente piloto",          p:"Instalación subvencionada por Atlaps a cambio de feedback estructurado y testimonio.",     perks:["Hardware al coste","Setup gratuito","Testimonio firmado"], cta:"Postularme piloto", via:"piloto" },
 ];
 const Colaborar = () => (
   <section id="colaborar" className="block" data-screen-label="13 Colaborar">
@@ -102,7 +111,7 @@ const Colaborar = () => (
           <div className="perks">
             {c.perks.map((k,i)=> <span key={i}>· {k}</span>)}
           </div>
-          <a href="#contacto" className="btn btn-secondary btn-sm" style={{justifyContent:"center"}}>{c.cta} →</a>
+          <a href={`#contacto?via=${c.via}`} data-via={c.via} className="btn btn-secondary btn-sm" style={{justifyContent:"center"}}>{c.cta} →</a>
         </div>
       ))}
     </div>
@@ -111,14 +120,47 @@ const Colaborar = () => (
 
 // — 14. Formulario contacto ————————————————————————————————
 const Contacto = () => {
-  const [data, setData] = React.useState({ name:"", email:"", company:"", via:"inversion", msg:"", rgpd:false });
+  const [data, setData] = React.useState({ name:"", email:"", company:"", via:"inversion", msg:"", rgpd:false, website:"" });
   const [sent, setSent] = React.useState(false);
-  const submit = (e) => {
+  const [sending, setSending] = React.useState(false);
+  const [error, setError] = React.useState("");
+
+  // Pre-fill `via` desde hash de la URL: #contacto?via=advisor → setData.via = "advisor"
+  React.useEffect(() => {
+    const VALID = ["inversion","advisor","integrador","distribucion","piloto"];
+    const readVia = () => {
+      const h = window.location.hash || "";
+      const q = h.split("?")[1];
+      if (!q) return;
+      const v = new URLSearchParams(q).get("via");
+      if (v && VALID.includes(v)) setData(d => ({ ...d, via: v }));
+    };
+    readVia();
+    window.addEventListener("hashchange", readVia);
+    return () => window.removeEventListener("hashchange", readVia);
+  }, []);
+  const submit = async (e) => {
     e.preventDefault();
     if (!data.name || !data.email || !data.rgpd) return;
-    // Mock Resend submit
-    console.info("[mock Resend] payload:", data);
-    setSent(true);
+    if (data.website) return; // honeypot
+    setSending(true); setError("");
+    try {
+      const res = await fetch("/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json.ok) {
+        setError(json.error || `Error ${res.status}`);
+        return;
+      }
+      setSent(true);
+    } catch (err) {
+      setError("Sin conexión. Reintenta en unos segundos.");
+    } finally {
+      setSending(false);
+    }
   };
   return (
     <section id="contacto" className="block" data-screen-label="14 Contacto">
@@ -153,17 +195,22 @@ const Contacto = () => {
                 <span>Mensaje recibido. Respondemos en ≤ 72 h al correo facilitado.</span>
               </div>
               <p style={{margin:0,fontSize:14,color:"var(--fg-soft)"}}>En esta versión showcase, el envío es simulado. En producción se integra con <code>Resend</code> y un buzón monitorizado por el PI.</p>
-              <button className="btn btn-secondary" onClick={()=>{setSent(false); setData({name:"",email:"",company:"",via:"inversion",msg:"",rgpd:false});}}>Enviar otro</button>
+              <button type="button" className="btn btn-secondary" onClick={()=>{setSent(false); setData({name:"",email:"",company:"",via:"inversion",msg:"",rgpd:false,website:""});}}>Enviar otro</button>
             </div>
           ) : (
-            <form onSubmit={submit}>
-              <div className="form-row">
-                <label>Nombre completo<input value={data.name} onChange={e=>setData({...data,name:e.target.value})} placeholder="Nombre y apellidos" required /></label>
-                <label>Email<input type="email" value={data.email} onChange={e=>setData({...data,email:e.target.value})} placeholder="tu@dominio.com" required /></label>
+            <form method="post" action="/api/contacto" onSubmit={submit} noValidate>
+              {/* Honeypot anti-bot — visually-hidden con label asociado (WCAG 2.2 SC 4.1.2). */}
+              <div aria-hidden="true" className="sr-only">
+                <label htmlFor="hp-fax">No rellenar este campo</label>
+                <input id="hp-fax" type="text" name="hp_fax_number" tabIndex={-1} autoComplete="off" value={data.website||""} onChange={e=>setData({...data,website:e.target.value})} />
               </div>
-              <label>Empresa o vehículo<input value={data.company} onChange={e=>setData({...data,company:e.target.value})} placeholder="Razón social u organización" /></label>
-              <label>Vía de interés
-                <select value={data.via} onChange={e=>setData({...data,via:e.target.value})}>
+              <div className="form-row">
+                <label htmlFor="contacto-name">Nombre completo <span aria-hidden="true" style={{color:"var(--amber-signal)"}}>*</span><input id="contacto-name" name="name" autoComplete="name" value={data.name} onChange={e=>setData({...data,name:e.target.value})} placeholder="Nombre y apellidos" required aria-required="true" /></label>
+                <label htmlFor="contacto-email">Email <span aria-hidden="true" style={{color:"var(--amber-signal)"}}>*</span><input id="contacto-email" name="email" type="email" autoComplete="email" value={data.email} onChange={e=>setData({...data,email:e.target.value})} placeholder="tu@dominio.com" required aria-required="true" /></label>
+              </div>
+              <label htmlFor="contacto-company">Empresa o vehículo<input id="contacto-company" name="company" autoComplete="organization" value={data.company} onChange={e=>setData({...data,company:e.target.value})} placeholder="Razón social u organización" /></label>
+              <label htmlFor="contacto-via">Vía de interés
+                <select id="contacto-via" name="via" value={data.via} onChange={e=>setData({...data,via:e.target.value})}>
                   <option value="inversion">Inversión semilla (15–50 k€)</option>
                   <option value="advisor">Advisor técnico</option>
                   <option value="integrador">Partner integrador</option>
@@ -171,12 +218,20 @@ const Contacto = () => {
                   <option value="piloto">Cliente piloto</option>
                 </select>
               </label>
-              <label>Mensaje<textarea value={data.msg} onChange={e=>setData({...data,msg:e.target.value})} placeholder="Contexto breve. ¿Qué te ha llamado la atención de Atlaps? ¿Qué tipo de conversación buscas?" /></label>
-              <label className="form-checkbox">
-                <input type="checkbox" checked={data.rgpd} onChange={e=>setData({...data,rgpd:e.target.checked})} required />
-                <span>He leído y acepto el tratamiento de mis datos según el RGPD UE 2016/679. Responsable: Iniciativa Alexendros, S.L. Finalidad: respuesta a esta solicitud. Conservación: 24 meses o hasta solicitud de baja.</span>
+              <label htmlFor="contacto-msg">Mensaje<textarea id="contacto-msg" name="msg" value={data.msg} onChange={e=>setData({...data,msg:e.target.value})} placeholder="Contexto breve. ¿Qué te ha llamado la atención de Atlaps? ¿Qué tipo de conversación buscas?" /></label>
+              <label className="form-checkbox" htmlFor="contacto-rgpd">
+                <input id="contacto-rgpd" name="rgpd" type="checkbox" checked={data.rgpd} onChange={e=>setData({...data,rgpd:e.target.checked})} required aria-required="true" />
+                <span>He leído y acepto el tratamiento de mis datos según el <a href="/legal/privacidad">RGPD UE 2016/679</a>. Responsable: Iniciativa Alexendros, S.L. Finalidad: respuesta a esta solicitud. Conservación: 24 meses o hasta solicitud de baja.</span>
               </label>
-              <button type="submit" className="btn btn-accent" style={{justifyContent:"center"}} disabled={!data.name||!data.email||!data.rgpd}>Solicitar conversación →</button>
+              <p id="contacto-status" role="status" aria-live="polite" aria-atomic="true" style={{margin:0,minHeight:"1em",fontSize:14,color:"var(--fg-soft)"}}>
+                {sending ? "Enviando solicitud…" : ""}
+              </p>
+              {error && (
+                <div role="alert" aria-live="assertive" style={{padding:"10px 14px",background:"var(--danger-surface)",border:"1px solid var(--danger)",borderRadius:4,color:"var(--danger)",fontSize:14}}>
+                  {error}
+                </div>
+              )}
+              <button type="submit" className="btn btn-accent" style={{justifyContent:"center"}} disabled={sending||!data.name||!data.email||!data.rgpd}>{sending ? "Enviando…" : "Solicitar conversación →"}</button>
             </form>
           )}
         </div>
@@ -192,28 +247,28 @@ const Footer = () => (
       <div className="cols">
         <div className="brand">
           <div style={{display:"inline-flex",alignItems:"center",gap:10,marginBottom:16}}>
-            <img src="assets/logo-icon.svg" alt="" width="28" height="28" style={{filter:"invert(1) brightness(1.1)"}} />
+            <img src="assets/logo-icon.svg" alt="" aria-hidden="true" loading="lazy" width="28" height="28" style={{filter:"invert(1) brightness(1.1)"}} />
             <span style={{fontFamily:"var(--font-display)",fontSize:22,letterSpacing:"0.06em",color:"var(--paper-bone)"}}>atlaps</span>
           </div>
           <p>Atlas SaaS de domótica multi-protocolo. Construido por Iniciativa Alexendros, S.L. desde Comunitat Valenciana.</p>
         </div>
         <div>
-          <h5>Producto</h5>
+          <h3>Producto</h3>
           <ul><li><a href="#producto">Atlaps en una mirada</a></li><li><a href="#diferenciacion">Diferenciación</a></li><li><a href="#privacidad">Privacidad</a></li><li><a href="#roadmap">Roadmap</a></li></ul>
         </div>
         <div>
-          <h5>Compañía</h5>
+          <h3>Compañía</h3>
           <ul><li><a href="#equipo">Equipo</a></li><li><a href="#financiacion">Financiación</a></li><li><a href="#colaborar">Colaborar</a></li><li><a href="#contacto">Contacto</a></li></ul>
         </div>
         <div>
-          <h5>Legal</h5>
-          <ul><li><a href="#" onClick={(e)=>e.preventDefault()}>Aviso legal</a></li><li><a href="#" onClick={(e)=>e.preventDefault()}>Política de privacidad</a></li><li><a href="#" onClick={(e)=>e.preventDefault()}>Cookies</a></li><li><a href="#" onClick={(e)=>e.preventDefault()}>NDA recíproco</a></li></ul>
+          <h3>Legal</h3>
+          <ul><li><a href="/legal/aviso-legal">Aviso legal</a></li><li><a href="/legal/privacidad">Política de privacidad</a></li><li><a href="/legal/cookies">Cookies</a></li><li><a href="/legal/nda-reciproco">NDA recíproco</a></li></ul>
         </div>
       </div>
       <div className="water">
         <span>Documento confidencial · v0.1 · 30-abr-2026 · prohibida su reproducción sin autorización escrita de Iniciativa Alexendros, S.L.</span>
         <span className="lang">
-          <select defaultValue="es" aria-label="Idioma">
+          <select defaultValue="es" aria-label="Idioma" onChange={(e)=>{ if (e.target.value !== "es") { alert("Esta versión solo está disponible en castellano. EN y CA, próximamente."); e.target.value = "es"; } }}>
             <option value="es">ES — Castellano</option>
             <option value="en" disabled>EN — English (próximamente)</option>
             <option value="ca" disabled>CA — Català (próximamente)</option>

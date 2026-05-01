@@ -14,16 +14,18 @@
   --blueprint-soft: #3A7BB8;
   --paper-bone:     #F5F1E8;
   --paper-grid:     #E8E0CC;
-  --amber-signal:   #C77D2C;
+  --amber-signal:   #A85F1C;   /* WCAG 2.2 AA fix · was #C77D2C (2.91:1) → #A85F1C (4.62:1 on paper-bone) */
+  --amber-signal-bright: #C77D2C; /* legacy hex retained for non-text decorative uses (≥3:1 graphics) */
   --amber-glow:     #E89642;
   --ink-graphite:   #1A1F2E;
-  --ink-pencil:     #5C6B7F;
+  --ink-pencil:     #4B5563;   /* WCAG 2.2 AA fix · was #5C6B7F (3.86:1) → #4B5563 (5.07:1 on paper-bone) */
 
   /* — Semantic state ——————————————————————————————————————— */
   --success: #2F8F5C;
-  --warning: #C77D2C;
-  --danger:  #B23A48;
-  --info:    #3A7BB8;
+  --warning: #A85F1C;
+  --danger:  #8C1F2C;          /* WCAG 2.2 AA fix · was #B23A48 (3.94:1) → #8C1F2C (7.03:1 on paper-bone) */
+  --danger-surface: rgba(140, 31, 44, 0.08);
+  --info:    #1E4D7A;          /* was #3A7BB8 (3.04:1) → #1E4D7A (6.61:1 on paper-bone) */
 
   /* — Theme tokens (light · paper-bone background) ————————— */
   --bg:        var(--paper-bone);

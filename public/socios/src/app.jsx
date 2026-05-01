@@ -40,9 +40,10 @@ function App() {
 
   return (
     <>
+      <a href="#main" className="skip-link">Saltar al contenido</a>
       <div className="confband"><span className="dot"/>Documento de trabajo · confidencial · v0.1 · 30-abr-2026</div>
       <Header theme={theme} onToggleTheme={() => setTheme(theme === "light" ? "dark" : "light")} />
-      <main>
+      <main id="main">
         <Hero />
         <Problema />
         <Glance />
