@@ -43,6 +43,12 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Typecheck (apps/web)
+        run: pnpm --filter @atlaps/web typecheck
+
+      - name: Build (apps/web)
+        run: pnpm --filter @atlaps/web build
+
       - name: Audit
         run: pnpm audit --audit-level=high
 
