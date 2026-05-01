@@ -13,16 +13,46 @@ test("/socios/ landing serves 200 with bundle wired", async ({ page }) => {
 });
 
 test("/socios/ Hero h1 hydrates without bundle errors", async ({ page }) => {
+  // Captura mensajes de consola y errores de pagina para diagnostico en CI.
+  const consoleMsgs: string[] = [];
+  page.on("console", (m) => consoleMsgs.push(`[${m.type()}] ${m.text()}`));
+  page.on("pageerror", (e) => consoleMsgs.push(`[pageerror] ${e.message}`));
+
   await page.goto("/socios/");
   // Espera a que el bundle haya tenido oportunidad de ejecutarse.
   await page.waitForLoadState("networkidle");
-  // Si el bundle lanzó un error JS, captura el detalle para depuración.
-  const bundleErrors = await page.evaluate(
-    () => (window as unknown as { __atlapsErrors?: unknown[] }).__atlapsErrors ?? [],
-  );
-  expect(bundleErrors, JSON.stringify(bundleErrors)).toEqual([]);
-  // Si no hubo errores, el Hero debería estar montado.
-  await expect(page.getByRole("heading", { level: 1, name: /atlas de domótica/i })).toBeVisible({
-    timeout: 5_000,
+
+  // Snapshot de diagnostico: window.__atlapsErrors + estado de globals + #root.
+  const diag = await page.evaluate(() => {
+    const w = window as unknown as {
+      __atlapsErrors?: unknown[];
+      React?: unknown;
+      ReactDOM?: unknown;
+      SociosBlocksA?: unknown;
+      SociosBlocksB?: unknown;
+      SociosBlocksC?: unknown;
+    };
+    const root = document.getElementById("root");
+    return {
+      errors: w.__atlapsErrors ?? [],
+      bundleErrorAttr: document.documentElement.getAttribute("data-bundle-error"),
+      rootChildren: root ? root.children.length : -1,
+      rootInnerLen: root ? root.innerHTML.length : -1,
+      h1Count: document.querySelectorAll("h1").length,
+      firstH1Text: document.querySelector("h1")?.textContent ?? null,
+      hasReact: typeof w.React !== "undefined",
+      hasReactDOM: typeof w.ReactDOM !== "undefined",
+      hasSociosA: typeof w.SociosBlocksA !== "undefined",
+      hasSociosB: typeof w.SociosBlocksB !== "undefined",
+      hasSociosC: typeof w.SociosBlocksC !== "undefined",
+    };
   });
+
+  const diagStr = JSON.stringify({ ...diag, consoleMsgs }, null, 2);
+  expect(diag.errors, diagStr).toEqual([]);
+  // Si no hubo errores, el Hero deberia estar montado.
+  await expect(
+    page.getByRole("heading", { level: 1, name: /atlas de domótica/i }),
+    diagStr,
+  ).toBeVisible({ timeout: 5_000 });
 });
