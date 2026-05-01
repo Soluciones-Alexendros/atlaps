@@ -1,6 +1,6 @@
 export default function Page() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main id="main" className="mx-auto max-w-3xl px-6 py-16">
       <header className="border-b border-paper-grid pb-8">
         <h1 className="text-4xl font-bold tracking-tight">Atlaps</h1>
         <p className="mt-3 text-lg text-ink-pencil">
@@ -132,7 +132,7 @@ export default function Page() {
           privado:{" "}
           <a
             href="https://github.com/Alexendros/Atlaps"
-            className="text-blueprint-soft underline"
+            className="text-blueprint-mid underline"
           >
             github.com/Alexendros/Atlaps
           </a>
