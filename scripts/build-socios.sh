@@ -51,7 +51,14 @@ done
 
 {
   printf '/* Atlaps socios bundle · generado por scripts/build-socios.sh — NO editar */\n'
-  cat "$BUILD_TMP/socios-a.js" "$BUILD_TMP/socios-b.js" "$BUILD_TMP/socios-c.js" "$BUILD_TMP/app.js"
+  # Cada chunk va en su propio bloque {} para aislar declaraciones top-level
+  # (e.g. `const Header = ...` en socios-a.jsx vs `const { Header } = SociosBlocksA;`
+  # en app.jsx, que de otro modo colisionarían como "Identifier already declared").
+  for chunk in socios-a socios-b socios-c app; do
+    printf '{\n'
+    cat "$BUILD_TMP/$chunk.js"
+    printf '\n}\n'
+  done
 } > "$OUT_BUNDLE"
 rm -rf "$BUILD_TMP"
 
