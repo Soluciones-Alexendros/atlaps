@@ -59,7 +59,7 @@ Positivas:
 
 Negativas / deuda:
 
-- `packages/design-system/showcase.html` aún usa unpkg + babel-standalone (artefacto local-only de design system; no se sirve en prod). Pendiente de mismo tratamiento si en algún momento se publica.
+- ~~`packages/design-system/showcase.html` aún usa unpkg + babel-standalone (artefacto local-only de design system; no se sirve en prod). Pendiente de mismo tratamiento si en algún momento se publica.~~ **Resuelto en W0F**: `scripts/build-showcase.sh` aplica el mismo patrón que `build-socios.sh` (React UMD self-host en `packages/design-system/vendor/` + bundle precompilado `showcase-bundle.js` con esbuild + SRI sha384). Cero hits CDN en runtime; expuesto como `pnpm build:showcase`.
 - Dos CSS canónicos (`tokens.css` y `colors_and_type.css`) introducen drift potencial; mitigado con vitest assertions sobre hex críticos.
 
 ## Verificación
@@ -71,5 +71,5 @@ pnpm lint && pnpm typecheck && pnpm format:check
 pnpm test                       # vitest 9 tests
 pnpm build                      # build-socios + next build
 grep -rnE 'unpkg\.com|cdn\.jsdelivr|fonts\.googleapis|fonts\.gstatic' public/ packages/ apps/ app/ docs/
-# 0 hits salvo: showcase.html (deuda) + README.md docs (texto)
+# 0 hits en runtime tras W0F (build-showcase.sh resuelve §62); solo referencias documentales en docs/
 ```
