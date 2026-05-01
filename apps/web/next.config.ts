@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  typedRoutes: true,
+  // typedRoutes: deferido a W2 cuando /docs/* y /legal/* existan
   poweredByHeader: false,
 };
 

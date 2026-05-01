@@ -1,36 +1,94 @@
+import { Footer } from "@/components/marketing/footer";
+import { Header } from "@/components/marketing/header";
+import { Hero } from "@/components/marketing/hero";
+import { PilaresGrid } from "@/components/marketing/pilares-grid";
+import { ProtocolosBelt } from "@/components/marketing/protocolos-belt";
+
 export default function HomePage() {
   return (
-    <main id="main" className="mx-auto max-w-3xl px-6 py-16">
-      <header className="border-paper-grid border-b pb-8">
-        <p className="text-ink-pencil text-xs tracking-widest uppercase">
-          apps/web · scaffold W1 · Día L
-        </p>
-        <h1 className="text-blueprint-deep mt-3 text-5xl font-bold tracking-tight">Atlaps</h1>
-        <p className="text-ink-pencil mt-4 text-xl">Tu casa inteligente, dibujada como un atlas.</p>
-        <p className="text-ink-pencil mt-2 text-sm">
-          Diseña la topología, calcula el material y opera la instalación. Multi-protocolo (KNX,
-          Matter, Zigbee y 5 más), voz local UE y un atlas vivo en castellano.
-        </p>
-      </header>
+    <>
+      <Header />
+      <main id="main">
+        <Hero />
+        <ProtocolosBelt />
+        <PilaresGrid />
+        <SectionPlaceholder
+          id="como-funciona"
+          eyebrow="Día X · 10-may"
+          title="Cómo funciona"
+          subtitle="Diseña → Compra → Opera. Tres pasos, un único atlas."
+        />
+        <SectionPlaceholder
+          id="precios"
+          eyebrow="Día X · 10-may"
+          title="Precios"
+          subtitle="Free · Solo (24,90 €/mes destacado) · Studio (59 €/mes)."
+        />
+        <SectionPlaceholder
+          id="abp"
+          eyebrow="Día X · 10-may"
+          title="Atlaps Bridge Protocol"
+          subtitle="Un MCP para domótica · Apache-2.0."
+        />
+        <SectionPlaceholder
+          id="transparencia"
+          eyebrow="Día X · 10-may"
+          title="Transparencia radical"
+          subtitle="Self-host UE · voz local · comisiones declaradas."
+        />
+        <SectionPlaceholder
+          id="testimonios"
+          eyebrow="Día X · 10-may"
+          title="Testimonios"
+          subtitle="Tres slots reservados (data-testimonial-slot)."
+        />
+        <SectionPlaceholder
+          id="faq"
+          eyebrow="Día X · 10-may"
+          title="Preguntas frecuentes"
+          subtitle="Ocho respuestas rápidas sobre hardware, autohospedaje y migración."
+        />
+        <SectionPlaceholder
+          id="waitlist"
+          eyebrow="Día J · 11-may"
+          title="Únete a la lista"
+          subtitle="Newsletter · waitlist · POST /api/waitlist con Supabase + Resend."
+        />
+      </main>
+      <Footer />
+    </>
+  );
+}
 
-      <section className="mt-12 space-y-3">
-        <h2 className="text-2xl font-semibold">Estado del scaffold</h2>
-        <ul className="text-ink-pencil space-y-2 text-sm">
-          <li>✅ Workspace pnpm activo (apps/* + packages/*)</li>
-          <li>✅ Next.js 15.5.15 · React 19.2.5 · TypeScript 5.9.3</li>
-          <li>✅ Tailwind v4 + tokens del design system Vergina/Atlaps</li>
-          <li>⏳ Día M (9-may): Header + Hero + Pilares + Footer</li>
-          <li>⏳ Día X (10-may): 12 secciones del brief §A</li>
-          <li>⏳ Día J (11-may): /api/waitlist + Resend</li>
-          <li>⏳ Día V (12-may): i18n es/en + sitemap + 3 MDX</li>
-          <li>⏳ Día S (13-may): tests · CI · Vercel preview</li>
-          <li>⏳ Día D (14-may): hardening · go-live atlaps.com</li>
-        </ul>
-      </section>
-
-      <footer className="border-paper-grid text-ink-pencil mt-16 border-t pt-6 text-xs">
-        Iniciativa Alexendros, S.L. · Bootstrap F0 · Comunitat Valenciana
-      </footer>
-    </main>
+function SectionPlaceholder({
+  id,
+  eyebrow,
+  title,
+  subtitle,
+}: {
+  id: string;
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+}) {
+  return (
+    <section
+      id={id}
+      className="border-paper-grid/70 bg-paper-bone border-b"
+      aria-labelledby={`${id}-title`}
+    >
+      <div className="mx-auto max-w-6xl px-6 py-20">
+        <p className="text-blueprint-mid text-xs tracking-widest uppercase">
+          {eyebrow} · pendiente
+        </p>
+        <h2
+          id={`${id}-title`}
+          className="text-blueprint-deep mt-3 text-3xl font-bold tracking-tight text-balance md:text-4xl"
+        >
+          {title}
+        </h2>
+        <p className="text-ink-pencil mt-3 max-w-2xl text-base">{subtitle}</p>
+      </div>
+    </section>
   );
 }

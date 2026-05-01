@@ -22,6 +22,8 @@ export default [
       "pnpm-lock.yaml",
       "packages/design-system/preview/**",
       "packages/design-system/ui_kits/**",
+      "apps/**",
+      "packages/**",
       "next-env.d.ts",
     ],
   },
