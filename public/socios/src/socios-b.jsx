@@ -70,7 +70,7 @@ const Privacidad = () => (
           <h3>{p.t}</h3>
           <pre>{renderCode(p.code)}</pre>
           <p>{p.p}</p>
-          <span className="adr">▸ {p.adr}</span>
+          <span className="adr" title="Trazabilidad — repositorio público próximamente">▸ {p.adr} <span style={{color:"var(--fg-soft)",fontSize:"0.85em"}}>(próximamente)</span></span>
         </div>
       ))}
     </div>
@@ -84,7 +84,7 @@ const Sinergias = () => (
     <div className="sect-head">
       <span className="kicker"><span className="num">/07</span> Funcionalidades complementarias</span>
       <div>
-        <h2>Independientes en isolación, <em>indisociables</em> en operación.</h2>
+        <h2>Independientes en aislamiento, <em>indisociables</em> en operación.</h2>
         <p>Los pilares operan por separado. Juntos cierran el ciclo diseño → compra → operación → optimización.</p>
       </div>
     </div>
@@ -169,13 +169,14 @@ const Negocio = () => (
     </div>
 
     <div className="streams">
-      <div className="stream"><h4>Marketplace</h4><p>Comisión declarada en cada SKU. Mercado de 2.ª mano integrado con verificación.</p><div className="rate">5–12 % nuevo · 18–28 % 2.ª mano</div></div>
-      <div className="stream"><h4>Sugerencias</h4><p>Revenue declarado cuando una recomendación deriva en compra. Sin dark patterns.</p><div className="rate">Comisión visible · siempre</div></div>
-      <div className="stream"><h4>Operate / Pro</h4><p>Servicio operado para integradores y multi-vivienda. Activa F6+.</p><div className="rate">Por instalación · F6+</div></div>
+      <div className="stream"><h3>Marketplace</h3><p>Comisión declarada en cada SKU. Mercado de 2.ª mano integrado con verificación.</p><div className="rate">5–12 % nuevo · 18–28 % 2.ª mano</div></div>
+      <div className="stream"><h3>Sugerencias</h3><p>Revenue declarado cuando una recomendación deriva en compra. Sin dark patterns.</p><div className="rate">Comisión visible · siempre</div></div>
+      <div className="stream"><h3>Operate / Pro</h3><p>Servicio operado para integradores y multi-vivienda. Activa F6+.</p><div className="rate">Por instalación · F6+</div></div>
     </div>
 
     <table className="okr-tbl" style={{marginTop:32}}>
-      <thead><tr><th>Horizonte</th><th>OKR</th><th style={{width:180}}>Objetivo</th><th style={{width:100}}>Estado</th></tr></thead>
+      <caption className="sr-only">OKRs por horizonte temporal</caption>
+      <thead><tr><th scope="col">Horizonte</th><th scope="col">OKR</th><th scope="col" style={{width:180}}>Objetivo</th><th scope="col" style={{width:100}}>Estado</th></tr></thead>
       <tbody>
         <tr><td>F1–F4</td><td>Free → Solo conversion</td><td className="target">3 % en 90 d</td><td><span className="caveat">supuesto</span></td></tr>
         <tr><td>Mes 6</td><td>MRR Solo + Studio</td><td className="target">≥ 1.500 €</td><td><span className="caveat">supuesto</span></td></tr>

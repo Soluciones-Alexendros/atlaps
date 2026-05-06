@@ -7,8 +7,7 @@ export function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    const current =
-      (document.documentElement.getAttribute("data-theme") as Theme) ?? "light";
+    const current = (document.documentElement.getAttribute("data-theme") as Theme) ?? "light";
     setTheme(current);
   }, []);
 
@@ -25,10 +24,8 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      aria-label={
-        theme === "light" ? "Cambiar a tema oscuro" : "Cambiar a tema claro"
-      }
-      className="rounded-md border border-paper-grid px-3 py-1.5 text-sm hover:border-blueprint-soft"
+      aria-label={theme === "light" ? "Cambiar a tema oscuro" : "Cambiar a tema claro"}
+      className="border-paper-grid hover:border-blueprint-soft rounded-md border px-3 py-1.5 text-sm"
     >
       {theme === "light" ? "Oscuro" : "Claro"}
     </button>

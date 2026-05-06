@@ -78,8 +78,27 @@ cat > "$HTML_OUT" <<HTML
 <title>Atlaps · Socios y colaboradores · v0.1</title>
 <meta name="description" content="Documento confidencial v0.1 · landing privada para socios, advisors, partners y evaluadores institucionales." />
 <meta name="robots" content="noindex, nofollow" />
+<meta name="author" content="Iniciativa Alexendros, S.L." />
+<meta name="color-scheme" content="dark light" />
+<meta name="theme-color" content="#F5F1E8" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0F2A4A" media="(prefers-color-scheme: dark)" />
 <base href="/socios/" />
+<link rel="canonical" href="/socios/" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Atlaps · Socios y colaboradores" />
+<meta property="og:description" content="Constelaciones domésticas de dispositivos inteligentes que tú mismo puedes idear, instalar y activar." />
+<meta property="og:image" content="/og/socios-1200x630.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:alt" content="Atlaps · Constelaciones domésticas de dispositivos inteligentes." />
+<meta property="og:locale" content="es_ES" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Atlaps · Socios y colaboradores" />
+<meta name="twitter:description" content="Constelaciones domésticas de dispositivos inteligentes que tú mismo puedes idear, instalar y activar." />
+<meta name="twitter:image" content="/og/socios-1200x630.png" />
+<meta name="twitter:image:alt" content="Atlaps · Constelaciones domésticas de dispositivos inteligentes." />
 
 <!-- Fonts: Configuración A (marketing) -->
 <link rel="stylesheet" href="/fonts/fonts.css" />
