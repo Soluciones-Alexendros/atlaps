@@ -1,22 +1,31 @@
-import { render } from "@testing-library/react";
-import { act } from "react";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
+import { isValidElement, type ReactElement } from "react";
 import RootLayout from "../layout";
 
+// `next/headers` solo existe en runtime servidor; en vitest hay que stubearlo.
+vi.mock("next/headers", () => ({
+  headers: () =>
+    Promise.resolve({
+      get: (_k: string) => null,
+    }),
+}));
+
 describe("RootLayout", () => {
-  it("renders children inside the html/body without throwing", async () => {
-    // RootLayout es un async Server Component; act() asegura que
-    // todas las actualizaciones de estado/suspense se resuelven antes
-    // de hacer las aserciones.
-    let container: HTMLElement;
-    await act(async () => {
-      ({ container } = render(
-        <RootLayout>
-          <div data-testid="kid">child</div>
-        </RootLayout>,
-      ));
-    });
-    expect(container!.innerHTML).toContain('data-testid="kid"');
-    expect(container!.innerHTML).toContain("child");
+  it("devuelve <html> con <body> conteniendo los children", async () => {
+    // Invocamos el Server Component async directamente. No usamos
+    // @testing-library/react.render porque React 19 no soporta render
+    // de async Client Components en jsdom — y `RootLayout` es server-only
+    // (`await headers()`).
+    const tree = (await RootLayout({
+      children: <div data-testid="kid">child</div>,
+    })) as ReactElement;
+
+    expect(isValidElement(tree)).toBe(true);
+    expect((tree as ReactElement<{ lang?: string }>).type).toBe("html");
+
+    const serialized = JSON.stringify(tree);
+    expect(serialized).toContain('"kid"');
+    expect(serialized).toContain("child");
+    expect(serialized).toContain("body");
   });
 });
