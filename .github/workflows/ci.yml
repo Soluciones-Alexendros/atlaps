@@ -19,14 +19,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-
+      # En el runner self-hosted el node por defecto (imagen myoung34) es antiguo y
+      # rompe el self-installer de pnpm; setup-node primero garantiza Node 22 en PATH.
+      # El store de pnpm persiste en el volumen del runner, así que no se usa cache:.
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
-          cache: pnpm
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
