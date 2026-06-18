@@ -6,7 +6,7 @@ import RootLayout from "../layout";
 vi.mock("next/headers", () => ({
   headers: () =>
     Promise.resolve({
-      get: (_k: string) => null,
+      get: (_: string) => null,
     }),
 }));
 

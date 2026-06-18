@@ -3,8 +3,6 @@ import { fileURLToPath } from "node:url";
 import { FlatCompat } from "@eslint/eslintrc";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
-import tailwindcss from "eslint-plugin-tailwindcss";
-import jsxA11y from "eslint-plugin-jsx-a11y";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -13,15 +11,17 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-export default [
+const config = [
   {
     ignores: [
       ".next/**",
       "node_modules/**",
       "public/socios/vendor/**",
+      "public/socios/bundle.js",
       "pnpm-lock.yaml",
       "packages/design-system/preview/**",
       "packages/design-system/ui_kits/**",
+      ".claude/worktrees/**",
       "apps/**",
       "packages/**",
       "next-env.d.ts",
@@ -45,6 +45,10 @@ export default [
     },
     rules: {
       "tailwindcss/no-custom-classname": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
     },
     settings: {
       tailwindcss: {
@@ -53,3 +57,5 @@ export default [
     },
   },
 ];
+
+export default config;
