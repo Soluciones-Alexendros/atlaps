@@ -1,13 +1,13 @@
 export default function Page() {
   return (
     <main id="main" className="mx-auto max-w-3xl px-6 py-16">
-      <header className="border-b border-paper-grid pb-8">
+      <header className="border-paper-grid border-b pb-8">
         <h1 className="text-4xl font-bold tracking-tight">Atlaps</h1>
-        <p className="mt-3 text-lg text-ink-pencil">
+        <p className="text-ink-pencil mt-3 text-lg">
           Atlas de aplicaciones domóticas multi-protocolo · Iniciativa
           Alexendros, S.L.
         </p>
-        <p className="mt-1 text-sm text-ink-pencil">
+        <p className="text-ink-pencil mt-1 text-sm">
           Bootstrap F0 · 4-may-2026 · Comunitat Valenciana
         </p>
       </header>
@@ -18,7 +18,7 @@ export default function Page() {
           <li>
             <a
               href="/socios/"
-              className="block rounded-md border border-paper-grid bg-paper-bone p-4 hover:border-blueprint-soft"
+              className="border-paper-grid bg-paper-bone hover:border-blueprint-soft block rounded-md border p-4"
             >
               <strong className="text-blueprint-deep">apps/socios</strong>{" "}
               <span className="text-amber-signal">· vivo</span>{" "}
@@ -29,19 +29,19 @@ export default function Page() {
             </a>
           </li>
           <li>
-            <div className="rounded-md border border-paper-grid p-4 opacity-70">
+            <div className="border-paper-grid rounded-md border p-4 opacity-70">
               <strong className="text-blueprint-deep">apps/web</strong>{" "}
               <span className="text-ink-pencil">· placeholder F1</span>
-              <span className="block text-ink-pencil text-sm">
+              <span className="text-ink-pencil block text-sm">
                 Landing pública atlaps.com — pendiente de construir.
               </span>
             </div>
           </li>
           <li>
-            <div className="rounded-md border border-paper-grid p-4 opacity-70">
+            <div className="border-paper-grid rounded-md border p-4 opacity-70">
               <strong className="text-blueprint-deep">apps/platform</strong>{" "}
               <span className="text-ink-pencil">· placeholder F1-F4</span>
-              <span className="block text-ink-pencil text-sm">
+              <span className="text-ink-pencil block text-sm">
                 App autenticada (Planificador, Mercado, Monitor, Sugerencias,
                 ComtubernIA) — pendiente de construir.
               </span>
@@ -54,12 +54,12 @@ export default function Page() {
         <h2 className="text-2xl font-semibold">Packages</h2>
         <ul className="space-y-3">
           <li>
-            <div className="rounded-md border border-paper-grid bg-paper-bone p-4">
+            <div className="border-paper-grid bg-paper-bone rounded-md border p-4">
               <strong className="text-blueprint-deep">
                 packages/design-system
               </strong>{" "}
               <span className="text-amber-signal">· v0</span>
-              <span className="block text-ink-pencil text-sm">
+              <span className="text-ink-pencil block text-sm">
                 Showcase, tokens, logo, iconografía, motion, ui_kits y preview.
                 Ver <code>packages/design-system/showcase.html</code> y{" "}
                 <code>tokens.css</code>.
@@ -74,7 +74,7 @@ export default function Page() {
         <ul className="space-y-2 text-sm">
           <li>
             <strong>ADRs:</strong>{" "}
-            <code className="rounded bg-paper-grid px-1.5 py-0.5">
+            <code className="bg-paper-grid rounded px-1.5 py-0.5">
               docs/adr/
             </code>
             <span className="text-ink-pencil">
@@ -85,7 +85,7 @@ export default function Page() {
           </li>
           <li>
             <strong>Briefs:</strong>{" "}
-            <code className="rounded bg-paper-grid px-1.5 py-0.5">
+            <code className="bg-paper-grid rounded px-1.5 py-0.5">
               docs/briefs/
             </code>
             <span className="text-ink-pencil">
@@ -96,7 +96,7 @@ export default function Page() {
           </li>
           <li>
             <strong>Tokens:</strong>{" "}
-            <code className="rounded bg-paper-grid px-1.5 py-0.5">
+            <code className="bg-paper-grid rounded px-1.5 py-0.5">
               docs/tokens.md
             </code>
           </li>
@@ -107,7 +107,7 @@ export default function Page() {
         <h2 className="text-2xl font-semibold">Recursos compartidos</h2>
         <ul className="space-y-2 text-sm">
           <li>
-            <code className="rounded bg-paper-grid px-1.5 py-0.5">
+            <code className="bg-paper-grid rounded px-1.5 py-0.5">
               public/fonts/
             </code>{" "}
             <span className="text-ink-pencil">
@@ -116,7 +116,7 @@ export default function Page() {
             </span>
           </li>
           <li>
-            <code className="rounded bg-paper-grid px-1.5 py-0.5">
+            <code className="bg-paper-grid rounded px-1.5 py-0.5">
               public/logos/
             </code>{" "}
             <span className="text-ink-pencil">
@@ -126,7 +126,7 @@ export default function Page() {
         </ul>
       </section>
 
-      <footer className="mt-16 border-t border-paper-grid pt-8 text-sm text-ink-pencil">
+      <footer className="border-paper-grid text-ink-pencil mt-16 border-t pt-8 text-sm">
         <p>
           © 2026 Iniciativa Alexendros, S.L. · Comunitat Valenciana · Repo
           privado:{" "}
