@@ -46,11 +46,6 @@ jobs:
           bash download-actionlint.bash
           ./actionlint --config-file actionlint.yaml
 
-      - name: Audit workflows (zizmor)
-        uses: zizmorcore/zizmor-action@5f14fd08f7cf1cb1609c1e344975f152c7ee938d # v1.2.4
-        with:
-          inputs: .github/workflows/
-
       - name: Format check
         run: pnpm format:check
 
@@ -74,6 +69,26 @@ jobs:
 
       - name: Audit
         run: pnpm audit --audit-level=high
+
+  audit:
+    name: Audit workflows
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+      - name: Lint workflows (actionlint)
+        run: |
+          curl -sLO https://raw.githubusercontent.com/rhysd/actionlint/v1.7.7/scripts/download-actionlint.bash
+          bash download-actionlint.bash
+          ./actionlint --config-file actionlint.yaml
+      - name: Audit workflows (zizmor)
+        uses: zizmorcore/zizmor-action@5f14fd08f7cf1cb1609c1e344975f152c7ee938d # v1.2.4
+        with:
+          inputs: .github/workflows/
 
   e2e:
     name: e2e · playwright + axe
