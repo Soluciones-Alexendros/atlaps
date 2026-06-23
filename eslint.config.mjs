@@ -34,6 +34,16 @@ const config = defineConfig([
   {
     plugins: { "jsx-a11y": jsxA11y },
     rules: { ...jsxA11y.flatConfigs.recommended.rules },
+    ignores: [
+      "**/.next/**",
+      "**/node_modules/**",
+      "public/socios/vendor/**",
+      "public/socios/bundle.js",
+      "pnpm-lock.yaml",
+      "packages/design-system/**",
+      ".claude/**",
+      "**/next-env.d.ts",
+    ],
   },
   ...tailwindcss.configs["flat/recommended"],
   {
@@ -47,6 +57,7 @@ const config = defineConfig([
     settings: {
       tailwindcss: {
         callees: ["cn", "clsx", "twMerge"],
+        config: false,
       },
     },
   },

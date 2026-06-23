@@ -63,14 +63,14 @@ Atlaps/
 
 ### Cómo navegarlo
 
-| Si quieres…                                      | Mira…                                                                |
-| ------------------------------------------------ | -------------------------------------------------------------------- |
-| Presentación de socios (privada)                 | `apps/socios/` → contenido vivo en `public/socios/`                  |
-| Landing pública atlaps.com                       | `apps/web/` + `docs/briefs/prototype-landing-app.md`                 |
-| App autenticada (5 pilares)                      | `apps/platform/` + `docs/briefs/prototype-landing-app.md` (sección B)|
-| Design system con Design de Claude               | `packages/design-system/` + `docs/briefs/design-system.md`           |
-| Tokens, paleta, tipografía                       | `docs/tokens.md` y `packages/design-system/tokens.css`               |
-| Decisiones de marca y técnicas                   | `docs/adr/`                                                          |
+| Si quieres…                        | Mira…                                                                 |
+| ---------------------------------- | --------------------------------------------------------------------- |
+| Presentación de socios (privada)   | `apps/socios/` → contenido vivo en `public/socios/`                   |
+| Landing pública atlaps.com         | `apps/web/` + `docs/briefs/prototype-landing-app.md`                  |
+| App autenticada (5 pilares)        | `apps/platform/` + `docs/briefs/prototype-landing-app.md` (sección B) |
+| Design system con Design de Claude | `packages/design-system/` + `docs/briefs/design-system.md`            |
+| Tokens, paleta, tipografía         | `docs/tokens.md` y `packages/design-system/tokens.css`                |
+| Decisiones de marca y técnicas     | `docs/adr/`                                                           |
 
 ## 4. Estrategia multi-protocolo
 

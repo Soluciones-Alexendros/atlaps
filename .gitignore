@@ -67,3 +67,7 @@ packages/design-system/showcase-bundle.js
 # Tests
 playwright-report/
 test-results/
+
+# Claude / AI workspace
+/.claude/
+/CLAUDE.md

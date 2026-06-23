@@ -2,46 +2,46 @@ export function AbpCallout() {
   return (
     <section
       id="abp"
-      className="border-b border-paper-grid/70 bg-blueprint-deep text-paper-bone"
+      className="border-paper-grid/70 bg-blueprint-deep text-paper-bone border-b"
       aria-labelledby="abp-title"
     >
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.2fr_0.8fr] md:items-center">
         <div>
-          <p className="text-xs uppercase tracking-widest text-amber-glow">
+          <p className="text-amber-glow text-xs tracking-widest uppercase">
             Atlaps Bridge Protocol · ABP
           </p>
           <h2
             id="abp-title"
-            className="mt-3 text-balance text-3xl font-bold tracking-tight md:text-4xl"
+            className="mt-3 text-3xl font-bold tracking-tight text-balance md:text-4xl"
           >
             Un MCP para domótica, abierto bajo Apache-2.0.
           </h2>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-paper-bone/80">
+          <p className="text-paper-bone/80 mt-4 max-w-xl text-base leading-relaxed">
             ABP es la capa de protocolo que conecta cualquier instalación con el atlas vivo de
             Atlaps. Especificación pública, implementación de referencia y SDKs en TypeScript,
             Python y Go. Sin lock-in: si te vas, tu instalación sigue funcionando.
           </p>
-          <ul className="mt-6 grid gap-2 text-sm text-paper-bone/85 sm:grid-cols-2">
+          <ul className="text-paper-bone/85 mt-6 grid gap-2 text-sm sm:grid-cols-2">
             <li className="flex items-start gap-2">
-              <span aria-hidden="true" className="mt-0.5 text-amber-glow">
+              <span aria-hidden="true" className="text-amber-glow mt-0.5">
                 ●
               </span>
               <span>6 mensajes mínimos · v0.1 en F1</span>
             </li>
             <li className="flex items-start gap-2">
-              <span aria-hidden="true" className="mt-0.5 text-amber-glow">
+              <span aria-hidden="true" className="text-amber-glow mt-0.5">
                 ●
               </span>
               <span>Federación opcional · self-host primero</span>
             </li>
             <li className="flex items-start gap-2">
-              <span aria-hidden="true" className="mt-0.5 text-amber-glow">
+              <span aria-hidden="true" className="text-amber-glow mt-0.5">
                 ●
               </span>
               <span>Tests de conformidad ejecutables</span>
             </li>
             <li className="flex items-start gap-2">
-              <span aria-hidden="true" className="mt-0.5 text-amber-glow">
+              <span aria-hidden="true" className="text-amber-glow mt-0.5">
                 ●
               </span>
               <span>Especificación versionada · SemVer estricto</span>
@@ -52,7 +52,7 @@ export function AbpCallout() {
               href="https://github.com/Alexendros"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-md bg-paper-bone px-5 py-2.5 text-sm font-medium text-blueprint-deep transition-colors hover:bg-paper-grid"
+              className="bg-paper-bone text-blueprint-deep hover:bg-paper-grid inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium transition-colors"
             >
               <svg
                 width="18"
@@ -65,14 +65,14 @@ export function AbpCallout() {
               </svg>
               Spec en GitHub
             </a>
-            <span className="font-mono text-xs text-paper-bone/60">
+            <span className="text-paper-bone/60 font-mono text-xs">
               ★ pendiente · repo público en F1 D1
             </span>
           </div>
         </div>
 
         <pre
-          className="overflow-x-auto rounded-lg border border-paper-bone/15 bg-blueprint-mid/30 p-5 font-mono text-[12px] leading-relaxed text-paper-bone/90"
+          className="border-paper-bone/15 bg-blueprint-mid/30 text-paper-bone/90 overflow-x-auto rounded-lg border p-5 font-mono text-[12px] leading-relaxed"
           aria-label="Ejemplo de mensaje ABP"
         >
           {`// abp/v0.1/device.state

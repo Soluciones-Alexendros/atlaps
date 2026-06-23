@@ -1,0 +1,33 @@
+# Lychee — configuración de link-checking para Atlaps
+# Resolvemos links root-relative contra public/ (el directorio que el portal
+# Next.js sirve como raíz). Los placeholders de CHANGELOG y los links a
+# discusiones aún no habilitados se excluyen como excepciones documentadas.
+root_dir = "public"
+
+exclude = [
+  # Recursos root-relative que se sirven desde /public en el portal Next.js
+  "^/fonts/",
+  "^/assets/",
+  "^/socios/",
+  "^/styles/",
+  "^/og/",
+  "^/public/",
+  # Anclas de prototipos / kits locales
+  "^#",
+  # Placeholders del CHANGELOG y URLs de GitHub privadas/aún no habilitadas
+  "^https://github.com/Iniciativas-Alexendros/Atlaps$",
+  "^https://github.com/Iniciativas-Alexendros/Atlaps/compare/v0.1.0",
+  "^https://github.com/Iniciativas-Alexendros/Atlaps/releases/tag/v0.1.0",
+  "^https://github.com/Iniciativas-Alexendros/Atlaps/discussions",
+]
+
+exclude_path = [
+  ".claude",
+  "node_modules",
+  ".next",
+  "out",
+  "dist",
+  "playwright-report",
+  "test-results",
+  "public/socios/vendor",
+]

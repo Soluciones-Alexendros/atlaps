@@ -35,21 +35,21 @@ export function Transparencia() {
   return (
     <section
       id="transparencia"
-      className="border-b border-paper-grid/70 bg-paper-bone"
+      className="border-paper-grid/70 bg-paper-bone border-b"
       aria-labelledby="transparencia-title"
     >
       <div className="mx-auto max-w-6xl px-6 py-20">
         <header className="max-w-2xl">
-          <p className="text-xs uppercase tracking-widest text-blueprint-mid">
+          <p className="text-blueprint-mid text-xs tracking-widest uppercase">
             Transparencia radical
           </p>
           <h2
             id="transparencia-title"
-            className="mt-3 text-balance text-3xl font-bold tracking-tight text-blueprint-deep md:text-4xl"
+            className="text-blueprint-deep mt-3 text-3xl font-bold tracking-tight text-balance md:text-4xl"
           >
             Cuatro promesas que se pueden auditar.
           </h2>
-          <p className="mt-3 text-sm text-ink-pencil">
+          <p className="text-ink-pencil mt-3 text-sm">
             No prometemos lo que no podemos probar. Cada promesa abajo viene con la evidencia
             técnica concreta.
           </p>
@@ -59,11 +59,11 @@ export function Transparencia() {
           {PILARES.map((pilar) => (
             <article
               key={pilar.titulo}
-              className="rounded-lg border-l-2 border-amber-signal bg-paper-bone/60 p-6"
+              className="border-amber-signal bg-paper-bone/60 rounded-lg border-l-2 p-6"
             >
-              <h3 className="text-lg font-semibold text-blueprint-deep">{pilar.titulo}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-pencil">{pilar.cuerpo}</p>
-              <p className="mt-4 font-mono text-[12px] text-blueprint-mid">{pilar.evidencia}</p>
+              <h3 className="text-blueprint-deep text-lg font-semibold">{pilar.titulo}</h3>
+              <p className="text-ink-pencil mt-2 text-sm leading-relaxed">{pilar.cuerpo}</p>
+              <p className="text-blueprint-mid mt-4 font-mono text-[12px]">{pilar.evidencia}</p>
             </article>
           ))}
         </div>
