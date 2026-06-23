@@ -40,6 +40,17 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Lint workflows (actionlint)
+        run: |
+          curl -sLO https://raw.githubusercontent.com/rhysd/actionlint/v1.7.7/scripts/download-actionlint.bash
+          bash download-actionlint.bash
+          ./actionlint --config-file actionlint.yaml
+
+      - name: Audit workflows (zizmor)
+        run: |
+          curl -sL https://github.com/zizmorcore/zizmor/releases/download/v1.26.1/zizmor-x86_64-unknown-linux-gnu.tar.gz | tar xz
+          ./zizmor .github/workflows/
+
       - name: Format check
         run: pnpm format:check
 
