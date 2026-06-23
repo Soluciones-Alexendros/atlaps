@@ -7,8 +7,7 @@ import tailwindcss from "eslint-plugin-tailwindcss";
 // Reutilizamos ESE mismo objeto de plugin para poder activar su ruleset
 // "recommended" completo sin redeclarar el plugin (eslint prohíbe registrar
 // dos objetos distintos bajo el mismo nombre de plugin).
-const pluginFromNext = (name) =>
-  nextVitals.find((c) => c.plugins?.[name])?.plugins[name];
+const pluginFromNext = (name) => nextVitals.find((c) => c.plugins?.[name])?.plugins[name];
 const jsxA11y = pluginFromNext("jsx-a11y");
 const reactHooks = pluginFromNext("react-hooks");
 const reactPlugin = pluginFromNext("react");
