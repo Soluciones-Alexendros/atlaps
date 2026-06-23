@@ -47,9 +47,9 @@ jobs:
           ./actionlint --config-file actionlint.yaml
 
       - name: Audit workflows (zizmor)
-        run: |
-          curl -sL https://github.com/zizmorcore/zizmor/releases/download/v1.26.1/zizmor-x86_64-unknown-linux-gnu.tar.gz | tar xz
-          ./zizmor .github/workflows/
+        uses: zizmorcore/zizmor-action@5f14fd08f7cf1cb1609c1e344975f152c7ee938d # v1.2.4
+        with:
+          inputs: .github/workflows/
 
       - name: Format check
         run: pnpm format:check
