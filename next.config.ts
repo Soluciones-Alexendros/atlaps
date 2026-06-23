@@ -20,6 +20,7 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   typedRoutes: true,
+  outputFileTracingRoot: process.cwd(),
   async rewrites() {
     return [
       { source: "/socios", destination: "/socios/index.html" },

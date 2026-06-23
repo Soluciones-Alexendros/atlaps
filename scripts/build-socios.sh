@@ -101,7 +101,7 @@ cat > "$HTML_OUT" <<HTML
 <meta name="twitter:image:alt" content="Atlaps · Constelaciones domésticas de dispositivos inteligentes." />
 
 <!-- Fonts: Configuración A (marketing) -->
-<link rel="stylesheet" href="/fonts/fonts.css" />
+<link rel="stylesheet" href="../fonts/fonts.css" />
 
 <!-- Tokens del design system (regenerado en build) -->
 <link rel="stylesheet" href="styles/colors_and_type.css" />

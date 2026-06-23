@@ -7,8 +7,7 @@ import tailwindcss from "eslint-plugin-tailwindcss";
 // Reutilizamos ESE mismo objeto de plugin para poder activar su ruleset
 // "recommended" completo sin redeclarar el plugin (eslint prohíbe registrar
 // dos objetos distintos bajo el mismo nombre de plugin).
-const pluginFromNext = (name) =>
-  nextVitals.find((c) => c.plugins?.[name])?.plugins[name];
+const pluginFromNext = (name) => nextVitals.find((c) => c.plugins?.[name])?.plugins[name];
 const jsxA11y = pluginFromNext("jsx-a11y");
 const reactHooks = pluginFromNext("react-hooks");
 const reactPlugin = pluginFromNext("react");
@@ -34,6 +33,16 @@ const config = defineConfig([
   {
     plugins: { "jsx-a11y": jsxA11y },
     rules: { ...jsxA11y.flatConfigs.recommended.rules },
+    ignores: [
+      "**/.next/**",
+      "**/node_modules/**",
+      "public/socios/vendor/**",
+      "public/socios/bundle.js",
+      "pnpm-lock.yaml",
+      "packages/design-system/**",
+      ".claude/**",
+      "**/next-env.d.ts",
+    ],
   },
   ...tailwindcss.configs["flat/recommended"],
   {
@@ -47,6 +56,7 @@ const config = defineConfig([
     settings: {
       tailwindcss: {
         callees: ["cn", "clsx", "twMerge"],
+        config: false,
       },
     },
   },

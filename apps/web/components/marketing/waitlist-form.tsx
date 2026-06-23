@@ -61,10 +61,10 @@ export function WaitlistForm() {
       <div
         role="status"
         aria-live="polite"
-        className="rounded-lg border border-amber-signal/60 bg-paper-bone/80 p-6 text-sm text-blueprint-deep"
+        className="border-amber-signal/60 bg-paper-bone/80 text-blueprint-deep rounded-lg border p-6 text-sm"
       >
         <p className="font-medium">Gracias. Quedas en la lista.</p>
-        <p className="mt-2 text-ink-pencil">
+        <p className="text-ink-pencil mt-2">
           Te escribiremos en cuanto el Planificador esté disponible para tu plaza. Sin spam, sin
           compartir tu correo con nadie.
         </p>
@@ -76,7 +76,7 @@ export function WaitlistForm() {
     <form onSubmit={onSubmit} noValidate className="space-y-4" aria-describedby="waitlist-help">
       <div
         aria-hidden="true"
-        className="absolute left-[-9999px] top-[-9999px] h-0 w-0 overflow-hidden"
+        className="absolute top-[-9999px] left-[-9999px] h-0 w-0 overflow-hidden"
       >
         <label>
           Si eres humano, no rellenes este campo:
@@ -85,24 +85,24 @@ export function WaitlistForm() {
       </div>
 
       <label className="block">
-        <span className="text-sm font-medium text-blueprint-deep">Correo electrónico</span>
+        <span className="text-blueprint-deep text-sm font-medium">Correo electrónico</span>
         <input
           type="email"
           name="email"
           required
           autoComplete="email"
           placeholder="tu@correo.es"
-          className="mt-2 w-full rounded-md border border-blueprint-soft/40 bg-paper-bone px-4 py-2.5 text-base text-blueprint-deep placeholder:text-ink-pencil/60 focus:border-blueprint-deep focus:outline-none"
+          className="border-blueprint-soft/40 bg-paper-bone text-blueprint-deep placeholder:text-ink-pencil/60 focus:border-blueprint-deep mt-2 w-full rounded-md border px-4 py-2.5 text-base focus:outline-none"
         />
       </label>
 
-      <label className="flex items-start gap-3 text-sm text-ink-pencil">
-        <input type="checkbox" name="rgpd" required className="mt-1 h-4 w-4 accent-amber-signal" />
+      <label className="text-ink-pencil flex items-start gap-3 text-sm">
+        <input type="checkbox" name="rgpd" required className="accent-amber-signal mt-1 h-4 w-4" />
         <span>
           He leído la{" "}
           <a
             href="/legal/privacy"
-            className="underline decoration-blueprint-soft underline-offset-2 hover:text-blueprint-deep"
+            className="decoration-blueprint-soft hover:text-blueprint-deep underline underline-offset-2"
           >
             política de privacidad
           </a>{" "}
@@ -114,12 +114,12 @@ export function WaitlistForm() {
       <button
         type="submit"
         disabled={estado.tipo === "enviando"}
-        className="inline-flex items-center justify-center rounded-md bg-blueprint-deep px-6 py-3 text-base font-medium text-paper-bone shadow-sm transition-colors hover:bg-blueprint-mid disabled:opacity-60"
+        className="bg-blueprint-deep text-paper-bone hover:bg-blueprint-mid inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-medium shadow-sm transition-colors disabled:opacity-60"
       >
         {estado.tipo === "enviando" ? "Enviando…" : "Apuntarme a la lista"}
       </button>
 
-      <p id="waitlist-help" className="text-xs text-ink-pencil">
+      <p id="waitlist-help" className="text-ink-pencil text-xs">
         Servicio en construcción. POST real a `/api/waitlist` con Supabase + Resend en Día J
         (11-may).
       </p>

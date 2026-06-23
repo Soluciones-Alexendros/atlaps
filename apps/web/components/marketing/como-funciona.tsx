@@ -33,15 +33,15 @@ export function ComoFunciona() {
   return (
     <section
       id="como-funciona"
-      className="border-b border-paper-grid/70 bg-paper-bone"
+      className="border-paper-grid/70 bg-paper-bone border-b"
       aria-labelledby="como-funciona-title"
     >
       <div className="mx-auto max-w-6xl px-6 py-20">
         <header className="max-w-2xl">
-          <p className="text-xs uppercase tracking-widest text-blueprint-mid">Cómo funciona</p>
+          <p className="text-blueprint-mid text-xs tracking-widest uppercase">Cómo funciona</p>
           <h2
             id="como-funciona-title"
-            className="mt-3 text-balance text-3xl font-bold tracking-tight text-blueprint-deep md:text-4xl"
+            className="text-blueprint-deep mt-3 text-3xl font-bold tracking-tight text-balance md:text-4xl"
           >
             Tres pasos. Un único atlas.
           </h2>
@@ -51,20 +51,20 @@ export function ComoFunciona() {
           {PASOS.map((paso, idx) => (
             <li
               key={paso.numero}
-              className="relative flex flex-col rounded-lg border border-paper-grid/80 bg-paper-bone/60 p-6"
+              className="border-paper-grid/80 bg-paper-bone/60 relative flex flex-col rounded-lg border p-6"
             >
               <div className="flex items-center gap-3">
-                <span aria-hidden="true" className="font-mono text-2xl font-bold text-amber-signal">
+                <span aria-hidden="true" className="text-amber-signal font-mono text-2xl font-bold">
                   {paso.numero}
                 </span>
-                <h3 className="text-xl font-semibold text-blueprint-deep">{paso.titulo}</h3>
+                <h3 className="text-blueprint-deep text-xl font-semibold">{paso.titulo}</h3>
               </div>
-              <p className="mt-2 text-sm font-medium text-blueprint-mid">{paso.bajada}</p>
-              <p className="mt-4 text-sm leading-relaxed text-ink-pencil">{paso.detalle}</p>
+              <p className="text-blueprint-mid mt-2 text-sm font-medium">{paso.bajada}</p>
+              <p className="text-ink-pencil mt-4 text-sm leading-relaxed">{paso.detalle}</p>
               {idx < PASOS.length - 1 && (
                 <span
                   aria-hidden="true"
-                  className="absolute -right-4 top-1/2 hidden -translate-y-1/2 text-2xl text-blueprint-soft/60 md:inline"
+                  className="text-blueprint-soft/60 absolute top-1/2 -right-4 hidden -translate-y-1/2 text-2xl md:inline"
                 >
                   →
                 </span>

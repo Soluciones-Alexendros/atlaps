@@ -50,34 +50,34 @@ export function Faq() {
   return (
     <section
       id="faq"
-      className="border-b border-paper-grid/70 bg-paper-bone"
+      className="border-paper-grid/70 bg-paper-bone border-b"
       aria-labelledby="faq-title"
     >
       <div className="mx-auto max-w-4xl px-6 py-20">
         <header className="max-w-2xl">
-          <p className="text-xs uppercase tracking-widest text-blueprint-mid">Preguntas</p>
+          <p className="text-blueprint-mid text-xs tracking-widest uppercase">Preguntas</p>
           <h2
             id="faq-title"
-            className="mt-3 text-balance text-3xl font-bold tracking-tight text-blueprint-deep md:text-4xl"
+            className="text-blueprint-deep mt-3 text-3xl font-bold tracking-tight text-balance md:text-4xl"
           >
             Lo que más nos preguntan.
           </h2>
         </header>
 
-        <ul className="mt-12 divide-y divide-paper-grid/80 border-t border-paper-grid/80">
+        <ul className="divide-paper-grid/80 border-paper-grid/80 mt-12 divide-y border-t">
           {PREGUNTAS.map((item) => (
             <li key={item.pregunta}>
               <details className="group py-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-medium text-blueprint-deep transition-colors hover:text-blueprint-mid">
+                <summary className="text-blueprint-deep hover:text-blueprint-mid flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-medium transition-colors">
                   <span>{item.pregunta}</span>
                   <span
                     aria-hidden="true"
-                    className="text-2xl text-blueprint-soft transition-transform group-open:rotate-45"
+                    className="text-blueprint-soft text-2xl transition-transform group-open:rotate-45"
                   >
                     +
                   </span>
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-ink-pencil">{item.respuesta}</p>
+                <p className="text-ink-pencil mt-3 text-sm leading-relaxed">{item.respuesta}</p>
               </details>
             </li>
           ))}

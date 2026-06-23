@@ -101,7 +101,7 @@ Vercel + Git integration. Conectar `https://github.com/Alexendros/Atlaps`. Verce
 
 ## Vinculaciones
 
-- **GitHub:** [`Alexendros/Atlaps`](https://github.com/Alexendros/Atlaps) (privado).
+- **GitHub:** [`Iniciativas-Alexendros/Atlaps`](https://github.com/Iniciativas-Alexendros/Atlaps) (privado).
 - **Forgejo (espejo):** `git.alexendros.me/Alexendros/Atlaps` (pull-mirror cada 8h).
 - **Notion (canónico operativo):** Atlaps · Documento de Implementación del MVP.
 - **Cuaderno operador (privado):** `~/.claude/cuadernos/atlaps/`.
