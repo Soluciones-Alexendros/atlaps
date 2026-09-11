@@ -140,7 +140,7 @@ platform app aislada está en el roadmap (F1).
 - **Tests:** Vitest (unit) + Playwright (e2e) + `@axe-core/playwright` (a11y).
 - **Pre-commit:** husky 9 + lint-staged + commitlint (`config-conventional`).
 - **CI:** GitHub Actions `.github/workflows/ci.yml` — lint · typecheck · test ·
-  build · audit en Node 22, pnpm 10, runners self-hosted (`[self-hosted, ts]`).
+  build · audit en Node 22, pnpm 10, runners GitHub-hosted (`ubuntu-latest`).
 - **Dependabot:** bumps semanales de npm + github-actions.
 - **Despliegue:** Vercel con Git integration (preview por PR).
 
