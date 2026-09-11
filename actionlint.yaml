@@ -1,3 +1,6 @@
+# Jobs currently run on GitHub-hosted ubuntu-latest.
+# Keep the `ts` label so actionlint still accepts `[self-hosted, ts]` if
+# operators restore self-hosted runners later.
 self-hosted-runner:
   labels:
     - ts
