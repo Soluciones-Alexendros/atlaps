@@ -31,7 +31,7 @@
     "@radix-ui/react-tooltip": "1.2.10",
     "clsx": "2.1.1",
     "lucide-react": "1.21.0",
-    "next": "16.2.9",
+    "next": "16.3.4",
     "react": "19.2.7",
     "react-dom": "19.2.7",
     "tailwind-merge": "3.6.0"
@@ -55,14 +55,14 @@
     "esbuild": "0.28.1",
     "vite": "8.0.16",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.2.9",
+    "eslint-config-next": "16.3.4",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-tailwindcss": "3.18.3",
     "husky": "9.1.7",
     "jsdom": "29.1.1",
     "lint-staged": "17.0.7",
-    "postcss": "8.5.13",
+    "postcss": "8.5.28",
     "prettier": "3.8.4",
     "tailwindcss": "4.3.1",
     "typescript": "6.0.3",
@@ -74,16 +74,6 @@
       "prettier --write"
     ],
     "*.{css,md,json,yml,yaml}": "prettier --write"
-  },
-  "pnpm": {
-    "overrides": {
-      "vite": ">=8.0.16",
-      "fast-uri": ">=3.1.1",
-      "postcss": ">=8.5.10",
-      "brace-expansion@>=1 <2": ">=1.1.12 <2",
-      "brace-expansion@>=2 <3": ">=2.0.2 <3",
-      "js-yaml": ">=4.2.0"
-    }
   },
   "packageManager": "pnpm@11.8.0",
   "engines": {
