@@ -1,0 +1,5 @@
+{
+  "name": "Atlaps",
+  "install": "pnpm install --frozen-lockfile\npnpm build:socios",
+  "start": "pnpm dev"
+}
