@@ -18,7 +18,7 @@ revisiones rápidas.
 
 Usamos las siguientes herramientas:
 
-- Node.js 22 (`engines.node >=22`) y `pnpm` 10 (`packageManager`) como gestor de paquetes.
+- Node.js 22 (`engines.node >=22`) y `pnpm` 11 (`packageManager`) como gestor de paquetes.
 - Conventional Commits para los mensajes (`feat:`, `fix:`, `chore:`,
   `docs:`, `refactor:`, `test:`, `build:`, `ci:`).
 - Firmas de commit obligatorias (SSH o GPG).

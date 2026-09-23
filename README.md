@@ -2,11 +2,11 @@
 
 Atlas de aplicaciones domóticas multi-protocolo (KNX, Matter, Zigbee, Z-Wave, IP, Modbus, BACnet, DALI). Bootstrap F0 completado.
 
-|            |                                                              |
-| ---------- | ------------------------------------------------------------ |
-| **Estado** | F0 completo, plumbing productivo mergeado                    |
-| **Stack**  | Next.js 15 · TypeScript 5.9 · Tailwind v4 · shadcn/ui · pnpm |
-| **Deploy** | Vercel (preview por PR)                                      |
+|            |                                                           |
+| ---------- | --------------------------------------------------------- |
+| **Estado** | F0 completo, plumbing productivo mergeado                 |
+| **Stack**  | Next.js 16 · TypeScript 6 · Tailwind v4 · Radix · pnpm 11 |
+| **Deploy** | Vercel (preview por PR)                                   |
 
 ---
 
@@ -39,12 +39,12 @@ Rutas: `/` (índice), `/socios/` (presentación privada), `/fonts/*`, `/logos/*`
 
 ## Stack
 
-- **Framework:** Next.js 15 App Router + React 19
+- **Framework:** Next.js 16 App Router + React 19
 - **Estética:** blueprint (azul arquitectónico + pergamino + ámbar). ADR 007
 - **Tipografía dual:** A (marketing): Fraunces + Inter + JetBrains Mono · B (app): Inter Display + Geist + IBM Plex Mono
 - **Self-host fuentes** (SIL OFL 1.1). RGPD-compliant
-- **CI/CD:** GitHub Actions (lint + typecheck + test + build + audit) + Dependabot
-- **Security headers:** HSTS, X-Frame-Options DENY, CSP estricta
+- **CI/CD:** GitHub Actions (lint + typecheck + test + build + audit) + Renovate
+- **Security headers:** HSTS, X-Frame-Options DENY, CSP con nonce en `middleware.ts` (+ headers en `next.config.ts` para `/socios`)
 
 ---
 

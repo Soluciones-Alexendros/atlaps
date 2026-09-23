@@ -15,6 +15,11 @@ export async function sendViaResend(
   const from = process.env.CONTACTO_FROM ?? "Atlaps <noreply@atlaps.com>";
 
   if (!apiKey) {
+    const isProd = process.env.VERCEL_ENV === "production" || process.env.NODE_ENV === "production";
+    if (isProd) {
+      console.error("[contacto] RESEND_API_KEY ausente en producción — fail-closed");
+      return { ok: false, error: "email_misconfigured" };
+    }
     console.info("[contacto] RESEND_API_KEY ausente — modo mock", {
       to,
       from,
