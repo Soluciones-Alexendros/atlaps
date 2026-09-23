@@ -15,6 +15,7 @@ jobs:
   ci:
     name: lint · typecheck · test · build · audit
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     permissions:
       contents: read
     strategy:
@@ -73,6 +74,7 @@ jobs:
   audit:
     name: Audit workflows
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: read
       actions: read
@@ -96,6 +98,7 @@ jobs:
   e2e:
     name: e2e · playwright + axe
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     needs: ci
     permissions:
       contents: read
