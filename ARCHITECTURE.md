@@ -94,7 +94,7 @@ propietario (ventana F4–F6).
 
 ## 5. Frontend
 
-- **Framework:** Next.js 15.5.x App Router + TypeScript 5.9 + Tailwind v4
+- **Framework:** Next.js 16.x App Router + TypeScript 6 + Tailwind v4
   (`@theme`). React 19.
 - **Componentes:** shadcn/ui + Radix UI primitives + Lucide React (iconos
   provisionales).
@@ -141,7 +141,7 @@ platform app aislada está en el roadmap (F1).
 - **Pre-commit:** husky 9 + lint-staged + commitlint (`config-conventional`).
 - **CI:** GitHub Actions `.github/workflows/ci.yml` — lint · typecheck · test ·
   build · audit en Node 22, pnpm 10, runners GitHub-hosted (`ubuntu-latest`).
-- **Dependabot:** bumps semanales de npm + github-actions.
+- **Renovate:** bumps semanales de npm + github-actions (presets compartidos).
 - **Despliegue:** Vercel con Git integration (preview por PR).
 
 ## 9. Threat model básico
@@ -153,14 +153,14 @@ futuro, datos de dispositivos de clientes (multi-tenant).
   (Next.js ≥ 15.5.15). El `middleware.ts` no debe ser el único punto de control;
   la autorización se valida también en capa de datos (Supabase RLS, F2+).
 - **Cache poisoning** — cubierto por el mismo bump de Next.js.
-- **Inyección / XSS** — CSP estricta sin `unsafe-eval` en `vercel.json`; React
+- **Inyección / XSS** — CSP con nonce en `middleware.ts` y headers en `next.config.ts` para `/socios`; React
   escapa por defecto.
 - **Clickjacking** — `X-Frame-Options: DENY`.
 - **Sniffing de tipo** — `X-Content-Type-Options: nosniff`.
 - **Transporte** — HSTS forzado.
 - **Fuga por terceros** — fuentes self-host (sin CDN externos); RGPD-compliant.
 - **Cadena de suministro** — versiones fijadas (ADR 009), lockfile determinista,
-  Dependabot, `pnpm audit --audit-level=high` en CI.
+  Renovate, `pnpm audit --audit-level=high` en CI.
 - **Divulgación de vulnerabilidades** — canal privado en `SECURITY.md`.
 - **Superficie de protocolos (F2+)** — cada adaptador de bus (KNX, Modbus,
   BACnet…) es una superficie de ataque sobre la red del edificio; se aislará por

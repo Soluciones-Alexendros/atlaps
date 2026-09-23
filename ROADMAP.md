@@ -29,9 +29,9 @@ Plumbing productivo (PR #2 + PR #4):
 - ✅ Linting & format — ESLint flat 9 + Prettier 3 + `tsc --noEmit` en CI.
 - ✅ Pre-commit hooks — husky 9 + lint-staged + commitlint conventional.
 - ✅ CI GitHub Actions — `.github/workflows/ci.yml` (Node 22, pnpm 10) en push y PR.
-- ✅ Security headers — `vercel.json` (HSTS, X-Frame-Options DENY,
-  X-Content-Type-Options nosniff, Referrer-Policy, Permissions-Policy, CSP estricta).
-- ✅ Dependabot — bumps semanales de npm + github-actions.
+- ✅ Security headers — `middleware.ts` (CSP nonce) + `next.config.ts` (HSTS,
+  X-Frame-Options DENY, CSP para `/socios`).
+- ✅ Renovate — bumps semanales de npm + github-actions.
 
 ### Pendientes de cierre arrastrados desde F0
 
