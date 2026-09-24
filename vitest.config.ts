@@ -14,5 +14,10 @@ export default defineConfig({
       "packages/**/__tests__/**/*.test.{ts,tsx}",
     ],
     exclude: ["node_modules", ".next", "tests/e2e/**"],
+    // Objetivo de flota ≥ 70 %. Sin gate en este repo (baseline F0); no bajarlo si se añade.
+    coverage: {
+      reporter: ["text", "lcov"],
+      reportsDirectory: "./coverage",
+    },
   },
 });

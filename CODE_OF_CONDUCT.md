@@ -1,5 +1,11 @@
 # Código de Conducta para Contribuidores
 
+### Propósito de este documento
+
+- **Objetivos:** Fijar el estándar de conducta de quienes participan en el repositorio.
+- **Estructura:** Compromiso → estándares → aplicación → alcance.
+- **Contenido a integrar según contexto:** Conserva el texto existente. No sustituyas por un CoC de otro repo de la flota.
+
 ## Nuestro compromiso
 
 Como participantes, contribuyentes y mantenedores nos comprometemos a hacer

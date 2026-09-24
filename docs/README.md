@@ -1,16 +1,25 @@
 # `docs` · Documentación canónica
 
+### Propósito de este documento
+
+- **Objetivos:** Índice de la documentación viva y de las convenciones de cada clase de documento.
+- **Estructura:** Estructura de carpetas → ADRs → briefs → convenciones.
+- **Contenido a integrar según contexto:** Los ADRs canónicos viven en `architecture/decisions/`. No añadas ADRs nuevos en `adr/` (stub).
+
 Toda la documentación viva del proyecto Atlaps. Cada subcarpeta es una clase de documento con convención propia.
 
 ## Estructura
 
-- `adr/` — Architecture Decision Records (sólo decisiones cerradas). Numerar 001, 002, ... Inmutables tras firma; sólo se añaden ADRs sucesores.
+- `architecture/decisions/` — Architecture Decision Records (sólo decisiones cerradas). Numerar 001, 002, ... Inmutables tras firma; sólo se añaden ADRs sucesores. `adr/` es un stub de compatibilidad.
+- `guides/` — desarrollo local y calidad (P1).
+- `runbooks/` — CI/despliegue e incidente (P1).
 - `briefs/` — briefs operativos para Design de Claude y otros agentes IA. Versionados con `vX` en el frontmatter.
 - `tokens.md` — referencia humana de los tokens del design system. Espejo legible de `packages/design-system/tokens.css`.
 
 ## ADRs activos
 
-- [`007-marca-independiente-blueprint.md`](adr/007-marca-independiente-blueprint.md) — marca blueprint independiente, no derivada de Vergina Imperial.
+- [`007-marca-independiente-blueprint.md`](architecture/decisions/007-marca-independiente-blueprint.md) — marca blueprint independiente, no derivada de Vergina Imperial.
+- [`011-alineacion-canon-p1.md`](architecture/decisions/011-alineacion-canon-p1.md) — alineación al contrato P1 de flota.
 
 ## ADRs en otros repos / cuadernos
 
