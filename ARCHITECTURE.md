@@ -1,12 +1,19 @@
 # Arquitectura de Atlaps
 
+### Propósito de este documento
+
+- **Objetivos:** Describir pilares, layout del monorepo, stack y amenazas para navegar el producto sin reescribirlo.
+- **Estructura:** Visión → pilares → monorepo → protocolos → frontend/backend → ADR → CI → threat model → riesgos.
+- **Contenido a integrar según contexto:** Conserva la tesis multi-protocolo y la estética blueprint. No copies la arquitectura de otro SaaS de la flota.
+
 > _Atlas de aplicaciones domóticas capaces de funcionar independientemente y de
 > arrollar cooperativamente._ · Iniciativa Alexendros, S.L. · Comunitat Valenciana.
 
 Este documento describe la arquitectura del monorepo Atlaps: sus pilares, cómo
 navegarlo, la estrategia multi-protocolo de domótica, el backend objetivo, las
 decisiones tomadas y los riesgos. Para el plan temporal por fases ver
-[`ROADMAP.md`](ROADMAP.md); para las decisiones detalladas ver [`docs/adr/`](docs/adr/).
+[`ROADMAP.md`](ROADMAP.md); para las decisiones detalladas ver
+[`docs/architecture/decisions/`](docs/architecture/decisions/).
 
 ## 1. Visión
 
@@ -50,7 +57,9 @@ Atlaps/
 ├── packages/
 │   └── design-system/         showcase, tokens, ui_kits, preview, logo, iconos
 ├── docs/
-│   ├── adr/                   Architecture Decision Records (MADR 4.0.0)
+│   ├── architecture/decisions/  Architecture Decision Records (MADR 4.0.0)
+│   ├── guides/                desarrollo local y calidad
+│   ├── runbooks/              CI/despliegue e incidente
 │   ├── briefs/                briefs operativos para Design de Claude
 │   └── tokens.md              referencia humana de tokens
 ├── app/                       portal Next.js de la raíz (índice navegable + /socios)
@@ -70,7 +79,7 @@ Atlaps/
 | App autenticada (5 pilares)        | `apps/platform/` + `docs/briefs/prototype-landing-app.md` (sección B) |
 | Design system con Design de Claude | `packages/design-system/` + `docs/briefs/design-system.md`            |
 | Tokens, paleta, tipografía         | `docs/tokens.md` y `packages/design-system/tokens.css`                |
-| Decisiones de marca y técnicas     | `docs/adr/`                                                           |
+| Decisiones de marca y técnicas     | `docs/architecture/decisions/`                                        |
 
 ## 4. Estrategia multi-protocolo
 
@@ -118,7 +127,8 @@ entorno. El backend self-host entra a partir de F2.
 
 ## 7. Decisiones (ADR)
 
-Las decisiones se registran en `docs/adr/` con formato **MADR 4.0.0** (ADR 0001):
+Las decisiones se registran en `docs/architecture/decisions/` con formato
+**MADR 4.0.0** (ADR 0001). `docs/adr/` y `DECISIONS.md` son stubs:
 
 - **005** — LLM: Mistral La Plateforme UE managed → Scaleway L40S Paris self-host
   (umbrales 2/4, F6+).
@@ -139,8 +149,9 @@ platform app aislada está en el roadmap (F1).
   Prettier 3 + `tsc --noEmit`.
 - **Tests:** Vitest (unit) + Playwright (e2e) + `@axe-core/playwright` (a11y).
 - **Pre-commit:** husky 9 + lint-staged + commitlint (`config-conventional`).
-- **CI:** GitHub Actions `.github/workflows/ci.yml` — lint · typecheck · test ·
-  build · audit en Node 22, pnpm 10, runners GitHub-hosted (`ubuntu-latest`).
+- **CI:** GitHub Actions `.github/workflows/ci.yml` — jobs `quality`, `test`,
+  `build`, `smoke` (+ `audit` de workflows) en Node 22, pnpm 11, runners
+  GitHub-hosted (`ubuntu-latest`).
 - **Renovate:** bumps semanales de npm + github-actions (presets compartidos).
 - **Despliegue:** Vercel con Git integration (preview por PR).
 

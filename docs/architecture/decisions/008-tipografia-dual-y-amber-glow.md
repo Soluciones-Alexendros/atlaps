@@ -73,7 +73,7 @@ Se formaliza el token `--color-amber-on-surface`, que se sustituye automáticame
 
 ## Punteros
 
-- ADR origen: `docs/adr/007-marca-independiente-blueprint.md`
+- ADR origen: `docs/architecture/decisions/007-marca-independiente-blueprint.md`
 - Tokens canónicos: `packages/design-system/tokens.css`
 - Brief: `docs/briefs/design-system.md`
 - Showcase: `packages/design-system/showcase.html`

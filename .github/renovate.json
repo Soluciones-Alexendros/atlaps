@@ -3,5 +3,6 @@
   "extends": [
     "local>Iniciativas-Alexendros/infraestructura-stack:renovate-presets/default",
     "local>Iniciativas-Alexendros/infraestructura-stack:renovate-presets/node"
-  ]
+  ],
+  "enabledManagers": ["npm", "github-actions"]
 }

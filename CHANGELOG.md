@@ -1,5 +1,11 @@
 # Changelog
 
+### Propósito de este documento
+
+- **Objetivos:** Registrar cambios destacables con Keep a Changelog / SemVer.
+- **Estructura:** `[Sin publicar]` → versiones etiquetadas.
+- **Contenido a integrar según contexto:** Conserva el historial. Añade entradas bajo `[Sin publicar]`; no reescribas versiones publicadas.
+
 Todos los cambios destacables de este proyecto se documentan en este archivo.
 
 El formato sigue [Keep a Changelog 1.1.0](https://keepachangelog.com/es-ES/1.1.0/),
@@ -9,7 +15,9 @@ y este proyecto se adhiere a [SemVer 2.0.0](https://semver.org/lang/es/).
 
 ### Añadido
 
-- (pendiente)
+- Alineación al canon P1: jobs CI `quality` / `test` / `build` / `smoke`,
+  `AGENTS.md`, guides/runbooks, ADRs en `docs/architecture/decisions/`,
+  meta-sección Propósito y CODEOWNERS `* @Alexendros`.
 
 ### Cambiado
 
@@ -38,5 +46,5 @@ y este proyecto se adhiere a [SemVer 2.0.0](https://semver.org/lang/es/).
 
 - Versión inicial del repositorio con canon de documentación aplicado.
 
-[Sin publicar]: https://github.com/Iniciativas-Alexendros/Atlaps/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/Iniciativas-Alexendros/Atlaps/releases/tag/v0.1.0
+[Sin publicar]: https://github.com/Iniciativas-Alexendros/saas-atlaps/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Iniciativas-Alexendros/saas-atlaps/releases/tag/v0.1.0

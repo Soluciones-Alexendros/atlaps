@@ -1,5 +1,11 @@
 # Roadmap de Atlaps
 
+### Propósito de este documento
+
+- **Objetivos:** Reflejar el plan por fases del producto (F0–Fn) de forma trazable en git.
+- **Estructura:** Fases con estado (completo / en curso / planificado).
+- **Contenido a integrar según contexto:** La fuente operativa vive en Notion. No reordenes fases en un PR de plataforma.
+
 > _Atlas de aplicaciones domóticas capaces de funcionar independientemente y de
 > arrollar cooperativamente._ · Iniciativa Alexendros, S.L.
 
@@ -38,7 +44,7 @@ Plumbing productivo (PR #2 + PR #4):
 - ⏳ Forgejo pull-mirror tras siguiente ejecución de `bootstrap-org-and-mirrors.sh`
   (requiere PATs del operador).
 - ⏳ Memoria IVACE INNOVA-CV TEIC (deadline original 5-may-2026).
-- ⏳ ADR 008 firmado (tipografía dual A/B + amber-glow) — ya redactado en `docs/adr/`.
+- ⏳ ADR 008 firmado (tipografía dual A/B + amber-glow) — ya redactado en `docs/architecture/decisions/`.
 
 ## F1 — Landings públicas y placeholders de producto · ⏳ planificado
 

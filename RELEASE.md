@@ -1,5 +1,11 @@
 # Procedimiento de release de Atlaps
 
+### Propósito de este documento
+
+- **Objetivos:** Describir el versionado SemVer y el recorte de tags firmados.
+- **Estructura:** Antes de la release → pasos → versionado.
+- **Contenido a integrar según contexto:** Conserva tags firmados y CHANGELOG. No copies semantic-release de otro repo si este proyecto recorta a mano.
+
 Las releases siguen [SemVer 2.0.0](https://semver.org/lang/es/) y se
 publican a través de tags firmados.
 
