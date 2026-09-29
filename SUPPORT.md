@@ -11,7 +11,7 @@ Antes de abrir un issue revisa estas vías:
 ## 2. Discusiones
 
 Para preguntas y conversaciones de uso utiliza la sección
-[Discussions del repositorio](https://github.com/Iniciativas-Alexendros/Atlaps/discussions)
+[Discussions del repositorio](https://github.com/Soluciones-Alexendros/Atlaps/discussions)
 si está habilitada.
 
 ## 3. Issues

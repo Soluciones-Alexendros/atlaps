@@ -15,10 +15,10 @@ exclude = [
   # Anclas de prototipos / kits locales
   "^#",
   # Placeholders del CHANGELOG y URLs de GitHub privadas/aún no habilitadas
-  "^https://github.com/Iniciativas-Alexendros/Atlaps$",
-  "^https://github.com/Iniciativas-Alexendros/Atlaps/compare/v0.1.0",
-  "^https://github.com/Iniciativas-Alexendros/Atlaps/releases/tag/v0.1.0",
-  "^https://github.com/Iniciativas-Alexendros/Atlaps/discussions",
+  "^https://github.com/Soluciones-Alexendros/Atlaps$",
+  "^https://github.com/Soluciones-Alexendros/Atlaps/compare/v0.1.0",
+  "^https://github.com/Soluciones-Alexendros/Atlaps/releases/tag/v0.1.0",
+  "^https://github.com/Soluciones-Alexendros/Atlaps/discussions",
 ]
 
 exclude_path = [

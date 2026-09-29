@@ -26,7 +26,7 @@ Usamos las siguientes herramientas:
 Pasos típicos:
 
 ```bash
-git clone git@github.com:Iniciativas-Alexendros/Atlaps.git
+git clone git@github.com:Soluciones-Alexendros/Atlaps.git
 cd Atlaps
 pnpm install
 pnpm lint && pnpm typecheck && pnpm test

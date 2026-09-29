@@ -38,5 +38,5 @@ y este proyecto se adhiere a [SemVer 2.0.0](https://semver.org/lang/es/).
 
 - Versión inicial del repositorio con canon de documentación aplicado.
 
-[Sin publicar]: https://github.com/Iniciativas-Alexendros/Atlaps/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/Iniciativas-Alexendros/Atlaps/releases/tag/v0.1.0
+[Sin publicar]: https://github.com/Soluciones-Alexendros/Atlaps/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/Soluciones-Alexendros/Atlaps/releases/tag/v0.1.0

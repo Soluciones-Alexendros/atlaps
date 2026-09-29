@@ -56,7 +56,7 @@ Vercel + Git integration. Connectar `github.com/Alexendros/Atlaps`. Zero-config.
 
 ## Vinculaciones
 
-- **GitHub:** [Iniciativas-Alexendros/Atlaps](https://github.com/Iniciativas-Alexendros/Atlaps) (privado)
+- **GitHub:** [Soluciones-Alexendros/Atlaps](https://github.com/Soluciones-Alexendros/Atlaps) (privado)
 - **Forgejo:** `git.alexendros.me/Alexendros/Atlaps` (pull-mirror cada 8h)
 - **Notion:** Documento de Implementación del MVP
 
