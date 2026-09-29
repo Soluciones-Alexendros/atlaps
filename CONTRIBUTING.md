@@ -1,5 +1,11 @@
 # Cómo contribuir a Atlaps
 
+### Propósito de este documento
+
+- **Objetivos:** Describir el flujo de contribución (entorno, ramas, PRs, firmas) de este SaaS privado.
+- **Estructura:** Antes de empezar → entorno → ramas → PRs → commits firmados → seguridad.
+- **Contenido a integrar según contexto:** Conserva Conventional Commits y husky. No copies el flujo de un repo público de la flota. Las vulnerabilidades van por `SECURITY.md`.
+
 Gracias por interesarte en el proyecto. En este documento describimos cómo
 trabajamos para mantener el código limpio, las decisiones trazables y las
 revisiones rápidas.
@@ -12,7 +18,7 @@ revisiones rápidas.
   algo nuevo, abre primero un issue describiendo el problema y la solución
   propuesta.
 - Si tu aportación afecta a la arquitectura o a una decisión transversal,
-  documenta la decisión en `docs/adr/` siguiendo MADR 4.0.0.
+  documenta la decisión en `docs/architecture/decisions/` siguiendo MADR 4.0.0.
 
 ## Entorno de desarrollo
 
@@ -26,8 +32,8 @@ Usamos las siguientes herramientas:
 Pasos típicos:
 
 ```bash
-git clone git@github.com:Soluciones-Alexendros/Atlaps.git
-cd Atlaps
+git clone git@github.com:Soluciones-Alexendros/saas-atlaps.git
+cd saas-atlaps
 pnpm install
 pnpm lint && pnpm typecheck && pnpm test
 ```
@@ -44,8 +50,9 @@ pnpm lint && pnpm typecheck && pnpm test
 
 - Abre el PR con la plantilla por defecto (rellena los apartados Qué,
   Por qué, Cómo probar y la lista de comprobación).
-- El CI debe quedar verde antes del merge. No nos saltamos hooks ni firmas.
-- Pide revisión a `@alexendros` o a la persona designada en
+- El CI (`quality`, `test`, `build`, `smoke`) debe quedar verde antes del merge.
+  No nos saltamos hooks ni firmas.
+- Pide revisión a `@Alexendros` o a la persona designada en
   `.github/CODEOWNERS`.
 
 ## Commits firmados

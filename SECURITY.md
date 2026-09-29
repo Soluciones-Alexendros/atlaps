@@ -1,5 +1,11 @@
 # Política de seguridad de Atlaps
 
+### Propósito de este documento
+
+- **Objetivos:** Indicar cómo reportar vulnerabilidades por canal privado y los SLA de respuesta.
+- **Estructura:** Versiones soportadas → reporte → SLA → divulgación → marco normativo.
+- **Contenido a integrar según contexto:** No abras issues públicos de seguridad. No copies un SECURITY de repo público que invite a GitHub Advisories si el canal canónico es el correo cifrado.
+
 ## Versiones soportadas
 
 | Versión        | Soporte de seguridad |

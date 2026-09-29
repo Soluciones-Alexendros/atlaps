@@ -113,8 +113,8 @@ Sugerir 3 mejoras concretas fuera de scope al final del entregable (micro-animac
 
 ## Referencias
 
-- ADR 007 · Marca independiente blueprint: `docs/adr/007-marca-independiente-blueprint.md`
-- ADR 008 · Tipografía dual A/B + promoción amber-signal → amber-glow en oscuro: `docs/adr/008-tipografia-dual-y-amber-glow.md`
+- ADR 007 · Marca independiente blueprint: `docs/architecture/decisions/007-marca-independiente-blueprint.md`
+- ADR 008 · Tipografía dual A/B + promoción amber-signal → amber-glow en oscuro: `docs/architecture/decisions/008-tipografia-dual-y-amber-glow.md`
 
 ---
 

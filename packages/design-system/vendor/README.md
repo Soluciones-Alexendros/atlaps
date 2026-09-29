@@ -3,7 +3,7 @@
 Builds UMD de React 18.3.1 descargados por `scripts/build-showcase.sh` desde el
 registro npm oficial. Se sirven como `<script src="vendor/...">` con SRI
 `sha384` desde `showcase.html` para eliminar la dependencia CDN de unpkg
-documentada en `docs/adr/010-build-tooling-and-test-stack.md` §62.
+documentada en `docs/architecture/decisions/010-build-tooling-and-test-stack.md` §62.
 
 ## Procedencia
 

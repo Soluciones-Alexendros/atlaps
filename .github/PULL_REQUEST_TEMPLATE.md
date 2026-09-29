@@ -1,5 +1,13 @@
 <!-- canon-managed: true -->
 
+# Pull request
+
+### Propósito de este documento
+
+- **Objetivos:** Guiar la descripción de un PR (qué, por qué, cómo probar) y la lista de comprobación P1.
+- **Estructura:** Qué → por qué → cómo probar → capturas → checklist → notas.
+- **Contenido a integrar según contexto:** El CI canónico son los jobs `quality`, `test`, `build` y `smoke`. No pidas force-push ni cambios de org settings.
+
 ## Qué
 
 Resume en una o dos frases qué cambia este pull request.
@@ -22,7 +30,7 @@ Pasos verificables para revisar manualmente:
 
 ## Lista de comprobación
 
-- [ ] El CI está verde (lint, typecheck, tests, build).
+- [ ] El CI está verde (`quality`, `test`, `build`, `smoke`).
 - [ ] Se han añadido o ajustado tests cuando aplica.
 - [ ] La documentación pertinente (README, ARCHITECTURE, ADR) está actualizada.
 - [ ] El `CHANGELOG.md` recoge el cambio en `[Sin publicar]`.
