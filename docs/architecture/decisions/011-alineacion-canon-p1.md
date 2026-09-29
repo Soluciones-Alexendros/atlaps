@@ -8,18 +8,18 @@
 
 - Estado: accepted
 - Fecha: 2026-09-24
-- Decisores: Alejandro · Iniciativas Alexendros
+- Decisores: Alejandro · Soluciones Alexendros
 - Etiquetas: plataforma, ci, documentación
 
 ## Contexto y planteamiento del problema
 
-La flota Iniciativas-Alexendros unifica nombres de jobs CI (`quality` / `test` /
+La flota Soluciones-Alexendros unifica nombres de jobs CI (`quality` / `test` /
 `build` / `smoke`), CODEOWNERS, Renovate, docs P1 y la meta-sección «Propósito
 de este documento». Este repositorio ya tenía plumbing (lint, Vitest,
 Playwright, Renovate, husky) pero el pipeline era un job monolítico `ci` + `e2e`
 y faltaban `AGENTS.md`, guides/runbooks y la carpeta canónica de ADRs.
 
-`Iniciativas-Alexendros/repo-standard` no es accesible con el token de los
+`Soluciones-Alexendros/repo-standard` no es accesible con el token de los
 agentes (404). Se aplica el contrato P0+P1 resumido de la oleada.
 
 ## Drivers de la decisión

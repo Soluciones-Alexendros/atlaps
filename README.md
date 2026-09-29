@@ -56,7 +56,7 @@ Rutas: `/` (índice), `/socios/` (presentación privada), `/fonts/*`, `/logos/*`
 
 ## Despliegue
 
-Vercel + Git integration sobre `Iniciativas-Alexendros/saas-atlaps`. Preview por PR.
+Vercel + Git integration sobre `Soluciones-Alexendros/saas-atlaps`. Preview por PR.
 
 ---
 
@@ -76,7 +76,7 @@ Vercel + Git integration sobre `Iniciativas-Alexendros/saas-atlaps`. Preview por
 
 ## Vinculaciones
 
-- **GitHub:** [Iniciativas-Alexendros/saas-atlaps](https://github.com/Iniciativas-Alexendros/saas-atlaps) (privado)
+- **GitHub:** [Soluciones-Alexendros/saas-atlaps](https://github.com/Soluciones-Alexendros/saas-atlaps) (privado)
 - **Forgejo:** `git.alexendros.me/Alexendros/Atlaps` (pull-mirror cada 8h)
 - **Notion:** Documento de Implementación del MVP
 
