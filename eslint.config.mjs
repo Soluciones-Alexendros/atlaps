@@ -15,6 +15,7 @@ const reactPlugin = pluginFromNext("react");
 const config = defineConfig([
   globalIgnores([
     ".next/**",
+    ".tools/**",
     "node_modules/**",
     "public/socios/vendor/**",
     "public/socios/bundle.js",

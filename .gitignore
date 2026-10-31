@@ -71,3 +71,6 @@ test-results/
 # Claude / AI workspace
 /.claude/
 /CLAUDE.md
+
+# Herramientas locales de agentes (pnpm embebido, etc.)
+.tools/
