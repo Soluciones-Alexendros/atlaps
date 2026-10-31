@@ -1,2 +1,10 @@
 # Propietario por defecto de todo el repositorio
 * @Alexendros
+
+# Superficies de CI, proxy/middleware, despliegue y mutación de datos
+/.github/ @Alexendros
+/proxy.ts @Alexendros
+/middleware.ts @Alexendros
+/vercel.json @Alexendros
+/app/api/ @Alexendros
+/lib/contacto/ @Alexendros

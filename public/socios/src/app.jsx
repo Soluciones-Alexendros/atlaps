@@ -21,8 +21,11 @@ function App() {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
-  // Tweak panel protocol
+  // Tweaks solo en desarrollo local (no producción ni previews públicas).
   useEffect(() => {
+    const host = window.location.hostname;
+    const allowTweaks = host === "localhost" || host === "127.0.0.1";
+    if (!allowTweaks) return undefined;
     const handler = (e) => {
       if (e.data?.type === "__activate_edit_mode") setTweaksOpen(true);
       if (e.data?.type === "__deactivate_edit_mode") setTweaksOpen(false);
@@ -84,9 +87,7 @@ function App() {
         </div>
       )}
 
-      <style>{`
-        ${tweaks.showCaveats ? "" : ".caveat { display: none !important; }"}
-      `}</style>
+      {!tweaks.showCaveats ? <style>{`.caveat{display:none!important}`}</style> : null}
     </>
   );
 }

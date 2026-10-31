@@ -20,7 +20,8 @@
     "test:e2e": "playwright test",
     "prepare": "husky",
     "fonts:sync": "bash scripts/sync-fonts-from-fontsource.sh",
-    "secrets": "gitleaks detect --no-banner --redact --log-opts=--all --source ."
+    "secrets": "gitleaks detect --no-banner --redact --log-opts=--all --source .",
+    "audit": "pnpm audit --audit-level high"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "5.3.0",
@@ -31,7 +32,8 @@
     "@fontsource/ibm-plex-mono": "5.3.0",
     "next": "16.4.1",
     "react": "19.2.7",
-    "react-dom": "19.2.7"
+    "react-dom": "19.2.7",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.11.3",
