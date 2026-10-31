@@ -1,1 +1,6 @@
 pnpm lint-staged
+
+# gitleaks opcional en local: si el binario no está, no bloquea (manda la CI).
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks protect --staged --redact --no-banner || exit 1
+fi
