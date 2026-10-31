@@ -20,11 +20,8 @@ export async function sendViaResend(
       console.error("[contacto] RESEND_API_KEY ausente en producción — fail-closed");
       return { ok: false, error: "email_misconfigured" };
     }
-    console.info("[contacto] RESEND_API_KEY ausente — modo mock", {
-      to,
-      from,
-      payload: { ...p, website: undefined },
-    });
+    // Sin PII ni destinatarios en logs (nombre, email, mensaje, to/from).
+    console.info("[contacto] RESEND_API_KEY ausente — modo mock");
     return { ok: true, id: "mock" };
   }
 
@@ -57,8 +54,9 @@ export async function sendViaResend(
       }),
     });
     if (!res.ok) {
-      const errText = await res.text();
-      console.error("[contacto] Resend error", res.status, errText);
+      // No registrar el cuerpo de Resend: puede incluir reply_to / destinatario.
+      await res.text().catch(() => "");
+      console.error("[contacto] Resend error", res.status);
       return { ok: false, error: `resend ${res.status}` };
     }
     const json = (await res.json()) as { id?: string };

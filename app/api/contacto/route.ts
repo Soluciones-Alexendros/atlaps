@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
   if (!v.ok) return validationErrorResponse(v.error);
 
   if (v.data.website) {
-    console.info("[contacto] honeypot activado", { ip });
+    console.info("[contacto] honeypot activado");
     return honeypotResponse();
   }
 
