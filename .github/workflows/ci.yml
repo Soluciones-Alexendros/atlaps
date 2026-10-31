@@ -1,15 +1,15 @@
 name: CI
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 on:
-  push:
   pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+  push:
 
-permissions:
-  contents: read
+permissions: {}
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   quality:
@@ -24,8 +24,6 @@ jobs:
         with:
           persist-credentials: false
 
-      # pnpm/action-setup must run before setup-node with cache: pnpm so the
-      # pnpm CLI is on PATH when setup-node computes the store directory.
       - name: Setup pnpm
         uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
 
@@ -38,11 +36,18 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Lint workflows (actionlint)
+      - name: Validar título Conventional Commits
+        if: github.event_name == 'pull_request'
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
-          curl -sLO https://raw.githubusercontent.com/rhysd/actionlint/v1.7.7/scripts/download-actionlint.bash
-          bash download-actionlint.bash
-          ./actionlint --config-file actionlint.yaml
+          set -euo pipefail
+          pattern='^(feat|fix|perf|refactor|docs|test|build|ci|chore|revert|style)(\([a-z0-9._/-]+\))?!?: .{1,100}$'
+          if ! printf '%s\n' "$PR_TITLE" | grep -Eq "$pattern"; then
+            echo "::error::Título de PR inválido: «${PR_TITLE}»"
+            echo "Esperado: tipo(alcance)?: descripción (1–100 caracteres tras «: »)"
+            exit 1
+          fi
 
       - name: Format check
         run: pnpm format:check
@@ -58,9 +63,6 @@ jobs:
 
       - name: Validate docs (meta-sección Propósito)
         run: bash scripts/validate-docs.sh
-
-      - name: Audit
-        run: pnpm audit --audit-level=high
 
   test:
     name: test
@@ -160,7 +162,6 @@ jobs:
 
       # Rebuild in smoke: `.next` is not reliably portable across jobs, and
       # socios artefacts (`public/socios/bundle.js`, …) are gitignored.
-      # The `build` job still uploads the artefact for the P1 contract.
       - name: Build (portal + socios)
         run: pnpm build
 
@@ -180,8 +181,103 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
-  audit:
-    name: Audit workflows
+  secrets:
+    name: secrets
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Instalar gitleaks (binario + suma)
+        env:
+          GITLEAKS_VERSION: "8.30.1"
+          GITLEAKS_SHA256: "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb"
+        run: |
+          set -euo pipefail
+          archive="gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          curl -fsSL -o "${archive}" \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/${archive}"
+          echo "${GITLEAKS_SHA256}  ${archive}" | sha256sum -c -
+          tar -xzf "${archive}" gitleaks
+          sudo mv gitleaks /usr/local/bin/gitleaks
+          gitleaks version
+
+      - name: Detectar secretos
+        run: gitleaks detect --no-banner --redact --source .
+
+  sca:
+    name: sca
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: pnpm audit (high+)
+        run: pnpm audit --audit-level high
+
+      - name: Instalar OSV-Scanner (binario + suma)
+        env:
+          OSV_VERSION: "2.7.0"
+          OSV_SHA256: "160c6253e2922e9e0a6a9771c5c4c40a4b3c6090b34a3cdd5e80c96cc2e4218b"
+        run: |
+          set -euo pipefail
+          bin="osv-scanner_linux_amd64"
+          curl -fsSL -o osv-scanner \
+            "https://github.com/google/osv-scanner/releases/download/v${OSV_VERSION}/${bin}"
+          echo "${OSV_SHA256}  osv-scanner" | sha256sum -c -
+          chmod +x osv-scanner
+          sudo mv osv-scanner /usr/local/bin/osv-scanner
+          osv-scanner --version
+
+      - name: OSV-Scanner (lockfile)
+        run: osv-scanner scan --lockfile=pnpm-lock.yaml --config=osv-scanner.toml
+
+  actionlint:
+    name: actionlint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Instalar actionlint y lintar workflows
+        run: |
+          set -euo pipefail
+          tmpdir="$(mktemp -d)"
+          curl -fsSL -o "$tmpdir/download-actionlint.bash" \
+            https://raw.githubusercontent.com/rhysd/actionlint/v1.7.12/scripts/download-actionlint.bash
+          bash "$tmpdir/download-actionlint.bash" 1.7.12 "$tmpdir"
+          "$tmpdir/actionlint" -color --config-file actionlint.yaml
+
+  zizmor:
+    name: zizmor
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -193,13 +289,39 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
-      - name: Lint workflows (actionlint)
-        run: |
-          curl -sLO https://raw.githubusercontent.com/rhysd/actionlint/v1.7.7/scripts/download-actionlint.bash
-          bash download-actionlint.bash
-          ./actionlint --config-file actionlint.yaml
+
       - name: Audit workflows (zizmor)
         uses: zizmorcore/zizmor-action@192e21d79ab29983730a13d1382995c2307fbcaa # v0.5.7
         with:
           inputs: .github/workflows/
           advanced-security: false
+
+  ci-gate:
+    name: ci-gate
+    needs: [quality, test, build, smoke, secrets, sca, actionlint, zizmor]
+    if: always()
+    permissions: {}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Evaluar needs y hold
+        env:
+          NEEDS_JSON: ${{ toJSON(needs) }}
+          ALLOWED_SKIPS: ""
+          HOLD: ${{ github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'hold') }}
+        run: |
+          set -euo pipefail
+          if [[ "${HOLD}" == "true" ]]; then
+            echo "::error::PR con etiqueta hold: ci-gate falla a propósito (quita hold para auto-merge)."
+            exit 1
+          fi
+          if ! command -v jq >/dev/null 2>&1; then
+            sudo apt-get update -qq && sudo apt-get install -y -qq jq
+          fi
+          echo "$NEEDS_JSON" | jq -e --argjson skips "$(printf '%s\n' "${ALLOWED_SKIPS}" | jq -R 'split(" ") | map(select(length>0))')" '
+            to_entries
+            | map(select(.value.result != "success" and ((.key as $k | $skips | index($k)) | not)))
+            | if length == 0 then true else
+                error("ci-gate: jobs no success: " + (map(.key + "=" + .value.result) | join(", ")))
+              end
+          ' >/dev/null
