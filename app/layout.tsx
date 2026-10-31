@@ -55,7 +55,7 @@ export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   // CSP nonce-based con 'strict-dynamic': el `<Script>` debe llevar el mismo
-  // nonce emitido por middleware.ts (header x-nonce). Sin esto, en producción
+  // nonce emitido por proxy.ts (header x-nonce). Sin esto, en producción
   // `theme-init.js` y otros scripts user-defined son bloqueados por la CSP.
   const nonce = (await headers()).get("x-nonce") ?? undefined;
   return (
