@@ -253,7 +253,7 @@ jobs:
           osv-scanner --version
 
       - name: OSV-Scanner (lockfile)
-        run: osv-scanner scan --lockfile=pnpm-lock.yaml
+        run: osv-scanner scan --lockfile=pnpm-lock.yaml --config=osv-scanner.toml
 
   actionlint:
     name: actionlint
@@ -271,10 +271,9 @@ jobs:
         run: |
           set -euo pipefail
           tmpdir="$(mktemp -d)"
-          (
-            cd "$tmpdir"
-            curl -fsSL https://raw.githubusercontent.com/rhysd/actionlint/v1.7.12/scripts/download-actionlint.bash | bash
-          )
+          curl -fsSL -o "$tmpdir/download-actionlint.bash" \
+            https://raw.githubusercontent.com/rhysd/actionlint/v1.7.12/scripts/download-actionlint.bash
+          bash "$tmpdir/download-actionlint.bash" 1.7.12 "$tmpdir"
           "$tmpdir/actionlint" -color --config-file actionlint.yaml
 
   zizmor:

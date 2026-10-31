@@ -1,0 +1,4 @@
+# Medias cuyo fix mínimo es major (fuera de la tabla F1). Seguimiento Renovate.
+[[IgnoredVulns]]
+id = "GHSA-g3hv-75wg-m249"
+reason = "Parche mínimo minimatch@11 (major). No listado en F1."
