@@ -1,7 +1,7 @@
 # `apps/web` · Landing pública atlaps.com
 
 > Estado: **scaffold W1 Día L** (1-may-2026 · pre-arranque F1)
-> Plan rector: `~/.claude/plans/planificar-w1-apps-web-landing-twinkling-sketch.md`
+> Plan rector: archivo interno del operador (planificar-w1-apps-web-landing).
 
 ## Stack
 

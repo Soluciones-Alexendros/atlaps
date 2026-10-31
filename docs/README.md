@@ -23,7 +23,7 @@ Toda la documentación viva del proyecto Atlaps. Cada subcarpeta es una clase de
 
 ## ADRs en otros repos / cuadernos
 
-Los ADRs 001–006 viven en el cuaderno operador `~/.claude/cuadernos/atlaps/artefactos/adr/` (privado). Cuando estabilicen, se publicarán aquí también.
+Los ADRs 001–006 permanecen en el archivo interno del operador. Cuando estabilicen, se publicarán aquí también.
 
 ## Briefs activos
 
