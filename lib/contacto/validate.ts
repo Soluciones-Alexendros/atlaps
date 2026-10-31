@@ -1,80 +1,60 @@
+import { z } from "zod";
 import { Payload } from "./types";
 
-const VIA_VALUES = new Set(["inversion", "advisor", "integrador", "distribucion", "piloto"]);
+const VIA_VALUES = ["inversion", "advisor", "integrador", "distribucion", "piloto"] as const;
 
 type ValidationResult = { ok: true; data: Payload } | { ok: false; error: string };
 
-function getString(value: unknown): string | undefined {
-  if (typeof value === "string") return value;
-  return undefined;
-}
+const contactoSchema = z
+  .object({
+    name: z.string().trim().min(2).max(200),
+    email: z
+      .string()
+      .trim()
+      .max(254)
+      .regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/),
+    via: z.enum(VIA_VALUES),
+    rgpd: z.union([z.literal(true), z.literal("on")]),
+    company: z.string().trim().max(200).optional().default(""),
+    msg: z.string().trim().max(5000).optional().default(""),
+    hp_fax_number: z.string().optional(),
+    website: z.string().optional(),
+  })
+  .transform((b) => {
+    const website = (b.hp_fax_number?.trim() || b.website?.trim() || "") as string;
+    return {
+      name: b.name,
+      email: b.email,
+      via: b.via,
+      rgpd: true as const,
+      company: b.company ?? "",
+      msg: b.msg ?? "",
+      website,
+    };
+  });
 
-function validateName(name: string): true | string {
-  if (name.length < 2 || name.length > 200) {
-    return "nombre requerido (2-200 caracteres)";
-  }
-  return true;
-}
-
-function validateEmail(email: string): true | string {
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
-    return "email inválido";
-  }
-  return true;
-}
-
-function validateVia(via: string): true | string {
-  if (!VIA_VALUES.has(via)) return "vía de interés inválida";
-  return true;
-}
-
-function validateRgpd(rgpd: boolean): true | string {
-  if (!rgpd) return "es necesario aceptar el tratamiento RGPD";
-  return true;
-}
-
-function validateCompany(company: string): true | string {
-  if (company.length > 200) return "empresa demasiado larga";
-  return true;
-}
-
-function validateMsg(msg: string): true | string {
-  if (msg.length > 5000) return "mensaje demasiado largo (máx. 5000)";
-  return true;
+function mapZodError(err: z.ZodError): string {
+  const issue = err.issues[0];
+  if (!issue) return "payload inválido";
+  const path = issue.path[0];
+  if (path === "name") return "nombre requerido (2-200 caracteres)";
+  if (path === "email") return "email inválido";
+  if (path === "via") return "vía de interés inválida";
+  if (path === "rgpd") return "es necesario aceptar el tratamiento RGPD";
+  if (path === "company") return "empresa demasiado larga";
+  if (path === "msg") return "mensaje demasiado largo (máx. 5000)";
+  return "payload inválido";
 }
 
 export function validate(body: unknown): ValidationResult {
   if (!body || typeof body !== "object") {
     return { ok: false, error: "payload inválido" };
   }
-  const b = body as Record<string, unknown>;
 
-  const name = getString(b.name)?.trim() ?? "";
-  const email = getString(b.email)?.trim() ?? "";
-  const via = getString(b.via) ?? "";
-  const rgpd = b.rgpd === true || b.rgpd === "on";
-  const company = getString(b.company)?.trim() ?? "";
-  const msg = getString(b.msg)?.trim() ?? "";
-  // Acepta tanto el name nuevo (hp_fax_number) como el legacy (website) por idempotencia.
-  const website = getString(b.hp_fax_number)?.trim() ?? getString(b.website)?.trim() ?? "";
+  const parsed = contactoSchema.safeParse(body);
+  if (!parsed.success) {
+    return { ok: false, error: mapZodError(parsed.error) };
+  }
 
-  const nameError = validateName(name);
-  if (nameError !== true) return { ok: false, error: nameError };
-
-  const emailError = validateEmail(email);
-  if (emailError !== true) return { ok: false, error: emailError };
-
-  const viaError = validateVia(via);
-  if (viaError !== true) return { ok: false, error: viaError };
-
-  const rgpdError = validateRgpd(rgpd);
-  if (rgpdError !== true) return { ok: false, error: rgpdError };
-
-  const companyError = validateCompany(company);
-  if (companyError !== true) return { ok: false, error: companyError };
-
-  const msgError = validateMsg(msg);
-  if (msgError !== true) return { ok: false, error: msgError };
-
-  return { ok: true, data: { name, email, company, via, msg, rgpd, website } };
+  return { ok: true, data: parsed.data };
 }

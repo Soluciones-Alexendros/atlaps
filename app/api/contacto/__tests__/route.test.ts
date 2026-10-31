@@ -98,6 +98,9 @@ describe("POST /api/contacto", () => {
     sendViaResend.mockResolvedValue({ ok: false, error: "network" });
     const res = await POST(makeReq() as never);
     expect(res.status).toBe(502);
-    await expect(res.json()).resolves.toEqual({ ok: false, error: "network" });
+    await expect(res.json()).resolves.toEqual({
+      ok: false,
+      error: "no se pudo enviar el mensaje; inténtalo más tarde",
+    });
   });
 });
