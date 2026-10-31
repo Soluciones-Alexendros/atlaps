@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { FocusTitle } from "./components/focus-title";
+import { PortalErrorShell } from "./components/portal-error-shell";
 
 export default function Error({
   error,
@@ -16,28 +17,28 @@ export default function Error({
   }, [error]);
 
   return (
-    <main id="main" className="mx-auto max-w-3xl px-6 py-16">
-      <FocusTitle className="text-4xl font-bold tracking-tight outline-none">
+    <PortalErrorShell>
+      <FocusTitle className="font-display text-4xl font-bold tracking-tight">
         Algo ha fallado
       </FocusTitle>
-      <p className="text-ink-pencil mt-4 text-lg">
+      <p className="mt-4 text-lg text-[var(--surface-muted)]">
         No hemos podido completar la solicitud. Puedes reintentarlo o volver al inicio.
       </p>
       <div className="mt-8 flex flex-wrap gap-3">
         <button
           type="button"
           onClick={reset}
-          className="border-blueprint-soft text-blueprint-deep hover:bg-blueprint-soft/10 inline-flex rounded-md border px-4 py-2 font-medium"
+          className="inline-flex rounded-md border border-[var(--surface-accent-border)] px-4 py-2 font-medium text-[var(--surface-link)] hover:bg-[var(--surface-accent-border)]/10"
         >
           Reintentar
         </button>
         <Link
           href="/"
-          className="border-paper-grid text-ink-graphite hover:bg-paper-grid/40 inline-flex rounded-md border px-4 py-2 font-medium"
+          className="inline-flex rounded-md border border-[var(--surface-border)] px-4 py-2 font-medium text-[var(--surface-muted)] hover:bg-[var(--surface-border)]/40"
         >
           Volver al inicio
         </Link>
       </div>
-    </main>
+    </PortalErrorShell>
   );
 }

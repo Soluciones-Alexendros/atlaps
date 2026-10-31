@@ -7,11 +7,44 @@
   outline-offset: 2px;
 }
 
-html[data-theme="light"] {
-  background-color: var(--color-paper-bone);
-  color: var(--color-ink-graphite);
+/* Foco programático del h1 de error: sin anillo; el tabulador sigue con *:focus-visible. */
+[tabindex="-1"]:focus {
+  outline: none;
 }
+
+/* Fallback hasta que theme-init fije data-theme. */
+:root {
+  --surface-bg: var(--color-paper-bone);
+  --surface-fg: var(--color-ink-graphite);
+  --surface-muted: var(--color-ink-pencil);
+  --surface-border: var(--color-paper-grid);
+  --surface-link: var(--color-blueprint-deep);
+  --surface-accent-border: var(--color-blueprint-soft);
+}
+
+html[data-theme="light"] {
+  --surface-bg: var(--color-paper-bone);
+  --surface-fg: var(--color-ink-graphite);
+  --surface-muted: var(--color-ink-pencil);
+  --surface-border: var(--color-paper-grid);
+  --surface-link: var(--color-blueprint-deep);
+  --surface-accent-border: var(--color-blueprint-soft);
+  background-color: var(--surface-bg);
+  color: var(--surface-fg);
+}
+
 html[data-theme="dark"] {
-  background-color: var(--color-blueprint-deep);
-  color: var(--color-paper-bone);
+  --surface-bg: var(--color-blueprint-deep);
+  --surface-fg: var(--color-paper-bone);
+  --surface-muted: color-mix(in srgb, var(--color-paper-bone) 72%, var(--color-blueprint-soft));
+  --surface-border: var(--color-blueprint-mid);
+  --surface-link: var(--color-paper-bone);
+  --surface-accent-border: var(--color-blueprint-soft);
+  background-color: var(--surface-bg);
+  color: var(--surface-fg);
+}
+
+body {
+  background-color: var(--surface-bg, var(--color-paper-bone));
+  color: var(--surface-fg, var(--color-ink-graphite));
 }

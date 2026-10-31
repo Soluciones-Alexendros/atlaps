@@ -8,6 +8,10 @@ vi.mock("next/headers", () => ({
     Promise.resolve({
       get: (_: string) => null,
     }),
+  cookies: () =>
+    Promise.resolve({
+      get: (_: string) => undefined,
+    }),
 }));
 
 describe("RootLayout", () => {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FocusTitle } from "./components/focus-title";
+import { PortalErrorShell } from "./components/portal-error-shell";
 
 export const metadata: Metadata = {
   title: "Página no encontrada",
@@ -9,22 +10,22 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main id="main" className="mx-auto max-w-3xl px-6 py-16">
-      <FocusTitle className="text-4xl font-bold tracking-tight outline-none">
+    <PortalErrorShell>
+      <FocusTitle className="font-display text-4xl font-bold tracking-tight">
         Página no encontrada
       </FocusTitle>
-      <p className="text-ink-pencil mt-4 text-lg">
+      <p className="mt-4 text-lg text-[var(--surface-muted)]">
         No hemos encontrado lo que buscas. Puede que el enlace esté desactualizado o que la
         dirección no exista.
       </p>
       <p className="mt-8">
         <Link
           href="/"
-          className="border-blueprint-soft text-blueprint-deep hover:bg-blueprint-soft/10 inline-flex rounded-md border px-4 py-2 font-medium"
+          className="inline-flex rounded-md border border-[var(--surface-accent-border)] px-4 py-2 font-medium text-[var(--surface-link)] hover:bg-[var(--surface-accent-border)]/10"
         >
           Volver al inicio
         </Link>
       </p>
-    </main>
+    </PortalErrorShell>
   );
 }
