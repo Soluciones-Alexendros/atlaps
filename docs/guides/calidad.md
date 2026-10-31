@@ -36,3 +36,11 @@ make test
 make validate-docs
 pnpm build
 ```
+
+Secretos (opcional en local; manda el job `secrets` de CI):
+
+```bash
+pnpm secrets   # requiere binario gitleaks en PATH
+```
+
+El hook `pre-commit` ejecuta gitleaks sobre el índice solo si el binario está instalado.

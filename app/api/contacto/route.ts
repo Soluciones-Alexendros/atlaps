@@ -39,7 +39,10 @@ export async function POST(req: NextRequest) {
   }
 
   const r = await sendViaResend(v.data);
-  if (!r.ok) return emailErrorResponse(r.error ?? "unknown");
+  if (!r.ok) {
+    // Mensaje genérico: sin proveedor, estado HTTP ni trazas.
+    return emailErrorResponse("no se pudo enviar el mensaje; inténtalo más tarde");
+  }
 
   return successResponse(req, r.id);
 }

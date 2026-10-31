@@ -90,4 +90,4 @@ Producir 2 propuestas para comparar D1:
 - Brief Prototipo: `design-system/BRIEF-PROTOTYPE.md`
 - Tokens: `tokens.css`, `app/globals.css`, `design-system/TOKENS.md`
 - Showcase v0: `Atlaps Design System.html`
-- Cuaderno operador (privado): `~/.claude/cuadernos/atlaps/artefactos/adr/ADR-007-marca-independiente.md`
+- Archivo interno del operador (privado): ADR-007-marca-independiente.

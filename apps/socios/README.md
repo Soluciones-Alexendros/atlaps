@@ -27,7 +27,7 @@ URL en el deploy Vercel: `https://<project>.vercel.app/socios/`.
 1. Reabre Design de Claude con el sistema enlazado (`Frontend design` + `Interactive prototype` + `Make tweakable` + `Save as standalone HTML`).
 2. Pega el brief de `docs/briefs/landing-socios.md` y describe los cambios deseados.
 3. Cuando descargues el ZIP nuevo, sustituye el contenido de `public/socios/` (los nombres internos deberían mantenerse).
-4. Verifica que las referencias a Google Fonts se sustituyen por `/fonts/fonts.css` (script `scripts/sanitize-fonts.sh` o `sed` manual).
+4. Verifica que las tipografías cargan desde `/fonts/fonts.css` (fontsource vía `pnpm fonts:sync`; sin Google Fonts).
 5. Commit + push.
 
 ## Roadmap

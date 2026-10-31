@@ -62,7 +62,7 @@ Se formaliza el token `--color-amber-on-surface`, que se sustituye automáticame
 - ✅ `app/globals.css` deja de duplicar familias y paleta; tokens.css es SSoT.
 - ⚠ Ningún componente debe usar `--color-amber-signal` o `--color-amber-glow` directamente para texto/iconos sobre superficie. **Siempre `--color-amber-on-surface`** (o utilidad equivalente). Las dos variables crudas quedan reservadas para artefactos donde el modo está fijado por contexto (p. ej. ilustraciones estáticas).
 - ⚠ Cualquier futura sección con `surface=app` debe montar `<html data-surface="app">` o emplear un layout dedicado que active el atributo a nivel de `<html>` o contenedor raíz autenticado.
-- ⚠ Cambios en familias requieren actualizar `tokens.css` y los `@font-face` de `public/fonts/` en el mismo PR.
+- ⚠ Cambios en familias requieren actualizar `tokens.css`, `public/fonts/fonts.css` y `docs/design/FUENTES.md` en el mismo PR (paquetes fontsource + `pnpm fonts:sync`).
 
 ## Disparadores para revisar
 
@@ -77,4 +77,4 @@ Se formaliza el token `--color-amber-on-surface`, que se sustituye automáticame
 - Tokens canónicos: `packages/design-system/tokens.css`
 - Brief: `docs/briefs/design-system.md`
 - Showcase: `packages/design-system/showcase.html`
-- Cuaderno operador (privado): `~/.claude/cuadernos/atlaps/artefactos/adr/ADR-008-tipografia-dual-amber-glow.md`
+- Archivo interno del operador (privado): ADR-008-tipografia-dual-amber-glow.

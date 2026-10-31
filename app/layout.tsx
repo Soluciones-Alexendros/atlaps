@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 import Script from "next/script";
 import "./globals.css";
 
@@ -54,8 +54,12 @@ export const viewport: Viewport = {
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // Visual-review de global-error: cookie de sesión, sin ruta pública.
+  if ((await cookies()).get("atlaps-force-global-error")?.value === "1") {
+    throw new Error("preview-global-error");
+  }
   // CSP nonce-based con 'strict-dynamic': el `<Script>` debe llevar el mismo
-  // nonce emitido por middleware.ts (header x-nonce). Sin esto, en producción
+  // nonce emitido por proxy.ts (header x-nonce). Sin esto, en producción
   // `theme-init.js` y otros scripts user-defined son bloqueados por la CSP.
   const nonce = (await headers()).get("x-nonce") ?? undefined;
   return (
@@ -68,10 +72,10 @@ export default async function RootLayout({
           nonce={nonce}
         />
       </head>
-      <body className="bg-paper-bone text-ink-graphite antialiased">
+      <body className="antialiased">
         <a
           href="#main"
-          className="focus:border-blueprint-soft focus:bg-paper-bone focus:text-blueprint-deep focus:ring-blueprint-soft sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:border focus:px-4 focus:py-2 focus:ring-2 focus:outline-none"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-md focus:border focus:border-[var(--surface-accent-border)] focus:bg-[var(--surface-bg)] focus:px-4 focus:py-2 focus:text-[var(--surface-link)] focus:ring-2 focus:ring-[var(--surface-accent-border)] focus:outline-none"
         >
           Saltar al contenido
         </a>

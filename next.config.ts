@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-// OWASP Secure Headers — la CSP se emite por petición desde middleware.ts (nonce-based).
+// OWASP Secure Headers — la CSP de bloqueo + Report-Only se emiten por petición desde proxy.ts (nonce).
 // Estos headers son estáticos y aplican a TODAS las rutas, incluyendo el bundle estático
 // rewriteado de /socios/index.html.
 const securityHeaders = [
@@ -20,6 +20,7 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   typedRoutes: true,
+  poweredByHeader: false,
   outputFileTracingRoot: process.cwd(),
   async rewrites() {
     return [

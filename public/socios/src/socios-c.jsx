@@ -223,11 +223,11 @@ const Contacto = () => {
                 <input id="contacto-rgpd" name="rgpd" type="checkbox" checked={data.rgpd} onChange={e=>setData({...data,rgpd:e.target.checked})} required aria-required="true" />
                 <span>He leído y acepto el tratamiento de mis datos según el <a href="/legal/privacidad">RGPD UE 2016/679</a>. Responsable: Iniciativa Alexendros, S.L. Finalidad: respuesta a esta solicitud. Conservación: 24 meses o hasta solicitud de baja.</span>
               </label>
-              <p id="contacto-status" role="status" aria-live="polite" aria-atomic="true" style={{margin:0,minHeight:"1em",fontSize:14,color:"var(--fg-soft)"}}>
+              <p id="contacto-status" role="status" aria-live="polite" aria-atomic="true" aria-describedby={error ? "contacto-error" : undefined} style={{margin:0,minHeight:"1em",fontSize:14,color:"var(--fg-soft)"}}>
                 {sending ? "Enviando solicitud…" : ""}
               </p>
               {error && (
-                <div role="alert" aria-live="assertive" style={{padding:"10px 14px",background:"var(--danger-surface)",border:"1px solid var(--danger)",borderRadius:4,color:"var(--danger)",fontSize:14}}>
+                <div id="contacto-error" role="alert" aria-live="assertive" style={{padding:"10px 14px",background:"var(--danger-surface)",border:"1px solid var(--danger)",borderRadius:4,color:"var(--danger)",fontSize:14}}>
                   {error}
                 </div>
               )}
