@@ -16,6 +16,10 @@ const config = defineConfig([
   globalIgnores([
     ".next/**",
     "node_modules/**",
+    ".tools/**",
+    "coverage/**",
+    "playwright-report/**",
+    "test-results/**",
     "public/socios/vendor/**",
     "public/socios/bundle.js",
     "pnpm-lock.yaml",
