@@ -18,23 +18,12 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "prepare": "husky",
-    "showcase:html": "echo 'Open Atlaps Design System.html in browser' && xdg-open 'Atlaps Design System.html' 2>/dev/null || open 'Atlaps Design System.html'"
+    "prepare": "husky"
   },
   "dependencies": {
-    "@radix-ui/react-checkbox": "1.3.5",
-    "@radix-ui/react-dialog": "1.1.17",
-    "@radix-ui/react-select": "2.3.1",
-    "@radix-ui/react-switch": "1.3.1",
-    "@radix-ui/react-tabs": "1.1.15",
-    "@radix-ui/react-toast": "1.2.17",
-    "@radix-ui/react-tooltip": "1.2.10",
-    "clsx": "2.1.1",
-    "lucide-react": "1.21.0",
-    "next": "16.3.4",
+    "next": "16.4.1",
     "react": "19.2.7",
-    "react-dom": "19.2.7",
-    "tailwind-merge": "3.6.0"
+    "react-dom": "19.2.7"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.11.3",
@@ -44,18 +33,17 @@
     "@playwright/test": "1.61.0",
     "@tailwindcss/postcss": "4.3.1",
     "@testing-library/jest-dom": "6.9.1",
-    "@testing-library/react": "16.3.2",
     "@types/node": "25.9.3",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@typescript-eslint/eslint-plugin": "8.61.1",
     "@typescript-eslint/parser": "8.61.1",
     "@vitejs/plugin-react": "6.0.2",
-    "@vitest/coverage-v8": "4.1.9",
+    "@vitest/coverage-v8": "4.1.12",
     "esbuild": "0.28.1",
-    "vite": "8.0.16",
+    "vite": "8.1.6",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.3.4",
+    "eslint-config-next": "16.4.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-tailwindcss": "3.18.3",
@@ -66,7 +54,7 @@
     "prettier": "3.8.4",
     "tailwindcss": "4.3.1",
     "typescript": "6.0.3",
-    "vitest": "4.1.9"
+    "vitest": "4.1.12"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

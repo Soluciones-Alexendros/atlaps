@@ -23,12 +23,18 @@ export async function POST(req: NextRequest) {
   const rl = rateLimit(ip);
   if (!rl.ok) return rateLimitResponse(rl.retryAfter);
 
-  const raw = await parseBody(req).catch(() => null);
+  let raw: unknown;
+  try {
+    raw = await parseBody(req);
+  } catch {
+    // Mismo contrato JSON que un body ilegible → validate(null).
+    return validationErrorResponse("payload inválido");
+  }
   const v = validate(raw);
   if (!v.ok) return validationErrorResponse(v.error);
 
   if (v.data.website) {
-    console.info("[contacto] honeypot activado", { ip });
+    console.info("[contacto] honeypot activado");
     return honeypotResponse();
   }
 
