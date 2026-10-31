@@ -20,7 +20,8 @@
     "test:e2e": "playwright test",
     "prepare": "husky",
     "fonts:sync": "bash scripts/sync-fonts-from-fontsource.sh",
-    "secrets": "gitleaks detect --no-banner --redact --log-opts=--all --source ."
+    "secrets": "gitleaks detect --no-banner --redact --log-opts=--all --source .",
+    "audit": "pnpm audit --audit-level high"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "5.3.0",
