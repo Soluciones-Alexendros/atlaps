@@ -2,9 +2,9 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { sendViaResend } from "../email";
 
 const sample = {
-  name: "Test",
-  email: "a@b.co",
-  via: "web",
+  name: "Test Ejemplo",
+  email: "contacto@example.invalid",
+  via: "piloto",
   company: "",
   msg: "hola",
   rgpd: true,
