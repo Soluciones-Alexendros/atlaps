@@ -299,7 +299,9 @@ jobs:
   ci-gate:
     name: ci-gate
     needs: [quality, test, build, smoke, secrets, sca, actionlint, zizmor]
-    if: always()
+    # No correr si el workflow entero se canceló (concurrency cancel-in-progress):
+    # evita un check ci-gate=FAILURE fantasma que ensucia el PR.
+    if: always() && !cancelled()
     permissions: {}
     runs-on: ubuntu-latest
     timeout-minutes: 5
