@@ -39,11 +39,14 @@ REACT_DOM_SRI=$(openssl dgst -sha384 -binary "$VENDOR/react-dom.production.min.j
 #    React/ReactDOM se proveen como globals UMD por <script>.
 BUILD_TMP=$(mktemp -d)
 for f in socios-a socios-b socios-c app; do
+  # --tsconfig-raw: Next puede dejar "jsx":"react-jsx" en tsconfig.json; sin esto
+  # esbuild emite import de react/jsx-runtime y el UMD de /socios/ falla en el navegador.
   npx --yes esbuild "$SRC/$f.jsx" \
     --loader:.jsx=jsx \
     --jsx=transform \
     --jsx-factory=React.createElement \
     --jsx-fragment=React.Fragment \
+    --tsconfig-raw='{"compilerOptions":{"jsx":"react"}}' \
     --target=es2020 \
     --minify \
     > "$BUILD_TMP/$f.js"
