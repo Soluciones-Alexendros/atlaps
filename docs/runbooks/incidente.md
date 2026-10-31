@@ -30,3 +30,5 @@
 ## Post-mortem
 
 Anota causa, impacto, mitigación y acción preventiva. Si cambia una decisión transversal, abre ADR en `docs/architecture/decisions/`.
+
+Para el procedimiento ampliado (revocar, rotar, avisar, revisión mensual): [`docs/security/respuesta-incidentes.md`](../security/respuesta-incidentes.md).
