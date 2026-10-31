@@ -64,7 +64,7 @@ Atlaps/
 │   └── tokens.md              referencia humana de tokens
 ├── app/                       portal Next.js de la raíz (índice navegable + /socios)
 ├── components/ui/             primitivos shadcn (futuro)
-├── lib/utils.ts               helper cn
+├── lib/contacto/              API de contacto + rate-limit
 ├── public/                    assets servidos por el portal (fonts WOFF2, logos, socios)
 ├── scripts/                   build-socios.sh, build-showcase.sh, fetch-fonts.sh
 └── (config raíz)              package.json, tsconfig, next.config.ts, eslint, vitest, playwright
