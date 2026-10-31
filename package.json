@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "bash scripts/build-socios.sh && next build",
+    "build": "pnpm fonts:sync && bash scripts/build-socios.sh && next build",
     "build:socios": "bash scripts/build-socios.sh",
     "build:showcase": "bash scripts/build-showcase.sh",
     "start": "next start",
@@ -18,9 +18,17 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:e2e": "playwright test",
-    "prepare": "husky"
+    "prepare": "husky",
+    "fonts:sync": "bash scripts/sync-fonts-from-fontsource.sh",
+    "secrets": "gitleaks detect --no-banner --redact --log-opts=--all --source ."
   },
   "dependencies": {
+    "@fontsource-variable/fraunces": "5.3.0",
+    "@fontsource-variable/geist": "5.3.0",
+    "@fontsource-variable/inter": "5.3.0",
+    "@fontsource-variable/inter-tight": "5.3.0",
+    "@fontsource-variable/jetbrains-mono": "5.3.0",
+    "@fontsource/ibm-plex-mono": "5.3.0",
     "next": "16.4.1",
     "react": "19.2.7",
     "react-dom": "19.2.7"
@@ -41,7 +49,6 @@
     "@vitejs/plugin-react": "6.0.2",
     "@vitest/coverage-v8": "4.1.12",
     "esbuild": "0.28.1",
-    "vite": "8.1.6",
     "eslint": "9.39.4",
     "eslint-config-next": "16.4.1",
     "eslint-config-prettier": "10.1.8",
@@ -54,6 +61,7 @@
     "prettier": "3.8.4",
     "tailwindcss": "4.3.1",
     "typescript": "6.0.3",
+    "vite": "8.1.6",
     "vitest": "4.1.12"
   },
   "lint-staged": {

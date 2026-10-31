@@ -66,7 +66,7 @@ Atlaps/
 ├── components/ui/             primitivos shadcn (futuro)
 ├── lib/contacto/              API de contacto + rate-limit
 ├── public/                    assets servidos por el portal (fonts WOFF2, logos, socios)
-├── scripts/                   build-socios.sh, build-showcase.sh, fetch-fonts.sh
+├── scripts/                   build-socios.sh, build-showcase.sh, sync-fonts-from-fontsource.sh
 └── (config raíz)              package.json, tsconfig, next.config.ts, eslint, vitest, playwright
 ```
 

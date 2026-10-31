@@ -81,5 +81,5 @@ Si Dependabot abre un security PR (vulnerabilidad con `audit-level=high` o super
 ## Punteros
 
 - PR de aplicación: `chore/pin-deps-and-adr009` → `main`
-- Cuaderno operador (privado): `~/.claude/cuadernos/atlaps/artefactos/adr/ADR-009-fixed-dependencies.md`
+- Archivo interno del operador (privado): ADR-009-fixed-dependencies.
 - ADR previos: 007 (marca independiente blueprint), 008 (en preparación, otra task).
