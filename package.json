@@ -61,6 +61,8 @@
     "lint-staged": "17.0.7",
     "postcss": "8.5.28",
     "prettier": "3.8.4",
+    "react-dom-umd-18": "npm:react-dom@18.3.1",
+    "react-umd-18": "npm:react@18.3.1",
     "tailwindcss": "4.3.1",
     "typescript": "6.0.3",
     "vite": "8.1.6",

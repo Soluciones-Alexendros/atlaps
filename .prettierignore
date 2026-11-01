@@ -10,3 +10,5 @@ app/layout.tsx
 app/globals.css
 *.min.js
 *.min.css
+
+.tools/

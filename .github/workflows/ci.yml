@@ -121,19 +121,6 @@ jobs:
       - name: Build (apps/web)
         run: pnpm --filter @atlaps/web build
 
-      - name: Upload Next.js artifact
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: next-build
-          path: |
-            .next/
-            public/socios/bundle.js
-            public/socios/index.html
-            public/socios/styles/colors_and_type.css
-            public/socios/vendor/
-          if-no-files-found: error
-          retention-days: 7
-
   smoke:
     name: smoke
     needs: [build]

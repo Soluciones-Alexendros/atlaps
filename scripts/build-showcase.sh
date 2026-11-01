@@ -10,29 +10,16 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=scripts/_react18-umd.sh
+source "$ROOT/scripts/_react18-umd.sh"
 DS="$ROOT/packages/design-system"
 VENDOR="$DS/vendor"
 SRC="$DS/src"
 OUT_BUNDLE="$DS/showcase-bundle.js"
 HTML_OUT="$DS/showcase.html"
 
-mkdir -p "$VENDOR"
-
-# 1) React UMD self-host (idempotente: solo descargar si falta)
-if [ ! -f "$VENDOR/react.production.min.js" ]; then
-  TMP=$(mktemp -d)
-  curl -sL https://registry.npmjs.org/react/-/react-18.3.1.tgz \
-    | tar -xz -C "$TMP" --strip-components=1 package/umd
-  cp "$TMP/umd/react.production.min.js" "$VENDOR/"
-  rm -rf "$TMP"
-fi
-if [ ! -f "$VENDOR/react-dom.production.min.js" ]; then
-  TMP=$(mktemp -d)
-  curl -sL https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz \
-    | tar -xz -C "$TMP" --strip-components=1 package/umd
-  cp "$TMP/umd/react-dom.production.min.js" "$VENDOR/"
-  rm -rf "$TMP"
-fi
+# 1) React UMD self-host desde lockfile (react-umd-18 / react-dom-umd-18)
+copy_react18_umd "$VENDOR"
 
 REACT_SRI=$(openssl dgst -sha384 -binary "$VENDOR/react.production.min.js" | openssl base64 -A)
 REACT_DOM_SRI=$(openssl dgst -sha384 -binary "$VENDOR/react-dom.production.min.js" | openssl base64 -A)
@@ -41,6 +28,7 @@ REACT_DOM_SRI=$(openssl dgst -sha384 -binary "$VENDOR/react-dom.production.min.j
 #    React/ReactDOM se proveen como globals UMD por <script>; los JSX comparten
 #    globals entre sí (Logo, IcSun, SectionBrand, useTweaks, etc.) y se concatenan
 #    en el mismo orden de los antiguos <script type="text/babel">.
+#    pnpm exec esbuild → versión del lockfile (no npx --yes).
 BUILD_TMP=$(mktemp -d)
 ENTRIES=(
   "$DS/tweaks-panel.jsx"
@@ -57,11 +45,12 @@ i=0
 for entry in "${ENTRIES[@]}"; do
   base="$(basename "$entry" .jsx)"
   out="$BUILD_TMP/$(printf '%02d-%s.js' "$i" "$base")"
-  npx --yes esbuild "$entry" \
+  pnpm exec esbuild "$entry" \
     --loader:.jsx=jsx \
     --jsx=transform \
     --jsx-factory=React.createElement \
     --jsx-fragment=React.Fragment \
+    --tsconfig-raw='{"compilerOptions":{"jsx":"react"}}' \
     --target=es2020 \
     --minify \
     > "$out"

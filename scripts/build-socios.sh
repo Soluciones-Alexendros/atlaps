@@ -8,6 +8,8 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck source=scripts/_react18-umd.sh
+source "$ROOT/scripts/_react18-umd.sh"
 VENDOR="$ROOT/public/socios/vendor"
 SRC="$ROOT/public/socios/src"
 OUT_BUNDLE="$ROOT/public/socios/bundle.js"
@@ -15,21 +17,8 @@ TOKENS_SRC="$ROOT/packages/design-system/colors_and_type.css"
 TOKENS_OUT="$ROOT/public/socios/styles/colors_and_type.css"
 HTML_OUT="$ROOT/public/socios/index.html"
 
-mkdir -p "$VENDOR"
-
-# 1) React UMD self-host (idempotente: solo descargar si falta)
-if [ ! -f "$VENDOR/react.production.min.js" ]; then
-  TMP=$(mktemp -d)
-  curl -sL https://registry.npmjs.org/react/-/react-18.3.1.tgz | tar -xz -C "$TMP" --strip-components=1 package/umd
-  cp "$TMP/umd/react.production.min.js" "$VENDOR/"
-  rm -rf "$TMP"
-fi
-if [ ! -f "$VENDOR/react-dom.production.min.js" ]; then
-  TMP=$(mktemp -d)
-  curl -sL https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz | tar -xz -C "$TMP" --strip-components=1 package/umd
-  cp "$TMP/umd/react-dom.production.min.js" "$VENDOR/"
-  rm -rf "$TMP"
-fi
+# 1) React UMD self-host desde lockfile (react-umd-18 / react-dom-umd-18)
+copy_react18_umd "$VENDOR"
 
 REACT_SRI=$(openssl dgst -sha384 -binary "$VENDOR/react.production.min.js" | openssl base64 -A)
 REACT_DOM_SRI=$(openssl dgst -sha384 -binary "$VENDOR/react-dom.production.min.js" | openssl base64 -A)
@@ -37,11 +26,12 @@ REACT_DOM_SRI=$(openssl dgst -sha384 -binary "$VENDOR/react-dom.production.min.j
 # 2) Bundle JSX (4 entradas independientes, cada una expone `window.X`).
 #    Sin --bundle: solo transformación JSX → JS (classic, React.createElement).
 #    React/ReactDOM se proveen como globals UMD por <script>.
+#    pnpm exec esbuild → versión del lockfile (no npx --yes).
 BUILD_TMP=$(mktemp -d)
 for f in socios-a socios-b socios-c app; do
   # --tsconfig-raw: Next puede dejar "jsx":"react-jsx" en tsconfig.json; sin esto
   # esbuild emite import de react/jsx-runtime y el UMD de /socios/ falla en el navegador.
-  npx --yes esbuild "$SRC/$f.jsx" \
+  pnpm exec esbuild "$SRC/$f.jsx" \
     --loader:.jsx=jsx \
     --jsx=transform \
     --jsx-factory=React.createElement \
