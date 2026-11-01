@@ -22,6 +22,7 @@ const config = defineConfig([
     "playwright-report/**",
     "test-results/**",
     "public/socios/vendor/**",
+    "public/socios/src/**",
     "public/socios/bundle.js",
     "pnpm-lock.yaml",
     "packages/design-system/preview/**",
