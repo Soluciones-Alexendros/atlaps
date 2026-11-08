@@ -27,4 +27,4 @@ No hagas force-push para «arreglar» CI. No toques branch protection ni setting
 
 ## Renovate
 
-Configuración en `.github/renovate.json` (presets de `infraestructura-stack` + managers `npm` y `github-actions`). No hay Dependabot de version-updates.
+Configuración en `.github/renovate.json` (`config:recommended`, fase A sin automerge, managers `npm` y `github-actions`). No hereda presets de `infraestructura-stack`. No hay Dependabot de version-updates.
